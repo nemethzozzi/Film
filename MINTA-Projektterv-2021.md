@@ -106,7 +106,7 @@ A projekt megrendelője Dr. Pflanzer Tamás. A Film review projektet a projektcs
  - Bánki Gergely
  - Németh Zoltán
  - Kollár Laura
- - Kósi Emese Liza
+ - Kósi Liza Emese
  - Szűcs Péter Attila
 
 ```
