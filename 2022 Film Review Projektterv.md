@@ -20,10 +20,10 @@ feketével írt részek törlése tilos, azok közösek.
 |--------|--------------------------|--------------|-----------------|---------------------------------------------------------------|
 | 0.1    | Nagy Maximilián          | 2022-09-30   | Tervezet        | Projektterv vázlat                                            |
 | 0.2    | Nagy Maximilián Bánki Gergely|2022-10-11| Előterjesztés   | Hivatalos Projektterv                                         |
-| 1.0    | Muhel Anna, Kósa Liza Emese, Kollár Laura|2022-10-12|Elfogadott| A Projekt 1. prototípusa                                 |
-| 1.1  | Muhel Anna, Kósa Liza Emese, Kollár Laura             | 2022-10-22 | Tervezet      |  |
+| 1.0    | Muhel Anna, Kósi Liza Emese, Kollár Laura|2022-10-12|Elfogadott| A Projekt 1. prototípusa                                 |
+| 1.1  | Muhel Anna, Kósi Liza Emese, Kollár Laura             | 2022-10-22 | Tervezet      |  |
 | 1.1  | Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila               | 2022-11-15 | Előterjesztés | A Projekt 2. verziója                            |
-| 2.1  | Muhel Anna, Kósa Liza Emese, Kollár Laura, Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila            | 2022-11-29 | Elfogadott    | A Projekt kész verziója                 |
+| 2.1  | Muhel Anna, Kósi Liza Emese, Kollár Laura, Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila            | 2022-11-29 | Elfogadott    | A Projekt kész verziója                 |
 
 
 Státusz osztályozás:
