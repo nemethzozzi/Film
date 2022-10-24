@@ -1,9 +1,0 @@
-variables:
-  HEROKU_APP_NAME: $rf1-projekt-film
-  HEROKU_PRODUCTION_KEY: $b3b6c43b-58a0-4410-933e-324048c05204
-
-heroku_deploy:
-  stage: production
-  script:
-    - npm install
-    - npm --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_PRODUCTION_KEY
