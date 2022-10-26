@@ -62,13 +62,18 @@ Mik a megrendelő és a felhasználók igényei? Miért van szükség a projektr
 ### 3.2. Funkcionális követelmények
 
  - Felhasználókezelés megvalósítása, különböző jogosultsági szintekkel
+ - Regisztáció
+    -felhasználónév,jelszó,születési dátum,email
+ - Bejelentkezés
+    - Film értékelése(nézői pontozás)
+    - Film alatti komment szekció(az admin képes törölni őket)
  - Szűrés rendezőre
  - Szűrés színészre
  - Szűrés filmműfajra
  - Szűrés megjelenési évre
- - Film értékelése(kritikusi + nézői pontozás)
- - Film alatti komment szekció
  - Film előzetes megjelenítése
+
+ 
  
 ```
 Ide kerülnek a rendszerrel szemben támasztott funkcionális igények: azaz amit a rendszernek tudnia kell.
