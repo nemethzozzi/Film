@@ -659,7 +659,7 @@ Működő végleges program, a frissített tesztelési dokumentációval. A 3. m
 ```
 ## 10. Részletes időbeosztás
 
-![image](./MINTA-gantt-diagram.png)
+![image](Gantt_diagram.png)
 
 ```
 Ide kell berakni a Gantt diagramot, amely a 9. fejezetben található részfeladatokat tartalmazza felelős/tartam bontásban.
