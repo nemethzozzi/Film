@@ -1,0 +1,20 @@
+https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli
+
+regisztrálni heruko-ra
+--itt Petinek email alapján hozzá kell adnia a heruko-s repo-hoz
+
+leszedjük a megfelelo installer-t, feltelepítjük
+kell npm, de Nodejs felrakta jobb esetben
+npm feltelepítése, package-ek feltelepítése ha nem lenne mind meg
+
+CMD-t nyitunk, belépunk a repo mappába
+heroku login -i
+
+heroku git:remote -a rf1-projekt-film
+
+külön push git repo-ra, és heruko "repo"-ra
+
+git push heroku master
+
+https://www.enterprisedb.com/postgresql-tutorial-resources-training?uuid=7ce7e93f-e1eb-4e42-85fa-84c0c98859ee&campaignId=7012J000001h3GiQAI
+ezt is telepítjük
