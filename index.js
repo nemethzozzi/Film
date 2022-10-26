@@ -7,7 +7,7 @@ const server = express()
 server.use(express.json())
 
 server.get('/', (req, res) => {
-  res.json({ message: 'I am Son of Hal and am always watching!' })
+  res.json({ message: 'Szia Geri vagyok!' })
 })
 
 
