@@ -63,10 +63,13 @@ Mik a megrendelő és a felhasználók igényei? Miért van szükség a projektr
 
  - Felhasználókezelés megvalósítása, különböző jogosultsági szintekkel
  - Regisztáció
-    -felhasználónév,jelszó,születési dátum,email
+    - felhasználónév,jelszó,születési dátum,email
  - Bejelentkezés
-    - Film értékelése(nézői pontozás)
-    - Film alatti komment szekció(az admin képes törölni őket)
+    - felhasználónév és jelszó bekérése  
+ - Film értékelése(nézői pontozás)
+    - A bejelentkezett felhasználó 1-5 skálán való értékelés 
+ - Film alatti komment szekció(az admin képes törölni őket)
+    - A bejelentkezett felhasználó képes kommenteket írni, a kommentelés időpontjával dátumozva
  - Szűrés rendezőre
  - Szűrés színészre
  - Szűrés filmműfajra
