@@ -5,16 +5,26 @@ regisztrálni heruko-ra
 
 leszedjük a megfelelo installer-t, feltelepítjük
 kell npm, de Nodejs felrakta jobb esetben
-npm feltelepítése, package-ek feltelepítése ha nem lenne mind meg
+npm feltelepítése, package-ek feltelepítése ha nem lenne mind meg:
+-CMD-vel belépünk git repo mappába
+-npm start
+-ha "Cannot find module 'valami' error-t dob, akkor npm install valami-t írunk
+-megint npm start, ha nincs error akkor jók vagyunk eddig
+-heroku login -i
+	bejelentkezünk
+-heroku git:remote -a rf1-projekt-film
 
-CMD-t nyitunk, belépunk a repo mappába
-heroku login -i
+külön push-olunk git repo-ra, és heruko "repo"-ra
 
-heroku git:remote -a rf1-projekt-film
-
-külön push git repo-ra, és heruko "repo"-ra
-
-git push heroku master
+//git add, git commit ugyuanúgy, majd ezután git push és git push heroku master
+-git push heroku master
 
 https://www.enterprisedb.com/postgresql-tutorial-resources-training?uuid=7ce7e93f-e1eb-4e42-85fa-84c0c98859ee&campaignId=7012J000001h3GiQAI
 ezt is telepítjük
+
+//ha ezután nem jó, akkor beszéljünk :D -Geri
+
+psql -h "ec2-54-76-43-89.eu-west-1.compute.amazonaws.com" -p "5432" -d "d4c6fa70e6ag0v" -U "eisebavoesxwhl"
+jelszó: 9bd35dd001a022996f482f944df1283dcead71b52485a2be7b0c63508cbc3d6f
+
+
