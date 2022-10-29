@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Házi Mozi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/popcorn.png">
+</head>
+<body>
+    <header>
+        <span>Házi Mozi</span>
+        <div class="dropdown">
+            <img src="img/user.png" alt="user">
+            <div class="dropdown-content">
+                <a href="profil.html">Profil</a>
+                <a href="bejelentkezes.html">Bejelentkezés</a>
+                <a href="regisztracio.html">Regisztráció</a>
+            </div>
+        </div>
+        <a href="szures.html"><img src="img/search.png" alt="search"></a>
+        <a id="ures_sziv" href="megnezendo.html"><img src="img/heart.png" alt="heart"></a>
+        <a id="teli_sziv" href="megnezendo.html"><img src="img/heart_full.png"></a>
+        <script>
+            document.getElementById("teli_sziv").hidden = true;
+            document.getElementById("ures_sziv").onmouseenter = function() {
+
+                document.getElementById("ures_sziv").hidden = true;
+                document.getElementById("teli_sziv").hidden = false;
+            }
+            document.getElementById("teli_sziv").onmouseleave = function (){
+                document.getElementById("ures_sziv").hidden = false;
+                document.getElementById("teli_sziv").hidden = true;
+            }
+        </script>
+    </header>
+
+</body>
+</html>
