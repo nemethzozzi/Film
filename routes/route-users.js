@@ -5,6 +5,38 @@ const jwt = require('jsonwebtoken')
 const jwtSecret = require("./../config/auth.js");
 const router = express.Router();
 
+router.get("/", async (req, res) => {
+//ez a régi / get a route-dogs-ból
+    /*let dogs = await new DogDAO().getDogs();
+    var user_mails = [];
+    const token = req.cookies.jwt
+    var current_email;
+    var current_role;
+    
+    if (token) {
+        jwt.verify(token, jwtSecret, (err, decodedToken) => {
+            current_email = decodedToken.email;
+            current_role = decodedToken.role;
+        })
+    };
+
+    for (const dog of dogs) {
+        let user = await new UserDAO().getUserById(dog.owner_id);
+        user_mails.push(user.email);
+    };
+
+    return res.render('index', {
+        dogs: dogs,
+        user_mails: user_mails,
+        current_email: current_email,
+        current_role: current_role
+    });*/
+
+     return res.render('index', {
+
+    });
+});
+
 router.get("/register", async (req, res) => {
     const token = req.cookies.jwt
     var current_role;
@@ -85,4 +117,14 @@ router.get("/logout", (req, res) => {
     res.redirect("/")
 });
 
+
+
+router.get("/profil", async (req, res) => {
+    //const token = req.cookies.jwt
+    //var current_role;
+
+    return res.render('profil', {
+        //current_role: current_role
+    });
+});
 module.exports = router;
