@@ -1,0 +1,9 @@
+CREATE TABLE `test`.`film` ( `filmId` INT(255) NOT NULL AUTO_INCREMENT , `cim` VARCHAR(50) NOT NULL , `leiras` VARCHAR(500) NOT NULL , `kepUrl` VARCHAR(200) NOT NULL , `elozetesLink` VARCHAR(200) NOT NULL , `megjelenes` DATE NOT NULL , `ertekelesOsszege` INT(255) NOT NULL , `ertekelesekSzama` INT(255) NOT NULL , PRIMARY KEY (`filmId`)) ENGINE = InnoDB;
+CREATE TABLE `test`.`felhasznalo` ( `felhasznaloId` INT(255) NOT NULL AUTO_INCREMENT , `nev` VARCHAR(50) NOT NULL , `felhasznaloTipus` VARCHAR(50) NOT NULL , `megnezendoFilmek` VARCHAR(500) NOT NULL , `ertekeltFilmek` VARCHAR(500) NOT NULL , `email` VARCHAR(50) NOT NULL , `jelszo` VARCHAR(20) NOT NULL , `kedvencek` VARCHAR(500) NOT NULL , PRIMARY KEY (`felhasznaloId`)) ENGINE = InnoDB;
+CREATE TABLE `test`.`szemely` ( `szemelyId` INT NOT NULL , `szemelyNev` VARCHAR(50) NOT NULL , `leiras` VARCHAR(500) NOT NULL , PRIMARY KEY (`szemelyId`)) ENGINE = InnoDB;
+​CREATE TABLE `test`.`rendez` ( `szemelyId` INT(255) NOT NULL , `filmId` INT(255) NOT NULL , PRIMARY KEY (`szemelyId`, `filmId`)) ENGINE = InnoDB;
+​CREATE TABLE `test`.`kommentel` ( `kommentId` INT(255) NOT NULL AUTO_INCREMENT , `filmId` INT(255) NOT NULL , `felhasznaloID` INT(255) NOT NULL , `szoveg` VARCHAR(500) NOT NULL , `ido` DATE NOT NULL , PRIMARY KEY (`kommentId`)) ENGINE = InnoDB;
+​CREATE TABLE `test`.`ertekel` ( `filmId` INT(255) NOT NULL , `felhasznaloID` INT(255) NOT NULL , `ertekeles` INT(5) NOT NULL , PRIMARY KEY (`filmId`, `felhasznaloID`)) ENGINE = InnoDB;
+​CREATE TABLE `test`.`csoportosit` ( `mufajNev` VARCHAR(50) NOT NULL , `filmId` VARCHAR(500) NOT NULL , PRIMARY KEY (`mufajNev`)) ENGINE = InnoDB;
+​CREATE TABLE `test`.`szerepel` ( `szemelyId` INT NOT NULL , `filmId` INT NOT NULL , PRIMARY KEY (`szemelyId`, `filmId`)) ENGINE = InnoDB;
+​
