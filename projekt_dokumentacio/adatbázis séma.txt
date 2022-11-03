@@ -4,10 +4,7 @@ Szemely(_id_, nev, leiras)
 ---------------------------------------KAPCSOLATOK LEKÉPEZÉS
 Ertekel(_felhasznId_, filmId, ertekeles)
 Kommentel(_kommentId_, filmId, felhasznId, szoveg, ido)
-Rendez(_szemelyNev_, filmId)
+Rendez(_szemelyId_, filmId)
 Csoportosit(_mufajNev_, _filmId_)
-Szerepel(_szemelyNev_, filmId)
+Szerepel(_szemelyId_, filmId)
 
-
-####
-Szemely-hez Id hozzáadva
