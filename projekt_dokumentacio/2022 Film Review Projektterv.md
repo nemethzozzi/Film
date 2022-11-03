@@ -125,8 +125,8 @@ A projekt a következő emberekből áll:
 |                                                                                                                   | Név             | E-mail cím (stud-os)       |
 |-------------------------------------------------------------------------------------------------------------------|-----------------|----------------------------|
 | Megrendelő                                                                                                        | Dr. Pflanzner Tamás |                        |
-| Felelősségek: Projekt menedzser, Adatbázis és adatkapcsolatok, Fejlesztő                                          | Nagy Maximilián     | h162128@stud.u-szeged.hu |
-| Fejlesztő                                                                                                         | Bánki Gergely       | h150121@stud.u-szeged.hu |
+| Felelősségek: Projekt menedzser, Adatbázis és adatkapcsolatok, Fejlesztő                                          | Bánki Gergely       | h150121@stud.u-szeged.hu |
+| Fejlesztő                                                                                                         | Nagy Maximilián     | h162128@stud.u-szeged.hu |
 | Fejlesztő                                                                                                         | Muhel Anna          | h161801@stud.u-szeged.hu |
 | Fejlesztő                                                                                                         | Kósi Liza Emese     | h047957@stud.u-szeged.hu |
 | Fejlesztő                                                                                                         | Szűcs Péter Attila  | h164804@stud.u-szeged.hu |
@@ -178,7 +178,7 @@ milyen valószínűséggel következhet be (kis, közepes és nagy) és mekkora 
 ## 7. Jelentések
 
 ### 7.1. Munka menedzsment
-A munkát Nagy Maximilián koordinálja. Fő feladata a csapatmunka és front-end back-end csapatok együttműködésének biztosítása, gyűlések szervezése. Emellett back-end fejlesztő, aki főként a projekt adatbázisok érintő részén fog munkát végezni.
+A munkát Bánki Gergely koordinálja. Fő feladata a csapatmunka és front-end back-end csapatok együttműködésének biztosítása, gyűlések szervezése. Emellett back-end fejlesztő, aki főként a projekt adatbázisok érintő részén fog munkát végezni.
 
 ```
 Írd le, hogy ki menedzseli a munkát (tipikusan a projekt menedzser), mik a feladatai, és azokat hogyan hajtja végre.
@@ -205,6 +205,24 @@ A projekt hetente tart gyűlést, igény szerint 2 hetente
  - Hely: Discord platform
  - Résztvevők: Muhel Anna, Kósa Liza Emese, Kollár Laura, Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila
  - Érintett témák: 1. mérföldkő feladatok kiosztása
+
+ 4. megbeszélés:
+ - Időpont: 2021.10.14.
+ - Hely: Discord platform
+ - Résztvevők: Muhel Anna, Kósa Liza Emese, Kollár Laura, Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila
+ - Érintett témák: 2. mérföldkő feladatok kiosztása
+
+  5. megbeszélés:
+ - Időpont: 2021.10.24.
+ - Hely: Discord platform
+ - Résztvevők: Muhel Anna, Kósa Liza Emese, Kollár Laura, Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila
+ - Érintett témák: 3. mérföldkő feladatok kiosztása
+
+  6. megbeszélés:
+ - Időpont: 2021.11.02.
+ - Hely: Discord platform
+ - Résztvevők: Muhel Anna, Kósa Liza Emese, Kollár Laura, Bánki Gergely, Németh Zoltán, Nagy Maximilián, Szűcs Péter Attila
+ - Érintett témák: 3. mérföldkő - problémák és haladás átbeszélése
 
 ```
 A memókat ebben a dokumentumban kell vezetni a teljes projekt során, amely tartalmazza a következőket: 
@@ -363,7 +381,7 @@ Ennek a feladatnak az a célja, hogy egy bemutatható, működő szotvert hozzun
 
 Részfeladatai a következők:
 
-#### 9.3.1.  Felhasználói munkamenet üzleti logikája több jogosultsági szinttel (admin, kritikus, néző)
+#### 9.3.1.  Felhasználói munkamenet üzleti logikája több jogosultsági szinttel (admin, néző)
 
 Felelős: Bánki Gergely
 
