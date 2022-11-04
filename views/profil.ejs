@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Házi Mozi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/popcorn.png">
 </head>
 <body>
-    <a href='https://rf1-projekt-film.herokuapp.com/logout'><input type='button' value='Kijelentkezés'></a>
+    <header>
+        <span>Házi Mozi</span>
+        <div class="dropdown">
+            <img src="img/user.png" alt="user">
+            <div class="dropdown-content">
+                <a href="profil.html">Profil</a>
+                <a href="bejelentkezes.html">Bejelentkezés</a>
+                <a href="regisztracio.html">Regisztráció</a>
+            </div>
+        </div>
+        <a href="szures.html"><img src="img/search.png" alt="search"></a>
+        <a id="ures_sziv" href="megnezendo.html"><img src="img/heart.png" alt="heart"></a>
+        <a id="teli_sziv" href="megnezendo.html"><img src="img/heart_full.png"></a>
+        <script>
+            document.getElementById("teli_sziv").hidden = true;
+            document.getElementById("ures_sziv").onmouseenter = function() {
+
+                document.getElementById("ures_sziv").hidden = true;
+                document.getElementById("teli_sziv").hidden = false;
+            }
+            document.getElementById("teli_sziv").onmouseleave = function (){
+                document.getElementById("ures_sziv").hidden = false;
+                document.getElementById("teli_sziv").hidden = true;
+            }
+        </script>
+    </header>
+
+    <!--Profil-->
+    <div class="user"><img src="img/profile.png" alt="user" width="100px" height="100px"></div>
+    <h1>Vezetéknév Keresztnév</h1><br>
+    <div id="profil_adatok">
+        <form>
+            <label>Felhasználónév:  </label>
+            <input class="input" type="text" id="fname" name="firstname" placeholder="pl.: valakineve"><br>
+            <label>Email cím:  </label>
+            <input type="text" id="fname" name="firstname" placeholder="pl.: valaki@gmail.com"><br>
+            <label>Jelszó:  </label>
+            <input type="text" id="fname" name="firstname" placeholder="pl.: 123Kuytus!"><br>
+            <label>Születési dátum:  </label>
+            <input type="text" id="fname" name="firstname" placeholder="pl.: 1998.01.21."><br>
+            <input type="submit" value="Mentés">
+        </form>
+    </div>
 </body>
 </html>
