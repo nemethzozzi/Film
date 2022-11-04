@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Házi Mozi</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="regisztracio.css">
     <link rel="icon" href="img/popcorn.png">
 </head>
 <body>
@@ -41,6 +42,29 @@
         </script>
 
     </header>
+
+    <!-- Regisztracio -->
+    <div class="container">
+        <form action="register" method="post">
+            <div class="div-form">
+                <label><h3>Felhasználónev: </h3><input type="text" id="text" required></label>
+            </div>
+            <div class="div-form">
+                <label><h3>Születési idő: </h3><input type="date" id="birthdate" required></label>
+            </div>
+            <div class="div-form">
+                <label><h3>Email: </h3><input type="email" id="email" required></label>
+            </div>
+            <div class="div-form">
+                <label><h3>Jelszó: </h3><input type="password" id="password" required></label>
+            </div>
+            <button type="submit" class="register">Regisztrálok!</button>
+        </form>
+    </div>
+
+    <div class="container signin">
+        <p>Van már fiókod? <a href="/bejelentkezes.html">Jelentkezz be!</a></p>
+      </div>
 
 </body>
 </html>
