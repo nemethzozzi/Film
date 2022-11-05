@@ -1,3 +1,6 @@
+CREATE TABLE public.film ( "filmId" SERIAL, "cim" character varying(30) NOT NULL , "leiras" character varying(500) NOT NULL , "kepUrl" character varying(200) NOT NULL , "elozetesLink" character varying(200) NOT NULL , "megjelenes" date NOT NULL , "ertekelesOsszege" integer NOT NULL , "ertekelesekSzama" integer NOT NULL , PRIMARY KEY ("filmId"));
+///ÍGY KÉNE///
+
 CREATE TABLE `test`.`film` ( `filmId` INT(255) NOT NULL AUTO_INCREMENT , `cim` VARCHAR(50) NOT NULL , `leiras` VARCHAR(500) NOT NULL , `kepUrl` VARCHAR(200) NOT NULL , `elozetesLink` VARCHAR(200) NOT NULL , `megjelenes` DATE NOT NULL , `ertekelesOsszege` INT(255) NOT NULL , `ertekelesekSzama` INT(255) NOT NULL , PRIMARY KEY (`filmId`)) ENGINE = InnoDB;
 CREATE TABLE `test`.`felhasznalo` ( `felhasznaloId` INT(255) NOT NULL AUTO_INCREMENT , `nev` VARCHAR(50) NOT NULL , `felhasznaloTipus` VARCHAR(50) NOT NULL , `megnezendoFilmek` VARCHAR(500) NOT NULL , `ertekeltFilmek` VARCHAR(500) NOT NULL , `email` VARCHAR(50) NOT NULL , `jelszo` VARCHAR(20) NOT NULL , `kedvencek` VARCHAR(500) NOT NULL , PRIMARY KEY (`felhasznaloId`)) ENGINE = InnoDB;
 CREATE TABLE `test`.`szemely` ( `szemelyId` INT NOT NULL , `szemelyNev` VARCHAR(50) NOT NULL , `leiras` VARCHAR(500) NOT NULL , PRIMARY KEY (`szemelyId`)) ENGINE = InnoDB;
