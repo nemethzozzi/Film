@@ -4,7 +4,8 @@ CREATE TABLE public.szemely ("szemelyId" SERIAL, "szemelyNev" character varying(
 ​CREATE TABLE public.rendez ("szemelyId" INT NOT NULL, "filmId" INT NOT NULL, PRIMARY KEY ("szemelyId", "filmId"), FOREIGN KEY("szemelyId) REFERENCES szemely("szemelyId"),FOREIGN KEY("filmId") REFERENCES film("filmId"));
 ​​CREATE TABLE public.kommentel ("kommentId" SERIAL, "filmId" INT NOT NULL, "felhasznaloId" INT NOT NULL, "szoveg" character varying(300) NOT NULL , "ido" TIMESTAMP NOT NULL , PRIMARY KEY ("kommentId"), FOREIGN KEY ("filmId") REFERENCES film ("filmId"), FOREIGN KEY ("felhasznaloId") REFERENCES felhasznalo ("felhasznaloId"));
 CREATE TABLE public.ertekel ("filmId" INT NOT NULL , "felhasznaloId" INT NOT NULL , "ertekeles" INT NOT NULL , PRIMARY KEY ("filmId", "felhasznaloId"), FOREIGN KEY ("filmId") REFERENCES film ("filmId"), FOREIGN KEY ("felhasznaloId") REFERENCES felhasznalo ("felhasznaloId")); 
-
+​CREATE TABLE public.csoportosit ("mufajNev" character varying(50) NOT NULL , "filmId" INT NOT NULL , PRIMARY KEY ("mufajNev", "filmId"), FOREIGN KEY ("filmId") REFERENCES film ("filmId"));
+​CREATE TABLE public.szerepel ("szemelyId" INT NOT NULL , "filmId" INT NOT NULL , PRIMARY KEY ("szemelyId", "filmId"), FOREIGN KEY ("szemelyId") REFERENCES szemely ("szemelyId"), FOREIGN KEY ("filmId") REFERENCES film ("filmId")); 
 ///ÍGY KÉNE///
 
 CREATE TABLE `test`.`film` ( `filmId` INT(255) NOT NULL AUTO_INCREMENT , `cim` VARCHAR(50) NOT NULL , `leiras` VARCHAR(500) NOT NULL , `kepUrl` VARCHAR(200) NOT NULL , `elozetesLink` VARCHAR(200) NOT NULL , `megjelenes` DATE NOT NULL , `ertekelesOsszege` INT(255) NOT NULL , `ertekelesekSzama` INT(255) NOT NULL , PRIMARY KEY (`filmId`)) ENGINE = InnoDB;
