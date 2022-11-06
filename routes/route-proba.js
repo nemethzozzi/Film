@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken")
 
 router.get("/proba", async (req, res) => {
     //let lekerdezes = await new FilmDAO().szures(['rendezo1','rendezo2'],['szinesz1','szinesz2'],['mufaj1','mufaj2'],['2010','2020']);
-	let lekerdezes = await new FilmDAO().szures();
+	let lekerdezes = await new FilmDAO().szures('','','',1972);
     var user_mails = [];
     const token = req.cookies.jwt
     var current_email;
