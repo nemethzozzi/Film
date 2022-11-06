@@ -8,10 +8,10 @@ class FilmDAO {
 		{
 			let lekerd = await db.query('select * from film')
 				.catch(console.log);
-			return lekerd.rows;
+			return lekerd;
 		}
 		
-		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where \"film.filmId\"=\"rendez.filmId\" and \"film.filmId\"=\"szerepel.filmId\" and \"film.filmId\"=\"csoportosit.filmId\" and (\"rendez.szemelyId\" = szemely.id or \"szerepel.szemelyId\" = szemely.id) and ( (1=0 or 1=1) ";
+		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.filmId=rendez.filmId and film.filmId=szerepel.filmId and film.filmId=csoportosit.filmId and (rendez.szemelyId = szemely.id or szerepel.szemelyId = szemely.id) and ( (1=0 or 1=1) ";
 		//alap+="----";
 		if(Array.isArray(rendezok))
 		{
@@ -33,7 +33,7 @@ class FilmDAO {
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<mufajok.length; i++)
-				alap+= "or \"csoportosit.mufajNev\" like '%"+mufajok[i]+"%' ";
+				alap+= "or csoportosit.mufajNev like '%"+mufajok[i]+"%' ";
 			alap+=") ";
 		} else alap+= "and szemely.nev like '%"+mufajok+"%' ";
 		
