@@ -49,7 +49,7 @@ class FilmDAO {
             .catch(console.log);
 		
 		
-		return result.rows;
+		return [alap,result.rows];
 	}
 
 	async filmfeltoltes(cim, leiras, megjelenes, elozetesLink) {

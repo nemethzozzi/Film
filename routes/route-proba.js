@@ -26,7 +26,8 @@ router.get("/proba", async (req, res) => {
     };*/
 
     return res.render('proba', {
-        lekerdezes: lekerdezes,
+        lekerdezes: lekerdezes[0],
+		lekerdezes2: lekerdezes[1],
         user_mails: user_mails,
         current_email: current_email,
         current_role: current_role
