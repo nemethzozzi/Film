@@ -132,3 +132,7 @@ td {
 tr:nth-child(even) td {
     padding-bottom: 35px;
 }
+
+.watch_list{
+    margin-top: 40px;
+}
