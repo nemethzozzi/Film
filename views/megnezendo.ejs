@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Házi Mozi</title>
+    <link rel="stylesheet" href="CSS/szures_megnezendo.css">
+    <link rel="icon" href="img/popcorn.png">
+</head>
+<body>
+    <header>
+
+        <a href="index.html"><span>Házi Mozi</span></a>
+        <span> Megnézendő filmek </span>
+        <!-- Profil -->
+        <div class="dropdown">
+            <img src="img/user.png" alt="user">
+            <div class="dropdown-content">
+                <a href="profil.html">Profil</a>
+                <a href="bejelentkezes.html">Bejelentkezés</a>
+                <a href="regisztracio.html">Regisztráció</a>
+            </div>
+        </div>
+        <!-- Szures -->
+        <a href="szures.html"><img src="img/search.png" alt="search"></a>
+        <!-- Megnezendok -->
+        <a id="eye" href="megnezendo.ejs"><img src="img/szem.png" alt="szem"></a>
+        <a id="eye_closed" href="megnezendo.ejs"><img src="img/csukva.png" alt="csukott_szem"></a>
+
+        <script>
+            document.getElementById("eye_closed").hidden = true;
+            document.getElementById("eye").onmouseenter = function() {
+
+                document.getElementById("eye").hidden = true;
+                document.getElementById("eye_closed").hidden = false;
+            }
+            document.getElementById("eye_closed").onmouseleave = function (){
+                document.getElementById("eye").hidden = false;
+                document.getElementById("eye_closed").hidden = true;
+            }
+        </script>
+
+    </header>
+
+    <table class="watch_list">
+        <!-- az első 2 sor ismétlődik -->
+        <tr>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>cim</div>
+            </td>
+            <td>
+                <div>cimascDAWDAwdtdndthdhbdbgrg</div>
+            </td>
+            <td>
+                <div> Az angol, aki dombra ment fel,<br> de hegyről jött le</div>
+            </td>
+            <td>
+                <div>MAUGLI A NEVEM</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>cim</div>
+            </td>
+            <td>
+                <div>cimascDAWDAwdtdndthdhbdbgrg</div>
+            </td>
+            <td>
+                <div> Az angol, aki dombra ment fel,<br> de hegyről jött le</div>
+            </td>
+            <td>
+                <div>MAUGLI A NEVEM</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+            <td>
+                <img src="img/film.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>cim</div>
+            </td>
+            <td>
+                <div>cimascDAWDAwdtdndthdhbdbgrg</div>
+            </td>
+            <td>
+                <div> Az angol, aki dombra ment fel,<br> de hegyről jött le</div>
+            </td>
+            <td>
+                <div>MAUGLI A NEVEM</div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
