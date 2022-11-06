@@ -1,4 +1,9 @@
 CREATE TABLE public.film ( "filmId" SERIAL, "cim" character varying(30) NOT NULL , "leiras" character varying(500) NOT NULL , "kepUrl" character varying(200) NOT NULL , "elozetesLink" character varying(200) NOT NULL , "megjelenes" date NOT NULL , "ertekelesOsszege" integer NOT NULL , "ertekelesekSzama" integer NOT NULL , PRIMARY KEY ("filmId"));
+CREATE TABLE public.felhasznalo ("felhasznaloId" SERIAL, "nev" character varying(25) NOT NULL, "felhasznaloTipus" character varying(5) NOT NULL, "megnezendoFilmek" character varying(200), "ertekeltFilmek" character varying(500), "email" character varying(50) NOT NULL, "jelszo" character varying(20) NOT NULL, "kedvencek" character varying(500), PRIMARY KEY ("felhasznaloId"));
+CREATE TABLE public.szemely ("szemelyId" SERIAL, "szemelyNev" character varying(50) NOT NULL, "leiras" character varying(400) NOT NULL , PRIMARY KEY ("szemelyId"));
+​CREATE TABLE public.rendez ("szemelyId" integer NOT NULL, "filmId" integer NOT NULL, PRIMARY KEY ("szemelyId", "filmId"), FOREIGN KEY("szemelyId) REFERENCES szemely("szemelyId"),FOREIGN KEY("filmId") REFERENCES film("filmId)); ????itt valami nem jó
+​​CREATE TABLE public.kommentel ("kommentId" SERIAL, "filmId" integer NOT NULL FOREIGN KEY, "felhasznaloId" integer NOT NULL FOREIGN KEY, "szoveg" character varying(300) NOT NULL , "ido" TIMESTAMP NOT NULL , PRIMARY KEY (`kommentId`)); ??még ez sem végleges
+
 ///ÍGY KÉNE///
 
 CREATE TABLE `test`.`film` ( `filmId` INT(255) NOT NULL AUTO_INCREMENT , `cim` VARCHAR(50) NOT NULL , `leiras` VARCHAR(500) NOT NULL , `kepUrl` VARCHAR(200) NOT NULL , `elozetesLink` VARCHAR(200) NOT NULL , `megjelenes` DATE NOT NULL , `ertekelesOsszege` INT(255) NOT NULL , `ertekelesekSzama` INT(255) NOT NULL , PRIMARY KEY (`filmId`)) ENGINE = InnoDB;
