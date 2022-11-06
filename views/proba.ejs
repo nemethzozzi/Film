@@ -10,7 +10,20 @@
    </header>
    <body>
       <div>
-	  <%=lekerdezes%>
+	  <%=if(Array.isArray(lekerdezes))
+		{
+			for (var i=0; i<lekerdezes.length; i++)
+			{
+			%>
+				<div><%=lekerdezes[i]%></div>
+			<%
+			}
+		
+		}else {
+			%><%=lekerdezes%>
+			<%}%>
+	  
+	  
       </div>
    </body>
 </html>

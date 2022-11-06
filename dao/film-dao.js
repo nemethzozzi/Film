@@ -8,11 +8,11 @@ class FilmDAO {
 		{
 			let lekerd = await db.query('select * from film')
 				.catch(console.log);
-			return lekerd;
+			return lekerd.rows;
 		}
 		
-		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.filmId=rendez.filmId and film.filmId=szerepel.filmId and film.filmId=csoportosit.filmId and (rendez.szemelyId = szemely.id or szerepel.szemelyId = szemely.id) and ( (1=0 or 1=1) ";
-		alap+="----";
+		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where \"film.filmId\"=\"rendez.filmId\" and \"film.filmId\"=\"szerepel.filmId\" and \"film.filmId\"=\"csoportosit.filmId\" and (\"rendez.szemelyId\" = szemely.id or \"szerepel.szemelyId\" = szemely.id) and ( (1=0 or 1=1) ";
+		//alap+="----";
 		if(Array.isArray(rendezok))
 		{
 			alap+="and (1=0 ";
@@ -33,7 +33,7 @@ class FilmDAO {
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<mufajok.length; i++)
-				alap+= "or csoportosit.mufajNev like '%"+mufajok[i]+"%' ";
+				alap+= "or \"csoportosit.mufajNev\" like '%"+mufajok[i]+"%' ";
 			alap+=") ";
 		} else alap+= "and szemely.nev like '%"+mufajok+"%' ";
 		
@@ -44,11 +44,12 @@ class FilmDAO {
 				alap+= "or year(film.megjelenes) = '"+megjelenesi_evek[i]+"' ";
 			alap+=") ";
 		} else alap+= "and year(film.megjelenes) = '"+megjelenesi_evek+"' ";
-		//let result = await db.query(alap)
-        //    .catch(console.log);
 		alap+=")";
+		let result = await db.query(alap)
+            .catch(console.log);
 		
-		return alap;
+		
+		return result.rows;
 	}
 
 	async filmfeltoltes(cim, leiras, megjelenes, elozetesLink) {
