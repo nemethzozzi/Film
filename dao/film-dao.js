@@ -54,7 +54,7 @@ class FilmDAO {
 	async filmfeltoltes(cim, leiras, megjelenes, elozetesLink) {
 		let id=2;
 		let results = await db.query('INSERT INTO film (filmId,cim, leiras, megjelenes, elozetesLink)) VALUES ($1, $2, $3, $4, $5)', [id,cim, leiras, megjelenes, elozetesLink]).catch(console.log);
-			return results.rows[0];
+			return results;
 	}
 
 	/*
