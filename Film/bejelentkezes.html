@@ -41,17 +41,17 @@
         </script>
 
     </header>
-  <!--Bejelentkezés-->
-  <div>
-    <h1>Bejelentkezés</h1>
-    <form id="formok_formazasa" action="/loginuser" method="post">
-       <label>Email cím:  
-       <input type="text" name="email" placeholder="pl.: valaki@gmail.com"></input></label><br>
-       <label>Jelszó:  
-       <input type="password" name="password" placeholder="pl.: 123Kuytus!"></input></label><br>
-       <input type="submit" value="Mentés"></input> <!-- class="btn-sm btn-dark details"-->
-    </form>
- </div>
+    <!--Bejelentkezés-->
+    <div class="feher">
+        <h1>Bejelentkezés</h1>
+        <form id="formok_formazasa" action="/loginuser" method="post">
+            <label>Email cím: <input type="email" name="email" placeholder="pl.: valaki@gmail.com"></label><br>
+
+            <label>Jelszó: <input type="password" autocomplete="off" name="password" placeholder="pl.: 123Kuytus!"></label><br>
+
+            <input type="submit" value="Mentés" name="save"> <!-- class="btn-sm btn-dark details"-->
+        </form>
+    </div>
 
 </body>
 </html>
