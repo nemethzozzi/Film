@@ -41,9 +41,9 @@ class FilmDAO {
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<megjelenesi_evek.length; i++)
-				alap+= "or year(film.megjelenes) = '"+megjelenesi_evek[i]+"' ";
+				alap+= "or EXTRACT(YEAR FROM film.megjelenes) = '"+megjelenesi_evek[i]+"' ";
 			alap+=") ";
-		} else alap+= "and year(film.megjelenes) = '"+megjelenesi_evek+"' ";
+		} else alap+= "and EXTRACT(YEAR FROM film.megjelenes) = '"+megjelenesi_evek+"' ";
 		alap+=")";
 		let result = await db.query(alap)
             .catch(console.log);
