@@ -1,7 +1,15 @@
-span{
+header > a:first-of-type {
     font-size: xx-large;
-    font-weight: 50;
-    font-family: "Goudy Old Style", serif;
+    font-family: "Century Gothic", serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+a + span {
+    padding-left: 70px;
+    font-style: italic;
+    font-size: x-large;
+    font-family: "Century Gothic", serif;
 }
 
 header {
@@ -13,14 +21,16 @@ header {
 body {
     background-color: rgb(68, 68, 68);
     margin: 0;
-    color: white;
 }
 
-img {
+a img[src="img/csukva.png"]{
+    padding-top: 5px;
+}
+
+header img {
     display: inline-block;
     float: right;
     padding-right: 20px;
-    vertical-align: center;
 }
 
 .dropdown {
@@ -29,16 +39,18 @@ img {
     position: relative;
 
 }
-.dropdown:hover{
+
+.dropdown:hover {
     height:48px;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
     left:35px; top:48px;
     background-color: #f9f9f9;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    transform:translateX(-100%);
+    transform:translateX(-85%);
     z-index: 1;
 }
 
@@ -48,18 +60,21 @@ img {
     text-decoration: none;
     display: block;
 }
+
 .dropdown-content a:hover {
     background-color: #f1f1f1
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 
 /*Profil*/
 
 /*.user{
   display: block;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
   border-radius: 5px;
@@ -84,13 +99,13 @@ input[type=text], [type=password], select {
     border-radius: 4px;
     box-sizing: border-box;
     background-color: rgb(104, 104, 104);
-  }
+}
 
-  ::placeholder {
+::placeholder {
     color: rgb(68, 68, 68);}
 
 #cerka{
-    padding-left: 0%;
+    padding-left: 0;
 }
 
 input[type=submit] {
@@ -103,4 +118,10 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 20%;
-  }
+}
+.feher{
+    color: white;
+}
+input{
+    color: white ;
+}

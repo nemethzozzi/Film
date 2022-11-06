@@ -9,107 +9,107 @@
     <link rel="icon" href="img/popcorn.png">
 </head>
 <body>
-<header>
-    <a href="index.html"><span>Házi Mozi</span></a>
-    <span>Főoldal</span>
-
-    <div class="dropdown">
-        <img src="img/user.png" alt="felhasználó">
-        <div class="dropdown-content">
-            <a href="profil.html">Profil</a>
-            <a href="bejelentkezes.html">Bejelentkezés</a>
-            <a href="regisztracio.html">Regisztráció</a>
+    <header>
+        <a href="index.html"><span>Házi Mozi</span></a>
+        <span>Főoldal</span>
+    
+        <div class="dropdown">
+            <img src="img/user.png" alt="felhasználó">
+            <div class="dropdown-content">
+                <a href="profil.html">Profil</a>
+                <a href="bejelentkezes.html">Bejelentkezés</a>
+                <a href="regisztracio.html">Regisztráció</a>
+            </div>
         </div>
-    </div>
-
-    <a href="szures.html"><img src="img/search.png" alt="search"></a>
-
-    <a id="eye" href="megnezendo.html"><img src="img/szem.png" alt="szem"></a>
-    <a id="eye_closed" href="megnezendo.html"><img src="img/csukva.png" alt="csukott_szem"></a>
-
-    <script>
-        document.getElementById("eye_closed").hidden = true;
-        document.getElementById("eye").onmouseenter = function() {
-
-            document.getElementById("eye").hidden = true;
-            document.getElementById("eye_closed").hidden = false;
-        }
-        document.getElementById("eye_closed").onmouseleave = function (){
-            document.getElementById("eye").hidden = false;
+    
+        <a href="szures.html"><img src="img/search.png" alt="search"></a>
+    
+        <a id="eye" href="megnezendo.html"><img src="img/szem.png" alt="szem"></a>
+        <a id="eye_closed" href="megnezendo.html"><img src="img/csukva.png" alt="csukott_szem"></a>
+    
+        <script>
             document.getElementById("eye_closed").hidden = true;
-        }
-    </script>
-
-</header>
-
-<div class="slider-container">
-    <div class="slider">
-        <div class="slides">
-            <div id="slides__1" class="slide">
-                <span class="slide__text">1</span>
-                <a class="slide__prev" href="#slides__10" title="Next"></a>
-                <a class="slide__next" href="#slides__2" title="Next"></a>
+            document.getElementById("eye").onmouseenter = function() {
+    
+                document.getElementById("eye").hidden = true;
+                document.getElementById("eye_closed").hidden = false;
+            }
+            document.getElementById("eye_closed").onmouseleave = function (){
+                document.getElementById("eye").hidden = false;
+                document.getElementById("eye_closed").hidden = true;
+            }
+        </script>
+    
+    </header>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slides">
+                <div id="slides__1" class="slide">
+                    <span class="slide__text">1</span>
+                    <a class="slide__prev" href="#slides__10" title="Next"></a>
+                    <a class="slide__next" href="#slides__2" title="Next"></a>
+                </div>
+                <div id="slides__2" class="slide">
+                    <span class="slide__text">2</span>
+                    <a class="slide__prev" href="#slides__1" title="Prev"></a>
+                    <a class="slide__next" href="#slides__3" title="Next"></a>
+                </div>
+                <div id="slides__3" class="slide">
+                    <span class="slide__text">3</span>
+                    <a class="slide__prev" href="#slides__2" title="Prev"></a>
+                    <a class="slide__next" href="#slides__4" title="Next"></a>
+                </div>
+                <div id="slides__4" class="slide">
+                    <span class="slide__text">4</span>
+                    <a class="slide__prev" href="#slides__3" title="Prev"></a>
+                    <a class="slide__next" href="#slides__5" title="Prev"></a>
+                </div>
+                <div id="slides__5" class="slide">
+                    <span class="slide__text">5</span>
+                    <a class="slide__prev" href="#slides__4" title="Prev"></a>
+                    <a class="slide__next" href="#slides__6" title="Prev"></a>
+                </div>
+                <div id="slides__6" class="slide">
+                    <span class="slide__text">6</span>
+                    <a class="slide__prev" href="#slides__5" title="Prev"></a>
+                    <a class="slide__next" href="#slides__7" title="Prev"></a>
+                </div>
+                <div id="slides__7" class="slide">
+                    <span class="slide__text">7</span>
+                    <a class="slide__prev" href="#slides__6" title="Prev"></a>
+                    <a class="slide__next" href="#slides__8" title="Next"></a>
+                </div>
+                <div id="slides__8" class="slide">
+                    <span class="slide__text">8</span>
+                    <a class="slide__prev" href="#slides__7" title="Prev"></a>
+                    <a class="slide__next" href="#slides__9" title="Next"></a>
+                </div>
+                <div id="slides__9" class="slide">
+                    <span class="slide__text">9</span>
+                    <a class="slide__prev" href="#slides__8" title="Prev"></a>
+                    <a class="slide__next" href="#slides__10" title="Next"></a>
+                </div>
+                <div id="slides__10" class="slide">
+                    <span class="slide__text">10</span>
+                    <a class="slide__prev" href="#slides__9" title="Prev"></a>
+                    <a class="slide__next" href="#slides__1" title="Next"></a>
+                </div>
             </div>
-            <div id="slides__2" class="slide">
-                <span class="slide__text">2</span>
-                <a class="slide__prev" href="#slides__1" title="Prev"></a>
-                <a class="slide__next" href="#slides__3" title="Next"></a>
+            <div class="slider__nav">
+                <a class="slider__navlink" href="#slides__1"></a>
+                <a class="slider__navlink" href="#slides__2"></a>
+                <a class="slider__navlink" href="#slides__3"></a>
+                <a class="slider__navlink" href="#slides__4"></a>
+                <a class="slider__navlink" href="#slides__5"></a>
+                <a class="slider__navlink" href="#slides__6"></a>
+                <a class="slider__navlink" href="#slides__7"></a>
+                <a class="slider__navlink" href="#slides__8"></a>
+                <a class="slider__navlink" href="#slides__9"></a>
+                <a class="slider__navlink" href="#slides__10"></a>
             </div>
-            <div id="slides__3" class="slide">
-                <span class="slide__text">3</span>
-                <a class="slide__prev" href="#slides__2" title="Prev"></a>
-                <a class="slide__next" href="#slides__4" title="Next"></a>
-            </div>
-            <div id="slides__4" class="slide">
-                <span class="slide__text">4</span>
-                <a class="slide__prev" href="#slides__3" title="Prev"></a>
-                <a class="slide__next" href="#slides__5" title="Prev"></a>
-            </div>
-            <div id="slides__5" class="slide">
-                <span class="slide__text">5</span>
-                <a class="slide__prev" href="#slides__4" title="Prev"></a>
-                <a class="slide__next" href="#slides__6" title="Prev"></a>
-            </div>
-            <div id="slides__6" class="slide">
-                <span class="slide__text">6</span>
-                <a class="slide__prev" href="#slides__5" title="Prev"></a>
-                <a class="slide__next" href="#slides__7" title="Prev"></a>
-            </div>
-            <div id="slides__7" class="slide">
-                <span class="slide__text">7</span>
-                <a class="slide__prev" href="#slides__6" title="Prev"></a>
-                <a class="slide__next" href="#slides__8" title="Next"></a>
-            </div>
-            <div id="slides__8" class="slide">
-                <span class="slide__text">8</span>
-                <a class="slide__prev" href="#slides__7" title="Prev"></a>
-                <a class="slide__next" href="#slides__9" title="Next"></a>
-            </div>
-            <div id="slides__9" class="slide">
-                <span class="slide__text">9</span>
-                <a class="slide__prev" href="#slides__8" title="Prev"></a>
-                <a class="slide__next" href="#slides__10" title="Next"></a>
-            </div>
-            <div id="slides__10" class="slide">
-                <span class="slide__text">10</span>
-                <a class="slide__prev" href="#slides__9" title="Prev"></a>
-                <a class="slide__next" href="#slides__1" title="Next"></a>
-            </div>
-        </div>
-        <div class="slider__nav">
-            <a class="slider__navlink" href="#slides__1"></a>
-            <a class="slider__navlink" href="#slides__2"></a>
-            <a class="slider__navlink" href="#slides__3"></a>
-            <a class="slider__navlink" href="#slides__4"></a>
-            <a class="slider__navlink" href="#slides__5"></a>
-            <a class="slider__navlink" href="#slides__6"></a>
-            <a class="slider__navlink" href="#slides__7"></a>
-            <a class="slider__navlink" href="#slides__8"></a>
-            <a class="slider__navlink" href="#slides__9"></a>
-            <a class="slider__navlink" href="#slides__10"></a>
         </div>
     </div>
-</div>
 
 </body>
 </html>
