@@ -1,0 +1,100 @@
+.slideshow {
+    /*background-color: aqua;*/
+    width: 40%;
+    float:left;
+    height:60vh;
+    padding-top: 7%;
+}
+
+.jobboldal {
+    /* background-color: bisque; */
+    width: 60%;
+    float: right;
+    height: 60vh;
+    padding-top: 3%;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    margin:auto;
+    width: 40%;
+    height: fit-content;
+    align-items: center;
+
+}
+.mySlides:first-of-type{
+    display: block;
+}
+
+.mySlides img{
+    padding-right: 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #111;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 65%;
+    border-radius: 3px 0 0 3px;
+}
+.prev{
+    left:5%;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgb(12, 119, 50);
+}
+
+.cim, .alcim {
+    font-family: "Century Gothic", serif;
+    padding-left: 5vh;
+    color: white;
+}
+
+.rendezok, .szineszek {
+    font-family: "Century Gothic", serif;
+    padding-left: 7vh;
+    margin: 1%;
+    color: white;
+}
+
+h4 {
+    font-family: "Century Gothic", serif;
+    padding-left: 7vh;
+    color: white;
+}
+
+p {
+    font-family: "Century Gothic", serif;
+    background-color: rgb(61, 140, 86);
+    border-radius: 10px;
+    color: white;
+    padding: 2vh;
+    margin-left: 5vh;
+    width: 85%;
+    box-shadow: 5px 5px 5px #111;
+}
+
+.comment-box {
+    margin-top: 75vh;
+    margin-left: 90vh;
+}
