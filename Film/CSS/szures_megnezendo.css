@@ -1,0 +1,67 @@
+hr {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 2px solid rgb(12, 119, 50);
+    background-color: rgb(12, 119, 50);
+}
+
+#szures {
+    color: white;
+    font-family: Calibri, serif;
+    font-size: 24px;
+}
+
+.kozepre {
+    text-align: center;
+}
+
+input[name="keres"] {
+    padding: 13px !important;
+    width: fit-content;
+    box-sizing: border-box;
+    cursor: pointer !important;
+    letter-spacing: 2px;
+}
+
+#szures input {
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-left: 10px;
+    padding: 6px;
+    font-size: 17px;
+    background-color: rgb(12, 119, 50);
+    border: none;
+    color: white;
+}
+
+.flex-container1 {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    color: white;
+    font-family: Calibri, serif;
+    font-size: larger;
+}
+
+td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+tr:nth-child(even) td {
+    padding-bottom: 35px;
+}
+
+.watch_list{
+    margin-top: 40px;
+}
