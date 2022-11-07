@@ -58,7 +58,7 @@ router.post("/filmfeltoltes", async (req, res) => {
 });
 
 //uj routeok innen kezdodnek
-route.post("/felhfeltoltes", async (req, res) => {
+router.post("/felhfeltoltes", async (req, res) => {
     let nev = req.body.nev;
     let felhasznaloTipus = req.body.felhasznaloTipus;
     let megnezendoFilmek = req.body.megnezendoFilmek;
@@ -72,7 +72,7 @@ route.post("/felhfeltoltes", async (req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/szemelyfeltoltes", async (req, res) => {
+router.post("/szemelyfeltoltes", async (req, res) => {
     let szemelyId = req.body.szemelyId;
     let szemelyNev = req.body.szemelyNev;
     let szemelyLeiras = req.body.szemelyLeiras;
@@ -82,7 +82,7 @@ route.post("/szemelyfeltoltes", async (req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/rendezfeltoltes", async (req, res) => {
+router.post("/rendezfeltoltes", async (req, res) => {
     let szemelyId = req.body.szemelyId;
     let filmId = req.body.filmId;
 
@@ -91,7 +91,7 @@ route.post("/rendezfeltoltes", async (req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/kommentfeltoltes", async(req, res) => {
+router.post("/kommentfeltoltes", async(req, res) => {
     let kommentId = req.body.kommentId;
     let felhasznaloId = req.body.felhasznaloId;
     let filmId = req.body.filmId;
@@ -103,7 +103,7 @@ route.post("/kommentfeltoltes", async(req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/ertekelfeltoltes", async (req, res) => {
+router.post("/ertekelfeltoltes", async (req, res) => {
     let filmId = req.body.filmId;
     let felhasznaloId = req.body.felhasznaloId;
     let ertekeles = req.body.ertekeles;
@@ -113,7 +113,7 @@ route.post("/ertekelfeltoltes", async (req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/csoportfeltoltes", async (req, res) =>{
+router.post("/csoportfeltoltes", async (req, res) =>{
     let mufajNev = req.body.mufajNev;
     let filmId = req.body.filmId;
 
@@ -122,7 +122,7 @@ route.post("/csoportfeltoltes", async (req, res) =>{
     return res.render('upload', {});
 });
 
-route.post("szerepelfeltoltes", async(req, res) => {
+router.post("szerepelfeltoltes", async(req, res) => {
     let szemelyId = req.body.szemelyId;
     let filmId = req.body.filmId;
 
