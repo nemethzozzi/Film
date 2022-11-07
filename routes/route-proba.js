@@ -34,15 +34,20 @@ router.get("/proba", async (req, res) => {
     });
 });
 
-router.get("/feltolt", async (req, res) => {
-	let cim = "A Keresztapa(1972)";
-	let leiras = "A lángba borul.";
-	let megjelenes = "1972-01-01";
-	let elozetesLink = "https://www.youtube.com/watch?v=HNWB7M6QkeM";
+router.get("/filmfeltoltes", async (req, res) => {
+    //let cim = "A Keresztapa(1972)";
+    //let leiras = "A lángba borul.";
+	//let megjelenes = "1972-01-01";
+    //let elozetesLink = "https://www.youtube.com/watch?v=HNWB7M6QkeM";
+    let cim = req.cim;
+    //let leiras = req.leiras;
+    let kepUrl = req.kepUrl
+    let elozetesLink = req.elozetesLink;
+    let megjelenes = req.megjelenes;
+    
+    console.log();
 	
-	
-	
-    let lekerdezes = await new FilmDAO().filmfeltoltes(cim, leiras, megjelenes, elozetesLink);
+    //let lekerdezes = await new FilmDAO().filmfeltoltes(cim, leiras, megjelenes, elozetesLink);
    
     return res.render('proba', {
         lekerdezes: lekerdezes
