@@ -53,9 +53,13 @@ class FilmDAO {
 		return [result.rows,alap];
 	}
 
-	async filmfeltoltes(cim, leiras, megjelenes, elozetesLink) {
-		let results = await db.query("INSERT INTO film (cim, leiras, megjelenes, \"elozetesLink\") VALUES ($1, $2, $3, $4)", [cim, leiras, megjelenes, elozetesLink]).catch(console.log);
+	async filmfeltoltes(cim, leiras, kepUrl, elozetesLink, megjelenes) {
+		let results = await db.query("INSERT INTO film (cim, leiras, \"kepUrl\", \"elozetesLink\", megjelenes) VALUES ($1, $2, $3, $4, $5)", [cim, leiras, kepUrl, elozetesLink, megjelenes]).catch(console.log);
 			return results;
+	}
+
+	async felhasznalofeltoltes() {
+		let results = await db.query
 	}
 
 	/*

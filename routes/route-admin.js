@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const FilmDAO = require('../dao/film-dao');
 const UserDAO = require('../dao/user-dao');
-const {userAuth, jwtSecret} = require("./../config/auth.js");
+const {userAuth, jwtSecret} = require("../config/auth.js");
 const jwt = require("jsonwebtoken")
 
 router.get("/proba", async (req, res) => {
