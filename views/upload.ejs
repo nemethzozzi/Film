@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Házi Mozi</title>
+    <link rel="stylesheet" href="/css/alap_style.css">
+    <link rel="stylesheet" href="/css/fo_oldal.css">
+    <link rel="icon" href="img/popcorn.png">
+</head>
+<body>
+    <header>
+        <a href="/"><span>Házi Mozi</span></a>
+        <span>Főoldal</span>
+    
+        <div class="dropdown">
+            <img src="img/user.png" alt="felhasználó">
+            <div class="dropdown-content">
+                <a href="/profil">Profil</a>
+                <a href="/login">Bejelentkezés</a>
+                <a href="/regisztracio">Regisztráció</a>
+            </div>
+        </div>
+    
+        <a href="/szures"><img src="img/search.png" alt="search"></a>
+    
+        <a id="eye" href="/megnezendo"><img src="img/szem.png" alt="szem"></a>
+        <a id="eye_closed" href="/megnezendo"><img src="img/csukva.png" alt="csukott_szem"></a>
+    
+        <script>
+            document.getElementById("eye_closed").hidden = true;
+            document.getElementById("eye").onmouseenter = function() {
+    
+                document.getElementById("eye").hidden = true;
+                document.getElementById("eye_closed").hidden = false;
+            }
+            document.getElementById("eye_closed").onmouseleave = function (){
+                document.getElementById("eye").hidden = false;
+                document.getElementById("eye_closed").hidden = true;
+            }
+        </script>
+    
+    </header>
+
+    ide jön egy szűrés
+
+</body>
+</html>
