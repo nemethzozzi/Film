@@ -45,7 +45,8 @@ router.get("/filmfeltoltes", async (req, res) => {
     let elozetesLink = req.elozetesLink;
     let megjelenes = req.megjelenes;
     
-    console.log();
+    console.log("/filmfeltoltes call");
+    console.log('cim: ', cim);
 	
     //let lekerdezes = await new FilmDAO().filmfeltoltes(cim, leiras, megjelenes, elozetesLink);
    
