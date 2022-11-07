@@ -17,7 +17,7 @@ app.use(express.json());
 
 
 //teszt
-const routeP = require('./routes/route-proba');
+const routeP = require('./routes/route-admin');
 app.use(routeP);
 
 app.listen(PORT, () => {
