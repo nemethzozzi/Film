@@ -54,7 +54,7 @@ router.post("/filmfeltoltes", async (req, res) => {
     console.log("/filmfeltoltes call");
     console.log('cim: ', cim);
 	
-    //let lekerdezes = await new FilmDAO().filmfeltoltes(cim, leiras, megjelenes, elozetesLink);
+    let lekerdezes = await new FilmDAO().filmfeltoltes(cim, "asdsd", megjelenes, elozetesLink);
    
     return res.render('upload', { //it eredetileg 'proba'
         //lekerdezes: lekerdezes
