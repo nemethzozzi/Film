@@ -56,9 +56,9 @@ router.get("/filmfeltoltes", async (req, res) => {
 	
     //let lekerdezes = await new FilmDAO().filmfeltoltes(cim, leiras, megjelenes, elozetesLink);
    
-    /*return res.render('proba', {
-        lekerdezes: lekerdezes
-    });*/
+    return res.render('upload', { //it eredetileg 'proba'
+        //lekerdezes: lekerdezes
+    });
 });
 
 
