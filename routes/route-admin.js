@@ -59,7 +59,7 @@ router.post("/filmfeltoltes", async (req, res) => {
 
 //uj routeok innen kezdodnek
 route.post("/felhfeltoltes", async (req, res) => {
-    let cim = req.body.nev;
+    let nev = req.body.nev;
     let felhasznaloTipus = req.body.felhasznaloTipus;
     let megnezendoFilmek = req.body.megnezendoFilmek;
     let ertekeltFilmek = req.body.ertekeltFilmek;
@@ -74,7 +74,7 @@ route.post("/felhfeltoltes", async (req, res) => {
 
 route.post("/szemelyfeltoltes", async (req, res) => {
     let szemelyId = req.body.szemelyId;
-    let szemelyNev = req,body.szemelyNev;
+    let szemelyNev = req.body.szemelyNev;
     let szemelyLeiras = req.body.szemelyLeiras;
 
     let lekerdezes = await new FilmDAO().szemelyfeltoltes(szemelyId, szemelyNev, szemelyLeiras);
@@ -91,7 +91,7 @@ route.post("/rendezfeltoltes", async (req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/kommentfeltoltes" async(req, res) => {
+route.post("/kommentfeltoltes", async(req, res) => {
     let kommentId = req.body.kommentId;
     let felhasznaloId = req.body.felhasznaloId;
     let filmId = req.body.filmId;
@@ -103,7 +103,7 @@ route.post("/kommentfeltoltes" async(req, res) => {
     return res.render('upload', {});
 });
 
-route.post("/ertekelfeltoltes" async (req, res) => {
+route.post("/ertekelfeltoltes", async (req, res) => {
     let filmId = req.body.filmId;
     let felhasznaloId = req.body.felhasznaloId;
     let ertekeles = req.body.ertekeles;
