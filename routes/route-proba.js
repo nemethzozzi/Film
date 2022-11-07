@@ -40,7 +40,7 @@ router.get("/upload", async (req, res) => {
     });
 });
 
-router.get("/filmfeltoltes", async (req, res) => {
+router.post("/filmfeltoltes", async (req, res) => {
     //let cim = "A Keresztapa(1972)";
     //let leiras = "A lángba borul.";
 	//let megjelenes = "1972-01-01";
