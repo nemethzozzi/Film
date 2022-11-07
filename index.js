@@ -12,6 +12,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(routeUser);
 
+//form-ok és method = POST miatt
+app.use(express.json());
+
+
 //teszt
 const routeP = require('./routes/route-proba');
 app.use(routeP);

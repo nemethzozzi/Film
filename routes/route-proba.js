@@ -45,11 +45,11 @@ router.post("/filmfeltoltes", async (req, res) => {
     //let leiras = "A lángba borul.";
 	//let megjelenes = "1972-01-01";
     //let elozetesLink = "https://www.youtube.com/watch?v=HNWB7M6QkeM";
-    let cim = req.cim;
+    let cim = req.body.cim;
     //let leiras = req.leiras;
-    let kepUrl = req.kepUrl
-    let elozetesLink = req.elozetesLink;
-    let megjelenes = req.megjelenes;
+    let kepUrl = req.body.kepUrl
+    let elozetesLink = req.body.elozetesLink;
+    let megjelenes = req.body.megjelenes;
     
     console.log("/filmfeltoltes call");
     console.log('cim: ', cim);
