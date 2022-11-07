@@ -34,6 +34,12 @@ router.get("/proba", async (req, res) => {
     });
 });
 
+router.get("/upload", async (req, res) => {
+    return res.render('upload',{
+        //
+    });
+});
+
 router.get("/filmfeltoltes", async (req, res) => {
     //let cim = "A Keresztapa(1972)";
     //let leiras = "A lángba borul.";
@@ -50,9 +56,9 @@ router.get("/filmfeltoltes", async (req, res) => {
 	
     //let lekerdezes = await new FilmDAO().filmfeltoltes(cim, leiras, megjelenes, elozetesLink);
    
-    return res.render('proba', {
+    /*return res.render('proba', {
         lekerdezes: lekerdezes
-    });
+    });*/
 });
 
 
