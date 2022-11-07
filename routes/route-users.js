@@ -37,7 +37,7 @@ router.get("/", async (req, res) => {
     });
 });
 
-router.get("/register", async (req, res) => {
+router.get("/regisztracio", async (req, res) => { //teszt
     const token = req.cookies.jwt
     var current_role;
     
@@ -46,7 +46,7 @@ router.get("/register", async (req, res) => {
             current_role = decodedToken.role;
         })
     }
-    return res.render('register', {
+    return res.render('regisztracio', { //TESZT
         current_role: current_role
     });
 });
