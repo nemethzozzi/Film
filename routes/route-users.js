@@ -127,4 +127,11 @@ router.get("/profil", async (req, res) => {
         //current_role: current_role
     });
 });
+
+router.get("/szures", async (req, res) => {
+    return res.render('szures', {
+        //
+    });
+});
+
 module.exports = router;
