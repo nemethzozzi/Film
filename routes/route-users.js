@@ -134,4 +134,9 @@ router.get("/szures", async (req, res) => {
     });
 });
 
+router.get("/megnezendo", async(req, res) => {
+    return res.render('megnezendo', {
+        //
+    });
+});
 module.exports = router;
