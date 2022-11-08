@@ -60,7 +60,7 @@
     (a továbbiaknál még az actiont át kell írni a form nyitó tagben)
 
     <h3>Felhasználó feltöltése</h3>
-    <form action="/felhfeltoltes" method="POST">
+    <form action="/felhasznalofeltoltes" method="POST">
         <label for="nev">Felhasználó neve</label><br>
         <input type="text" name="nev"><br>
         <label for="felhasznaloTipus">Felhasználó típusa(admin, user, kritikus)</label><br>
@@ -80,8 +80,6 @@
 
     <h3>Személy feltöltése</h3>
     <form action="/szemelyfeltoltes" method="POST">
-        <label for="szemelyId">Személy id</label><br>
-        <input type="text" name="szemelyId"><br>
         <label for="szemelyNev">Személy neve</label><br>
         <input type="text" name="szemelyNev"><br>
         <label for="szemelyLeiras">Személyleírás</label><br>
@@ -99,22 +97,20 @@
     </form>
 
     <h3>Kommentel kapcsolat</h3>
-    <form action="/kommentfeltoltes" method="POST">
-        <label for="kommentId">komment id</label><br>
-        <input type="text" name="kommentId"><br>
-        <label for="felhasznaloId">Felhasználó id</label><br>
-        <input type="text" name="felhasznaloId"><br>
+    <form action="/kommentelfeltoltes" method="POST">
         <label for="filmId">Film Id</label><br>
         <input type="text" name="filmId"><br>
-        <label for="leiras">leírás</label><br>
-        <input type="text" name="leiras"><br>
+        <label for="felhasznaloId">Felhasználó id</label><br>
+        <input type="text" name="felhasznaloId"><br>
+        <label for="szoveg">szöveg</label><br>
+        <input type="text" name="szoveg"><br>
         <label for="ido">idő</label><br>
         <input type="text" name="ido"><br>
         <input type="submit" value="submit"><br>
     </form>
 
     <h3>Értékel kapcsolat</h3>
-    <form action="/ertekelesfeltoltes" method="POST">
+    <form action="/ertekelfeltoltes" method="POST">
         <label for="filmId">Film id</label><br>
         <input type="text" name="filmId"><br>
         <label for="felhasznaloId">felhasználó Id</label><br>
@@ -125,7 +121,7 @@
     </form>
 
     <h3>Csoportosít kapcsolat</h3>
-    <form action="/csoportfeltoltes" method="POST">
+    <form action="/csoportositfeltoltes" method="POST">
         <label for="mufajNev">Műfaj neve</label><br>
         <input type="text" name="mufajNev"><br>
         <label for="filmId">Film Id</label><br>

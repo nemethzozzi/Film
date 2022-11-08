@@ -58,7 +58,7 @@ router.post("/filmfeltoltes", async (req, res) => {
 });
 
 //uj routeok innen kezdodnek
-router.post("/felhfeltoltes", async (req, res) => {
+router.post("/felhasznalofeltoltes", async (req, res) => {
     let nev = req.body.nev;
     let felhasznaloTipus = req.body.felhasznaloTipus;
     let megnezendoFilmek = req.body.megnezendoFilmek;
@@ -67,18 +67,17 @@ router.post("/felhfeltoltes", async (req, res) => {
     let jelszo = req.body.jelszo;
     let kedvencek = req.body.kedvencek;
 
-    let lekerdezes = await new FilmDAO().felhfeltoltes(nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek);
-
+    let lekerdezes = await new FilmDAO().felhasznalofeltoltes(nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek);
+                                        //paraméterek: nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek
     return res.render('upload', {});
 });
 
 router.post("/szemelyfeltoltes", async (req, res) => {
-    let szemelyId = req.body.szemelyId;
     let szemelyNev = req.body.szemelyNev;
     let szemelyLeiras = req.body.szemelyLeiras;
 
-    let lekerdezes = await new FilmDAO().szemelyfeltoltes(szemelyId, szemelyNev, szemelyLeiras);
-
+    let lekerdezes = await new FilmDAO().szemelyfeltoltes(szemelyNev, szemelyLeiras);
+                                            //paraméterek: szemelyNev, szemelyLeiras
     return res.render('upload', {});
 });
 
@@ -87,19 +86,18 @@ router.post("/rendezfeltoltes", async (req, res) => {
     let filmId = req.body.filmId;
 
     let lekerdezes = await new FilmDAO().rendezfeltoltes(szemelyId, filmId);
-
+                                        //paraméterek: szemelyId, filmId
     return res.render('upload', {});
 });
 
-router.post("/kommentfeltoltes", async(req, res) => {
-    let kommentId = req.body.kommentId;
-    let felhasznaloId = req.body.felhasznaloId;
+router.post("/kommentelfeltoltes", async(req, res) => {
     let filmId = req.body.filmId;
-    let leiras = req.body.leiras;
+    let felhasznaloId = req.body.felhasznaloId;
+    let szoveg = req.body.szoveg;
     let ido = req.body.ido;
 
-    let lekerdezes = await new FilmDAO().kommentfeltoltes(kommentId, felhasznaloId, filmId, leiras, ido);
-
+    let lekerdezes = await new FilmDAO().kommentelfeltoltes(filmId, felhasznaloId, szoveg, ido);
+                                            //paraméterek: filmId, felhasznaloId, szoveg, ido
     return res.render('upload', {});
 });
 
@@ -109,16 +107,16 @@ router.post("/ertekelfeltoltes", async (req, res) => {
     let ertekeles = req.body.ertekeles;
 
     let lekerdezes = await new FilmDAO().ertekelfeltoltes(filmId, felhasznaloId, ertekeles);
-
+                                            //paraméterek: filmId, felhasznaloId, ertekeles
     return res.render('upload', {});
 });
 
-router.post("/csoportfeltoltes", async (req, res) =>{
+router.post("/csoportositfeltoltes", async (req, res) =>{
     let mufajNev = req.body.mufajNev;
     let filmId = req.body.filmId;
 
     let lekerdezes = await new FilmDAO().csoportfeltoltes( mufajNev, filmId);
-
+                                            //paraméterek: mufajNev, filmId
     return res.render('upload', {});
 });
 
@@ -127,7 +125,7 @@ router.post("szerepelfeltoltes", async(req, res) => {
     let filmId = req.body.filmId;
 
     let lekerdezes = await new FilmDAO().szerepelfeltoltes( szemelyId, filmId);
-
+                                            //paraméterek: szemelyId, filmId
     return res.render('upload', {});
 });
 

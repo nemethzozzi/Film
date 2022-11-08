@@ -58,10 +58,41 @@ class FilmDAO {
 			return results;
 	}
 
-	async felhasznalofeltoltes() {
-		let results = await db.query
+	async felhasznalofeltoltes(nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek) {
+		let results = await db.query("INSERT INTO felhasznalo (\"nev\", felhasznaloTipus, megnezendoFilmek, email, \"jelszo\", kedvencek) VALUES ($1, $2, $3, $4, $5)", [nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek]).catch(console.log);
+			return results;
+		//itt jelszo hash elés még kell!!!
 	}
 
+	async szemelyfeltoltes(szemelyNev, szemelyLeiras){
+		let results = await db.query("INSERT INTO szemely (\"szemelyNev\", \"szemelyLeiras\") VALUES ($1, $2)", [szemelyNev, szemelyLeiras]).catch(console.log);
+			return results;
+	}
+
+	async rendezfeltoltes(szemelyId, filmId){
+		let results = await db.query("INSERT INTO rendez (szemelyId, filmId) VALUES ($1, $2)", [szemelyId, filmId]).catch(console.log);
+			return results;
+	}
+
+	async kommentelfeltoltes(filmId, felhasznaloId, szoveg, ido){
+		let results = await db.query("INSERT INTO kommentel (filmId, felhasznaloId, \"szoveg\", ido) VALUES ($1, $2, $3, $4)", [filmId, felhasznaloId, szoveg, ido]).catch(console.log);
+			return results;
+	}
+
+	async ertekelfeltoltes(filmId, felhasznaloId, ertekeles){
+		let results = await db.query("INSERT INTO ertekel (filmId, felhasznaloId, ertekeles) VALUES ($1, $2, $3)", [filmdId, felhasznaloId, ertekeles]).catch(console.log);
+			return results;
+	}
+
+	async csoportositfeltoltes(mufajNev, filmId){
+		let results = await db.query("INSERT INTO csoportosit (\"mufajnev\", filmId) VALUES ($1, $2)", [mufajNev, filmId]).catch(console.log);
+			return results;
+	}
+
+	async szerepelfeltoltes(szemelyId, filmId){
+		let results = await db.query("INSERT INTO szerepel (szemelyId, filmId) VALUES ($1, $2)", [szemelyId, filmId]).catch(console.log);
+			return results;
+	}
 	/*
     async getDogs() {
         let results = await db.query(`SELECT * FROM dogs`).
