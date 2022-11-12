@@ -59,7 +59,7 @@ class FilmDAO {
 	}
 
 	async felhasznalofeltoltes(nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek) {
-		let results = await db.query("INSERT INTO felhasznalo (\"nev\", felhasznaloTipus, megnezendoFilmek, email, \"jelszo\", kedvencek) VALUES ($1, $2, $3, $4, $5)", [nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek]).catch(console.log);
+		let results = await db.query("INSERT INTO felhasznalo (\"nev\", \"felhasznaloTipus\", megnezendoFilmek, email, \"jelszo\", kedvencek) VALUES ($1, $2, $3, $4, $5)", [nev, felhasznaloTipus, megnezendoFilmek, ertekeltFilmek, email, jelszo, kedvencek]).catch(console.log);
 			return results;
 		//itt jelszo hash elés még kell!!!
 	}
