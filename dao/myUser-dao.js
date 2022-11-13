@@ -2,8 +2,9 @@ const db = require('../config/db');
 
 class myUserDAO {
     async getUserByEmail(email){
-        let dbQuery = db.query('SELECT * FROM users WHERE email = $1', [email]);
-        if(dbQuery = ''){
+        // visszaad egy változót ami tárolja a lekérdezés eredményeit, email alapján
+        let dbQuery = db.query('SELECT id, nev, tipus, email, jelszo FROM Felhasznalo WHERE email = $1', [email]);
+        if(dbQuery = null){
             return 'no match';
         }
         return dbQuery.rows[0];
@@ -14,14 +15,23 @@ class myUserDAO {
         // id-nev-tipus-email-jelszo formatumban
         // session kezeléshez hasznos, nem létfontosságú
 
+        //update: tejlesen obsolete, később törlés
+
         let userData = new userData[5];
-        userData[0] =  db.query('SELECT id FROM users WHERE email = $1', [email]);
-        userData[1] =  db.query('SELECT nev FROM users WHERE email = $1', [email]);
-        userData[2] =  db.query('SELECT tipus FROM users WHERE email = $1', [email]);
+        userData[0] =  db.query('SELECT id FROM Felhasznalo WHERE email = $1', [email]);
+        userData[1] =  db.query('SELECT nev FROM Felhasznalo WHERE email = $1', [email]);
+        userData[2] =  db.query('SELECT tipus FROM Felhasznalo WHERE email = $1', [email]);
         userData[3] =  email;
-        userData[4] =  db.query('SELECT jelszo FROM users WHERE email = $1', [email]);
+        userData[4] =  db.query('SELECT jelszo FROM Felhasznalo WHERE email = $1', [email]);
         return userData;
     }
+
+    async ujFelhasznalo(nev, email, jelszo) {
+        // felhasználó beillesztése adatbázisba
+        // hashelést még meg kell valósítani
+        await db.query('INSERT INTO Felhasznalo (nev, tipus, email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "felhasznalo", email, jelszo]);
+        return;
+    };
 };
 
 module.exports = myUserDAO;
