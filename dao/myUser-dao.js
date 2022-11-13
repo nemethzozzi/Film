@@ -3,7 +3,7 @@ const db = require('../config/db');
 class myUserDAO {
     async getUserByEmail(email){
         // visszaad egy változót ami tárolja a lekérdezés eredményeit, email alapján
-        let dbQuery = db.query('SELECT id, nev, tipus, email, jelszo FROM Felhasznalo WHERE email = $1', [email]);
+        let dbQuery = await db.query('SELECT id, nev, tipus, email, jelszo FROM Felhasznalo WHERE email = $1', [email]);
         if(dbQuery = null){
             return 'no match';
         }
@@ -18,9 +18,9 @@ class myUserDAO {
         //update: tejlesen obsolete, később törlés
 
         let userData = new userData[5];
-        userData[0] =  db.query('SELECT id FROM Felhasznalo WHERE email = $1', [email]);
-        userData[1] =  db.query('SELECT nev FROM Felhasznalo WHERE email = $1', [email]);
-        userData[2] =  db.query('SELECT tipus FROM Felhasznalo WHERE email = $1', [email]);
+        userData[0] =  await db.query('SELECT id FROM Felhasznalo WHERE email = $1', [email]);
+        userData[1] =  await db.query('SELECT nev FROM Felhasznalo WHERE email = $1', [email]);
+        userData[2] =  await db.query('SELECT tipus FROM Felhasznalo WHERE email = $1', [email]);
         userData[3] =  email;
         userData[4] =  db.query('SELECT jelszo FROM Felhasznalo WHERE email = $1', [email]);
         return userData;
@@ -29,8 +29,8 @@ class myUserDAO {
     async ujFelhasznalo(nev, email, jelszo) {
         // felhasználó beillesztése adatbázisba
         // hashelést még meg kell valósítani
-        await db.query('INSERT INTO Felhasznalo (nev, tipus, email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "felhasznalo", email, jelszo]);
-        return;
+        let dbQuerry = await db.query('INSERT INTO Felhasznalo (nev, tipus, email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "felhasznalo", email, jelszo]);
+        return dbQuerry;
     };
 };
 
