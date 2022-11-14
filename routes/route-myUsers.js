@@ -19,7 +19,7 @@ router.post("/userLogin", async (req,res) => {
             sessionStorage.setItem("fNev", user.nev);
             sessionStorage.setItem("fTipus", user.tipus);
             sessionStorage.setItem("fEmail", user.email);
-            alert("you are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
+            alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
         }else{alert("wrong credentials! no login for you! >:(")}
     });
         
@@ -28,18 +28,18 @@ router.post("/userRegister", async (req, res) => {
     var email = req.body.email;
     var password = req.body.password;
     var nev = req.body.password;
-
-    myUserDAO().ujFelhasznalo(nev, email, jelszo);
-    const user = await new myUserDAO().getUserDataByEmail(email);
-    bcrypt.compare(password, user.jelszo).then(function(result){
-        if(result){
-            sessionStorage.setItem("fId", user.id);
-            sessionStorage.setItem("fNev", user.nev);
-            sessionStorage.setItem("fTipus", user.tipus);
-            sessionStorage.setItem("fEmail", user.email);
-            alert("you are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
-        }else{alert("wrong credentials! no login for you! >:(")}
-    });
-
+    var passwordAgain = req.body.passwordAgain;
+    if(password != passwordAgain){
+        alert("Registration failed, passwords do not match!");  
+    }else{
+        password = bcrypt.hash(password);
+        myUserDAO().ujFelhasznalo(nev, email, password);
+        const user = await new myUserDAO().getUserDataByEmail(email);
+        sessionStorage.setItem("fId", user.id);
+        sessionStorage.setItem("fNev", user.nev);
+        sessionStorage.setItem("fTipus", user.tipus);
+        sessionStorage.setItem("fEmail", user.email);
+        alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
+    }
 });
 module.exports = router;
