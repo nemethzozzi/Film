@@ -42,3 +42,4 @@ router.post("/userRegister", async (req, res) => {
     });
 
 });
+module.exports = router;
