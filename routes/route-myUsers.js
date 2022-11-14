@@ -25,9 +25,9 @@ router.post("/userLogin", async (req,res) => {
         
 }); 
 router.post("/userRegister", async (req, res) => {
-    let email = "valami@gmail.com"; //req.body.email;
-    let password = "jelszo"//req.body.password;
-    let nev = "valami";//req.body.nev;
+    let email = req.body.email;
+    let password = req.body.password;
+    let nev = req.body.nev;
     /*var passwordAgain = req.body.passwordAgain;
     if(password != passwordAgain){
         alert("Registration failed, passwords do not match!");  
