@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const UserDAO = require('../dao/user-dao');
 const jwt = require('jsonwebtoken')
 const jwtSecret = require("./../config/auth.js");
-const myUserDAO = require("../dao/myUser-dao");
+const myUserDAO = require('../dao/myUser-dao');
 const { use } = require("./route-users");
 const router = express.Router();
 
