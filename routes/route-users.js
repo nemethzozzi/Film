@@ -65,7 +65,7 @@ router.get("/login", async (req, res) => {
     });
 });
 
-router.post("/loginuser", async (req, res) => {
+/*router.post("/loginuser", async (req, res) => {
     let {email} = req.body;
     let {password} = req.body;
 
@@ -96,7 +96,7 @@ router.post("/loginuser", async (req, res) => {
             }
         });
     }
-});
+});*/
 
 router.post("/registeruser", async (req, res) => {
     let {email} = req.body;

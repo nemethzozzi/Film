@@ -22,14 +22,14 @@ class myUserDAO {
         userData[1] =  await db.query('SELECT nev FROM Felhasznalo WHERE email = $1', [email]);
         userData[2] =  await db.query('SELECT tipus FROM Felhasznalo WHERE email = $1', [email]);
         userData[3] =  email;
-        userData[4] =  db.query('SELECT jelszo FROM Felhasznalo WHERE email = $1', [email]);
+        userData[4] =  await db.query('SELECT jelszo FROM Felhasznalo WHERE email = $1', [email]);
         return userData;
     }
 
     async ujFelhasznalo(nev, email, jelszo) {
         // felhasználó beillesztése adatbázisba
         // hashelést még meg kell valósítani
-        let dbQuerry = await db.query('INSERT INTO Felhasznalo (nev, tipus, email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "felhasznalo", email, jelszo]);
+        let dbQuerry = await db.query('INSERT INTO Felhasznalo (nev, tipus, email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "user", email, jelszo]);
         return dbQuerry;
     };
 };
