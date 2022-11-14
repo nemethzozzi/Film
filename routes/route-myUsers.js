@@ -26,14 +26,14 @@ router.post("/userLogin", async (req,res) => {
 }); 
 router.post("/userRegister", async (req, res) => {
     var email = req.body.email;
-    var password = req.body.password;
+    let password = req.body.password;
     var nev = req.body.password;
     /*var passwordAgain = req.body.passwordAgain;
     if(password != passwordAgain){
         alert("Registration failed, passwords do not match!");  
     }else{*/
-    password = bcrypt.hash(password);
-    const success = await new myUserDAO().ujFelhasznalo(nev, email, password);
+    let hashedpassword = bcrypt.hash(password, 10);
+    const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
     sessionStorage.setItem("fId", user.id);
     sessionStorage.setItem("fNev", user.nev);
