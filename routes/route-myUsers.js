@@ -32,7 +32,8 @@ router.post("/userRegister", async (req, res) => {
     if(password != passwordAgain){
         alert("Registration failed, passwords do not match!");  
     }else{*/
-    let hashedpassword = bcrypt.hash(toString(password, "6"));
+    let salt = bcrypt.genSaltSync(10);
+    let hashedpassword = bcrypt.hash(toString(password, salt));
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
     sessionStorage.setItem("fId", user.id);
