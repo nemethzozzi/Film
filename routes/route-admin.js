@@ -115,7 +115,7 @@ router.post("/csoportositfeltoltes", async (req, res) =>{
     let mufajNev = req.body.mufajNev;
     let filmId = req.body.filmId;
 
-    let lekerdezes = await new FilmDAO().csoportfeltoltes( mufajNev, filmId);
+    let lekerdezes = await new FilmDAO().csoportositfeltoltes( mufajNev, filmId);
                                             //paraméterek: mufajNev, filmId
     return res.render('upload', {});
 });
