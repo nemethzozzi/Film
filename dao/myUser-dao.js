@@ -28,8 +28,8 @@ class myUserDAO {
 
     async ujFelhasznalo(nev, email, jelszo) {
         // felhasználó beillesztése adatbázisba
-        // hashelést még meg kell valósítani
-        let dbQuerry = await db.query('INSERT INTO felhasznalo (nev, \"felhasznaloTipus\", email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "user", email, jelszo]);
+        let tipus = "user";
+        let dbQuerry = await db.query("INSERT INTO felhasznalo (nev, \"felhasznaloTipus\", email, jelszo) VALUES ($1, $2, $3, $4)", [nev, tipus, email, jelszo]).catch(console.log);
         return dbQuerry;
     };
 };
