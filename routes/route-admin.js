@@ -120,7 +120,7 @@ router.post("/csoportositfeltoltes", async (req, res) =>{
     return res.render('upload', {});
 });
 
-router.post("szerepelfeltoltes", async(req, res) => {
+router.post("/szerepelfeltoltes", async(req, res) => {
     let szemelyId = req.body.szemelyId;
     let filmId = req.body.filmId;
 
