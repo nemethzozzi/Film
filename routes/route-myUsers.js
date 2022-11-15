@@ -12,10 +12,11 @@ router.post("/userLogin", async (req,res) => {
     let password = req.body.password;
 
     let user = await new myUserDAO().getUserDataByEmail(email);
+    console.log("email(from db): " + user.email);
     console.log("hash: " + user.jelszo);
     console.log(req.body.password);
     let valid = await bcrypt.compare(req.body.password, user.jelszo);
-    
+    //ez ugy nagyon nem mukodik jelenleg :) segitseg
     if(valid){
         console.log("valid");
         res.render('profil', {
