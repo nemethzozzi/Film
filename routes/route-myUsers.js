@@ -1,6 +1,5 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-const UserDAO = require('../dao/user-dao');
 const jwt = require('jsonwebtoken')
 const jwtSecret = require("./../config/auth.js");
 const myUserDAO = require('../dao/myUser-dao');
@@ -32,7 +31,7 @@ router.post("/userRegister", async (req, res) => {
     if(password != passwordAgain){
         alert("Registration failed, passwords do not match!");  
     }else{*/
-    console.log(nev);
+    console.log("ezt kaptam névnek: " + nev);
     let salt = bcrypt.genSaltSync(10);
     let hashedpassword = bcrypt.hashSync(toString(password), salt);
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
@@ -42,7 +41,7 @@ router.post("/userRegister", async (req, res) => {
     sessionStorage.setItem("fTipus", user.tipus);
     sessionStorage.setItem("fEmail", user.email);
     */
-    alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
+    //alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
     return success;
 });
 module.exports = router;
