@@ -78,10 +78,8 @@ function keres(){
 	xhr.open('POST','/szurproba',true);
 	xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	xhr.onload=function() {
-		//alert(this.responseText);
-		//json tömböt kapok vissza
-		eredmeny.innerHTML=this.responseText+'';
-		return;
+		//eredmeny.innerHTML=this.responseText+'';
+		//return;
 		eredmeny.innerHTML="";
 		let asd = JSON.parse(this.responseText);
 		for(let i=0;i<asd.length;i++)
