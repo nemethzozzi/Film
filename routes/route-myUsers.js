@@ -20,7 +20,9 @@ router.post("/userLogin", async (req,res) => {
         });
     }
     else{
-        return res.status(400).send('Invalid Email or Password.');
+        res.render('login', {
+            
+        });
     }
 
 }); 
