@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 class FilmDAO {
 
-	async szures(rendezok='', szineszek='', mufajok='', megjelenesi_evek='') {
+	async szures(rendezok='', szineszek='', mufajok='', megjelenesi_evek='') {/*majd id-s is lesz*/
 		/*rendezo, szinész, műfaj, megjelenés éve*/
 		
 		if(rendezok=='' && szineszek=='' && mufajok=='' && megjelenesi_evek=='')
