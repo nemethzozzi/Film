@@ -18,6 +18,7 @@ router.post("/userLogin", async (req,res) => {
     bcrypt.compare(req.body.password, user.jelszo, function(err, res) {
         if(res){
             valid = true
+            console.log("sikeres login kinda");
         }
       });
     
