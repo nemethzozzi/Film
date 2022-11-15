@@ -45,11 +45,10 @@ class FilmDAO {
 				alap+= "or EXTRACT(YEAR FROM film.megjelenes) = '"+megjelenesi_evek[i]+"' ";
 			alap+=") ";
 		} else alap+= "and EXTRACT(YEAR FROM film.megjelenes) = '"+megjelenesi_evek+"' ";
-		alap+=")";
+		alap+=") group by film.\"filmId\"";
 		let result = await db.query(alap)
             .catch(console.log);
 		
-		alap+=" group by film.\"filmId\"";
 		return [result.rows,alap];
 	}
 
