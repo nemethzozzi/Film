@@ -26,6 +26,21 @@ class myUserDAO {
         await db.query("INSERT INTO felhasznalo (\"nev\", \"felhasznaloTipus\", \"email\", \"jelszo\") VALUES ($1, $2, $3, $4)", [nev, tipus, email, hashedpassword]).catch(console.log);
         return;
     };
+    async megnezendoFilmek(Id){
+        //lekerdez a db-bol eloszor egy felhasznalo megnezendo stringet,
+        //beleteszi az idekt egy tombbe, (ahol az utolso elem mindig ures st, azaz "")
+        //aztan loopban beleteszi a tombbe a sorokat amik kellenek a film tablabol es ezt vissza adja
+
+        let filmString = await db.query("SELECT megnezendoFilmek FROM felhasznalo WHERE felhasznaloId = $1", [Id]);
+        var filmIdk = filmString.split(";");
+        var megnezendo = new megnezendo[filmIdk.length- 1];
+        for (let i = 0; i < array.length - 1; i++) {
+            film = await db.query("SELECT cim, kepUrl FROM film WHERE filmId = $1", [filmIdk[i]]);
+            megnezendo[i] = film;
+            
+        }
+        return megnezendo;
+    };
 };
 
 module.exports = myUserDAO;
