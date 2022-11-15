@@ -15,7 +15,11 @@ router.post("/userLogin", async (req,res) => {
     console.log("email(from db): " + user.email);
     console.log("hash: " + user.jelszo);
     console.log(req.body.password);
-    let valid = await bcrypt.compare(req.body.password, user.jelszo);
+    let valid = false;
+    if(req.body.password == user.jelszo){
+        valid = true;
+    }
+    //let valid = await bcrypt.compare(req.body.password, user.jelszo);
     //ez ugy nagyon nem mukodik jelenleg :) segitseg
     if(valid){
         console.log("valid");
@@ -51,8 +55,9 @@ router.post("/userRegister", async (req, res) => {
         alert("Registration failed, passwords do not match!");  
     }else{*/
     console.log("ezt kaptam névnek: " + nev);
-    let salt = bcrypt.genSaltSync(10);
-    let hashedpassword = bcrypt.hashSync(toString(password), salt);
+    //let salt = bcrypt.genSaltSync(10);
+    //let hashedpassword = bcrypt.hashSync(toString(password), salt);
+    let hashedpassword = password;
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
     //sessionStorage deklaráció
