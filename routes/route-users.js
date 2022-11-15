@@ -143,4 +143,13 @@ router.get("/megnezendo", async(req, res) => {
         //átadása megnezendo oldalnak
     });
 });
+
+router.post("/szurproba", async(req, res) => {
+	let kaptam= JSON.parse(req.body.feltetelek);
+	//let lekerdezes = await new FilmDAO().szures(req.body.rendezok,[],['dráma','krimi'],['1972','2020']);
+	res.json({ message: kaptam['rendezok'][0]+'' });
+});
+
+ 
+
 module.exports = router;

@@ -43,17 +43,15 @@
 
     </header>
 
-    <form id="szures">
-        <div class="flex-container1">
-            <div><label>Film címe <input type="text" name="cim" size=25></label></div>
-            <div><label>Műfaj <input type="text" name="mufaj" size=25></label></div>
-            <div><label>Rendező(k) <input type="text" name="rendezok" size=25></label></div>
-            <div><label>Megjelenési év <input type="date" name="ev" ></label></div>
-            <div><label>Értékelés <input type="number" name="ertekeles" ></label></div>
-            <div><label>Színész(ek) <input type="text" name="szineszek" size=25></label></div>
-        </div>
-        <div class="kozepre"><input type="submit" value="Keresés" name="keres"></div>
-    </form>
+	<div class="flex-container1" id="szures">
+		<div><label>Film címe <input id='cim' type="text" name="cim" size=25></label></div>
+		<div><label>Műfaj <input id='mufaj' type="text" name="mufaj" size=25></label></div>
+		<div><label>Rendező(k) <input id='rendezok' type="text" name="rendezok" size=25></label></div>
+		<div><label>Megjelenési év <input id='ev' type="number" name="ev" ></label></div>
+		<div><label>Értékelés <input id='ertekeles' type="number" name="ertekeles" ></label></div>
+		<div><label>Színész(ek) <input id='szineszek' type="text" name="szineszek" size=25></label></div>
+	</div>
+	<div class="kozepre"><input type="submit" value="Keresés" name="keres"></div>
 
     <hr>
 
@@ -144,6 +142,30 @@
             </td>
         </tr>
     </table>
+	<input type='button' value='teszt' onclick="keres();">
+<script>
+function keres(){
+	let szuresinpek = szures.getElementsByTagName('input');
+	let asd={};
+	for(let i=0;i<szuresinpek.length;i++)
+	{
+		asd[szuresinpek[i].id]=szuresinpek[i].value.split(',');
+		for(let l=0;l<asd[szuresinpek[i].id].length;l++) asd[szuresinpek[i].id][l]=asd[szuresinpek[i].id][l].trim();
+		
+	}
+	alert(JSON.stringify(asd));
+	//alert(asd["rendezok"].length);
+	//return;
+	
+	let xhr = new XMLHttpRequest();
+	xhr.open('POST','/szurproba',true);
+	xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	xhr.onload=function() {
+		alert(this.responseText);
+	}
+	xhr.send('feltetelek='+asd);
+}
 
+</script>
 </body>
 </html>
