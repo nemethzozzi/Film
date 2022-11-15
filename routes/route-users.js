@@ -161,7 +161,7 @@ router.get("/megnezendo", async(req, res) => {
 
 router.post("/szurproba", async(req, res) => {
 	let kaptam= JSON.parse(req.body.feltetelek);
-	let lekerdezes = await new FilmDAO().szures(kaptam['rendezok'],kaptam['szineszek'],kaptam['mufaj'],kaptam['ev']);
+	let lekerdezes = await new FilmDAO().szures(kaptam['cim'],kaptam['rendezok'],kaptam['szineszek'],kaptam['mufaj'],kaptam['ev']);
 	res.setHeader('Content-Type', 'application/json');
 	//res.end(typeof lekerdezes[0]+'');
     res.end(JSON.stringify(lekerdezes[0])+'');
