@@ -14,23 +14,16 @@ router.post("/userLogin", async (req,res) => {
     const user = await new myUserDAO().getUserDataByEmail(email);
     console.log("hash: " + user.jelszo);
     console.log(req.body.password);
-    let valid = false;
-    bcrypt.compare(req.body.password, user.jelszo, function(err, res) {
-        if(res){
-            valid = true
-            console.log("sikeres login kinda");
-        }
-        else{
-            console.log("sikertelen login");
-        }
-      });
+    const valid = await bcrypt.compare(req.body.password, user.jelszo);
     
     if(valid){
+        console.log("valid");
         res.render('profil', {
             user
         });
     }
     else{
+        console.log("not valid");
         res.render('login', {
             
         });
