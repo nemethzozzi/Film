@@ -85,7 +85,7 @@ class FilmDAO {
 	}
 
 	async csoportositfeltoltes(mufajNev, filmId){
-		let results = await db.query("INSERT INTO csoportosit (\"mufajnev\", \"filmId\") VALUES ($1, $2)", [mufajNev, filmId]).catch(console.log);
+		let results = await db.query("INSERT INTO csoportosit (\"mufajNev\", \"filmId\") VALUES ($1, $2)", [mufajNev, filmId]).catch(console.log);
 			return results;
 	}
 
