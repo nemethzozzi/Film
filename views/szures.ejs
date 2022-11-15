@@ -84,7 +84,7 @@ function keres(){
 		let asd = JSON.parse(this.responseText);
 		for(let i=0;i<asd.length;i++)
 		{
-			eredmeny.innerHTML+="<div class='egyfilm'><div class='kep'><img src='"+asd[i]['kepUrl'].replace("img/","")+"'></div><div class='cim'>"+asd[i]['cim']+"</div></div>";
+			eredmeny.innerHTML+="<div class='egyfilm'><div class='kep'><img src='"+asd[i]['kepUrl']+".jpg'></div><div class='cim'>"+asd[i]['cim']+"</div></div>";
 		}
 		
 	}
