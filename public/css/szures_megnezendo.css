@@ -1,5 +1,24 @@
-#eredmeny .egyfilm img{
-	width:100px;
+#eredmeny .egyfilm img {
+    width:135px;
+}
+
+#eredmeny {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#eredmeny .egyfilm {
+    padding: 10px 40px;
+}
+
+.cim {
+    text-align: center;
+    color: #f1f1f1;
+    font-family: Calibri, serif;
+    font-size: large;
 }
 
 hr {
