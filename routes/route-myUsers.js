@@ -8,19 +8,21 @@ const router = express.Router();
 
 
 router.post("/userLogin", async (req,res) => {
-    var email = req.body.email;
-    var password = req.body.password;
+    let email = req.body.email;
+    let password = req.body.password;
 
     const user = await new myUserDAO().getUserDataByEmail(email);
-    let validpassword = await bcrypt.compare(password, user['jelszo']);
-    if(validpassword) {
+    const validPassword = await bcrypt.compare(req.body.password, user.jelszo);
+    if(validPassword){
+        console.log("sikeres bejelentkezes");
         res.render('profil', {
             user
         });
     }
     else{
-        res.render('login', {});
+        return res.status(400).send('Invalid Email or Password.');
     }
+
 }); 
 /*
 router.post("/registeruser", async (req, res) => {
