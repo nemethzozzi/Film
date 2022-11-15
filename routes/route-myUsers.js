@@ -23,10 +23,22 @@ router.post("/userLogin", async (req,res) => {
     });
         
 }); 
+/*
+router.post("/registeruser", async (req, res) => {
+    let {email} = req.body;
+    let {password} = req.body;
+    let {role} = req.body;
+    
+    bcrypt.hash(password, 10).then(async (hash) => {
+        await new UserDAO().createUser(email, hash, role)
+    });
+    
+    return res.redirect('/')
+});*/
 router.post("/userRegister", async (req, res) => {
-    let email = req.body.email;
-    let password = req.body.password;
-    let nev = req.body.nev;
+    let {email} = req.body.email;
+    let {password} = req.body.password;
+    let {nev} = req.body.nev;
     /*var passwordAgain = req.body.passwordAgain;
     if(password != passwordAgain){
         alert("Registration failed, passwords do not match!");  
