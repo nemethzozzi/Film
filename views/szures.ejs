@@ -163,7 +163,7 @@ function keres(){
 	xhr.onload=function() {
 		alert(this.responseText);
 	}
-	xhr.send('feltetelek='+asd);
+	xhr.send('feltetelek='+JSON.stringify(asd));
 }
 
 </script>
