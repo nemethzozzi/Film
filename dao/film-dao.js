@@ -5,7 +5,7 @@ class FilmDAO {
 	async szures(cim='',rendezok='', szineszek='', mufajok='', megjelenesi_evek='') {/*majd id-s is lesz*/
 		/*rendezo, szinész, műfaj, megjelenés éve*/
 		
-		if(cim='' && rendezok=='' && szineszek=='' && mufajok=='' && megjelenesi_evek=='')
+		if(cim=='' && rendezok=='' && szineszek=='' && mufajok=='' && megjelenesi_evek=='')
 		{
 			let lekerd = await db.query('select * from film')
 				.catch(console.log);
@@ -34,7 +34,7 @@ class FilmDAO {
 		
 		if(Array.isArray(cim) && cim[0]!='')
 		{
-			alap+="and (1=0 ";
+			alap+=" and (1=0 ";
 			for (var i=0; i<cim.length; i++)
 				alap+= "or film.cim like '%"+cim[i]+"%' ";
 			alap+=") ";
