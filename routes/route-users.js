@@ -47,7 +47,7 @@ router.get("/regisztracio", async (req, res) => { //teszt
         })
     }*/
     return res.render('regisztracio', { //TESZT
-        current_role: current_role
+        //current_role: current_role
     });
 });
 
