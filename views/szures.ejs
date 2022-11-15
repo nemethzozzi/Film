@@ -68,18 +68,11 @@ function keres(){
 	{
 		asd[szuresinpek[i].id]=szuresinpek[i].value.split(',');
 		for(let l=0;l<asd[szuresinpek[i].id].length;l++) asd[szuresinpek[i].id][l]=asd[szuresinpek[i].id][l].trim();
-		
-	}
-	//alert(JSON.stringify(asd));
-	//alert(asd["rendezok"].length);
-	//return;
-	
+	}	
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST','/szurproba',true);
 	xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	xhr.onload=function() {
-		//eredmeny.innerHTML=this.responseText+'';
-		//return;
 		eredmeny.innerHTML="";
 		let asd = JSON.parse(this.responseText);
 		for(let i=0;i<asd.length;i++)
