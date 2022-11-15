@@ -14,7 +14,7 @@ class FilmDAO {
 		
 		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.\"filmId\"=rendez.\"filmId\" and film.\"filmId\"=szerepel.\"filmId\" and film.\"filmId\"=csoportosit.\"filmId\" and (rendez.\"szemelyId\" = szemely.\"szemelyId\" or szerepel.\"szemelyId\" = szemely.\"szemelyId\") ";
 		//alap+="----";
-		alap+="(1=0 ";
+		alap+="and (1=0 ";
 		if(Array.isArray(rendezok) && rendezok[0]!='')
 		{
 			alap+="or (1=0 ";
