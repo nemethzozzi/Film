@@ -44,14 +44,14 @@
     </header>
 
 	<div class="flex-container1" id="szures">
-		<div><label>Film címe <input id='cim' type="text" name="cim" size=25></label></div>
-		<div><label>Műfaj <input id='mufaj' type="text" name="mufaj" size=25></label></div>
-		<div><label>Rendező(k) <input id='rendezok' type="text" name="rendezok" size=25></label></div>
-		<div><label>Megjelenési év <input id='ev' type="number" name="ev" ></label></div>
-		<div><label>Értékelés <input id='ertekeles' type="number" name="ertekeles" ></label></div>
-		<div><label>Színész(ek) <input id='szineszek' type="text" name="szineszek" size=25></label></div>
+		<div><label>Film címe <input id='cim' type="text" size=25></label></div>
+		<div><label>Műfaj <input id='mufaj' type="text" size=25></label></div>
+		<div><label>Rendező(k) <input id='rendezok' type="text" size=25></label></div>
+		<div><label>Megjelenési év <input id='ev' type="number"></label></div>
+		<div><label>Értékelés <input id='ertekeles' type="number"></label></div>
+		<div><label>Színész(ek) <input id='szineszek' type="text" size=25></label></div>
 	</div>
-	<div class="kozepre"><input type="submit" value="Keresés" name="keres"></div>
+	<div class="kozepre"><input type="button" value="Keresés" onclick="keres();"></div>
 
     <hr>
 
@@ -59,7 +59,7 @@
         
         
     </div>
-	<input type='button' value='teszt' onclick="keres();">
+
 <script>
 function keres(){
 	let szuresinpek = szures.getElementsByTagName('input');
