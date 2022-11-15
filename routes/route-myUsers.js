@@ -12,9 +12,15 @@ router.post("/userLogin", async (req,res) => {
     let password = req.body.password;
 
     const user = await new myUserDAO().getUserDataByEmail(email);
-    const validPassword = await bcrypt.compare(req.body.password, user.jelszo);
-    if(validPassword){
-        console.log("sikeres bejelentkezes");
+    console.log("hash: " + user.jelszo);
+    let valid = false;
+    bcrypt.compare(req.body.password, user.jelszo, function(err, res) {
+        if(res){
+            valid = true
+        }
+      });
+    
+    if(valid){
         res.render('profil', {
             user
         });
@@ -24,7 +30,6 @@ router.post("/userLogin", async (req,res) => {
             
         });
     }
-
 }); 
 /*
 router.post("/registeruser", async (req, res) => {
@@ -58,6 +63,7 @@ router.post("/userRegister", async (req, res) => {
     sessionStorage.setItem("fEmail", user.email);*/
     //alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
     res.render('profil', {
+        user
     });
 });
 module.exports = router;
