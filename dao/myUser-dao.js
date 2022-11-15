@@ -26,11 +26,10 @@ class myUserDAO {
         return userData;
     }*/
 
-    async ujFelhasznalo(nev, email, jelszo) {
+    async ujFelhasznalo(nev, email, hashedpassword) {
         // felhasználó beillesztése adatbázisba
         let tipus = "user";
-        console.log(nev);
-        let dbQuerry = await db.query("INSERT INTO felhasznalo (\"nev\", \"felhasznaloTipus\", \"email\", \"jelszo\") VALUES ($1, $2, $3, $4)", [nev, tipus, email, jelszo]).catch(console.log);
+        let dbQuerry = await db.query("INSERT INTO felhasznalo (\"nev\", \"felhasznaloTipus\", \"email\", \"jelszo\") VALUES ($1, $2, $3, $4)", [nev, tipus, email, hashedpassword]).catch(console.log);
         return dbQuerry;
     };
 };

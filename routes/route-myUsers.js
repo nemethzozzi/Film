@@ -32,6 +32,7 @@ router.post("/userRegister", async (req, res) => {
     if(password != passwordAgain){
         alert("Registration failed, passwords do not match!");  
     }else{*/
+    console.log(nev);
     let salt = bcrypt.genSaltSync(10);
     let hashedpassword = bcrypt.hashSync(toString(password), salt);
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
@@ -42,6 +43,6 @@ router.post("/userRegister", async (req, res) => {
     sessionStorage.setItem("fEmail", user.email);
     */
     alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
-    
+    return success;
 });
 module.exports = router;
