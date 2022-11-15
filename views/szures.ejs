@@ -149,7 +149,8 @@ function keres(){
 	let asd={};
 	for(let i=0;i<szuresinpek.length;i++)
 	{
-		asd[szuresinpek[i].id]=array();
+		asd[szuresinpek[i].id]=szuresinpek[i].value.split(',');
+		for(let l=0;l<asd[szuresinpek[i].id].length;l++) asd[szuresinpek[i].id][l]=asd[szuresinpek[i].id][l].trim();
 		
 	}
 	alert(JSON.stringify(asd));
