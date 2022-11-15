@@ -46,11 +46,12 @@ class FilmDAO {
 			alap+=") ";
 		} else if(megjelenesi_evek!='') alap+= "and EXTRACT(YEAR FROM film.megjelenes) = "+megjelenesi_evek+" ";
 		alap+=") group by film.\"filmId\"";
+		
 		let result = await db.query(alap)
             .catch(console.log);
 		
 		//return [result.rows,alap];
-		if(result!="undefined")
+		if(typeof result!="undefined")
 			return result.rows;
 		else return "";
 		//return "";
