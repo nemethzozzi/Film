@@ -50,8 +50,10 @@ class FilmDAO {
             .catch(console.log);
 		
 		//return [result.rows,alap];
-		//return result.rows;
-		return "";
+		if(result!="undefined")
+			return result.rows;
+		else return "";
+		//return "";
 	}
 
 	async filmfeltoltes(cim, leiras, kepUrl, elozetesLink, megjelenes) {
