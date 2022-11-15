@@ -49,7 +49,7 @@ class FilmDAO {
 		let result = await db.query(alap)
             .catch(console.log);
 		
-		
+		alap+=" group by film.\"filmId\"";
 		return [result.rows,alap];
 	}
 
