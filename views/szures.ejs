@@ -43,7 +43,7 @@
 
     </header>
 
-	<div class="flex-container1" id="szuresinputok">
+	<div class="flex-container1" id="szures">
 		<div><label>Film címe <input id='cim' type="text" name="cim" size=25></label></div>
 		<div><label>Műfaj <input id='mufaj' type="text" name="mufaj" size=25></label></div>
 		<div><label>Rendező(k) <input id='rendezok' type="text" name="rendezok" size=25></label></div>
@@ -154,6 +154,7 @@ function keres(){
 		
 	}
 	alert(JSON.stringify(asd));
+	alert(asd["rendezok"].length);
 	return;
 	
 	let xhr = new XMLHttpRequest();
