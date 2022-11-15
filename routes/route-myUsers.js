@@ -12,13 +12,15 @@ router.post("/userLogin", async (req,res) => {
     var password = req.body.password;
 
     const user = await new myUserDAO().getUserDataByEmail(email);
-    bcrypt.compare(password, user.jelszo).then(function(result){
-        if(result){
-            res.render('profil', {
-                user
-            });
-        }
-    });
+    validpassword = bcrypt.compare(password, user.jelszo);
+    if(validpassword) {
+        res.render('profil', {
+            user
+        });
+    }
+    else{
+        res.render('login', {});
+    }
 }); 
 /*
 router.post("/registeruser", async (req, res) => {
