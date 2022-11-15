@@ -144,6 +144,7 @@ router.get("/megnezendo", async(req, res) => {
 
     //SABLON KÓD:
     //let id = req.sessionStorage.id ?? valami ilyesmi
+    
     let sample = "1;3;4;5;6;";
     let filmIds = sample.split(";")
     //loop-olashoz:

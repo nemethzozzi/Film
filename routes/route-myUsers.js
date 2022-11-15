@@ -8,18 +8,27 @@ const router = express.Router();
 
 
 router.post("/userLogin", async (req,res) => {
-    var email = req.body.email;
-    var password = req.body.password;
+    let email = req.body.email;
+    let password = req.body.password;
 
     const user = await new myUserDAO().getUserDataByEmail(email);
-    let validpassword = bcrypt.compare(password, user.jelszo);
-    if(validpassword) {
+    console.log("hash: " + user.jelszo);
+    let valid = false;
+    bcrypt.compare(req.body.password, user.jelszo, function(err, res) {
+        if(res){
+            valid = true
+        }
+      });
+    
+    if(valid){
         res.render('profil', {
             user
         });
     }
     else{
-        res.render('login', {});
+        res.render('login', {
+            
+        });
     }
 }); 
 /*
@@ -54,6 +63,7 @@ router.post("/userRegister", async (req, res) => {
     sessionStorage.setItem("fEmail", user.email);*/
     //alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
     res.render('profil', {
+        user
     });
 });
 module.exports = router;

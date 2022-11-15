@@ -15,18 +15,9 @@ class myUserDAO {
         // id-nev-tipus-email-jelszo formatumban
         // session kezeléshez hasznos, nem létfontosságú
 
-        //update: tejlesen obsolete, később törlés
-
-        
-        let id =  await db.query("SELECT \"felhasznaloId\" FROM Felhasznalo WHERE email = $1", [email]);
-        let nev =  await db.query("SELECT nev FROM Felhasznalo WHERE email = $1", [email]);
-        let tipus =  await db.query("SELECT \"felhasznaloTipus\" FROM Felhasznalo WHERE email = $1", [email]);
-        //let email =  email; fölös
-        let jelszo =  await db.query("SELECT jelszo FROM Felhasznalo WHERE email = $1", [email]);
-        //jelszo-t biztos akarjuk visszaadni?
-        //let megnezendo = await db.query(); EZT MEGCSINÁLNI
-        let userData = [id, nev, tipus, email, jelszo];
-        return userData;
+        let dbQuery =  await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\", jelszo FROM Felhasznalo WHERE email = $1", [email]);
+        //megnezendo-t is lekerni!!!!
+        return dbQuery.rows[0];
     }
 
     async ujFelhasznalo(nev, email, hashedpassword) {
