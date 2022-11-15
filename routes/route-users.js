@@ -137,7 +137,10 @@ router.get("/szures", async (req, res) => {
 
 router.get("/megnezendo", async(req, res) => {
     return res.render('megnezendo', {
-        //
+        //megnezendo string lekérése felhasznaloId-val DAO-n keresztül
+        //megnezendo string szétszedése 
+        //filmId-k alapján cím és képUrl lekérése DAO-val
+        //átadása megnezendo oldalnak
     });
 });
 
