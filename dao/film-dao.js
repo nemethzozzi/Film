@@ -9,7 +9,7 @@ class FilmDAO {
 		{
 			let lekerd = await db.query('select * from film')
 				.catch(console.log);
-			return [lekerd.rows,'minden'];
+			return lekerd.rows;
 		}
 		
 		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.\"filmId\"=rendez.\"filmId\" and film.\"filmId\"=szerepel.\"filmId\" and film.\"filmId\"=csoportosit.\"filmId\" and (rendez.\"szemelyId\" = szemely.\"szemelyId\" or szerepel.\"szemelyId\" = szemely.\"szemelyId\") and ( 1=1 ";
@@ -49,7 +49,8 @@ class FilmDAO {
 		let result = await db.query(alap)
             .catch(console.log);
 		
-		return [result.rows,alap];
+		//return [result.rows,alap];
+		return result.rows;
 	}
 
 	async filmfeltoltes(cim, leiras, kepUrl, elozetesLink, megjelenes) {
