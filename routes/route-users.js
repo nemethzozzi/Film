@@ -140,4 +140,11 @@ router.get("/megnezendo", async(req, res) => {
         //
     });
 });
+
+router.post("/szurproba", async(req, res) => {
+   res.json({ message: 'blablabla'+req.body.proba+'' });
+});
+
+ 
+
 module.exports = router;

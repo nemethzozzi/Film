@@ -144,6 +144,19 @@
             </td>
         </tr>
     </table>
+	<input type='button' value='teszt' onclick="kd('proba=kuldproba');">
+<script>
+function kd(asd){
+	if(asd=="")return;
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST','/szurproba',true);
+	xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	xhr.onload=function() {
+		alert(this.responseText);
+	}
+	xhr.send(asd);
+}
 
+</script>
 </body>
 </html>
