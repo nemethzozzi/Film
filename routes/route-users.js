@@ -149,7 +149,7 @@ router.post("/szurproba", async(req, res) => {
 	//let lekerdezes = await new FilmDAO().szures(req.body.rendezok,[],['dráma','krimi'],['1972','2020']);
 	//res.json({  });
 	res.setHeader('Content-Type', 'application/json');
-    res.end(/*string ide*/message: kaptam['rendezok'][0]+'');
+    res.end(/*string ide*/''+kaptam['rendezok'][0]+'');
 });
 
  
