@@ -153,7 +153,7 @@ router.post("/szurproba", async(req, res) => {
 	for (var i=0; i<lekerdezes.length; i++){
 		
 		
-	}*/
+	}
 	
 	res.setHeader('Content-Type', 'application/json');
     res.end(/*string ide*/''+JSON.stringify(asd)+'');
