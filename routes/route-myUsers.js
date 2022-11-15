@@ -12,7 +12,7 @@ router.post("/userLogin", async (req,res) => {
     var password = req.body.password;
 
     const user = await new myUserDAO().getUserDataByEmail(email);
-    let validpassword = bcrypt.compare(password, user.jelszo);
+    let validpassword = await bcrypt.compare(password, user['jelszo']);
     if(validpassword) {
         res.render('profil', {
             user
