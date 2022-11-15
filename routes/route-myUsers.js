@@ -14,14 +14,14 @@ router.post("/userLogin", async (req,res) => {
     const user = await new myUserDAO().getUserDataByEmail(email);
     bcrypt.compare(password, user.jelszo).then(function(result){
         if(result){
-            sessionStorage.setItem("fId", user.id);
+            /*sessionStorage.setItem("fId", user.id);
             sessionStorage.setItem("fNev", user.nev);
             sessionStorage.setItem("fTipus", user.tipus);
             sessionStorage.setItem("fEmail", user.email);
-            alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
-        }else{alert("wrong credentials! no login for you! >:(")}
+            alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);*/
+        }/*else{alert("wrong credentials! no login for you! >:(")}*/
     });
-        
+    
 }); 
 /*
 router.post("/registeruser", async (req, res) => {
@@ -49,10 +49,10 @@ router.post("/userRegister", async (req, res) => {
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
     //sessionStorage deklaráció
-    sessionStorage.setItem("fId", user.id);
+    /*sessionStorage.setItem("fId", user.id);
     sessionStorage.setItem("fNev", user.nev);
     sessionStorage.setItem("fTipus", user.tipus);
-    sessionStorage.setItem("fEmail", user.email);
+    sessionStorage.setItem("fEmail", user.email);*/
     //alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
     res.render('profil', {
     });
