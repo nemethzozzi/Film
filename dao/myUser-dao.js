@@ -3,7 +3,7 @@ const db = require('../config/db');
 class myUserDAO {
     async getUserByEmail(email){
         // visszaad egy változót ami tárolja a lekérdezés eredményeit, email alapján
-        let dbQuery = await db.query("SELECT id, nev, tipus, email, jelszo FROM Felhasznalo WHERE email = $1", [email]);
+        let dbQuery = await db.query("SELECT \"felhasznaloId\", nev, felhasznaloTipus, email, jelszo FROM Felhasznalo WHERE email = $1", [email]);
         if(dbQuery = null){
             return 'no match';
         }
@@ -18,9 +18,9 @@ class myUserDAO {
         //update: tejlesen obsolete, később törlés
 
         
-        let id =  await db.query("SELECT felhasznaloId FROM Felhasznalo WHERE email = $1", [email]);
+        let id =  await db.query("SELECT \"felhasznaloId\" FROM Felhasznalo WHERE email = $1", [email]);
         let nev =  await db.query("SELECT nev FROM Felhasznalo WHERE email = $1", [email]);
-        let tipus =  await db.query("SELECT felhasznaloTipus FROM Felhasznalo WHERE email = $1", [email]);
+        let tipus =  await db.query("SELECT \"felhasznaloTipus\" FROM Felhasznalo WHERE email = $1", [email]);
         //let email =  email; fölös
         let jelszo =  await db.query("SELECT jelszo FROM Felhasznalo WHERE email = $1", [email]);
         //jelszo-t biztos akarjuk visszaadni?
