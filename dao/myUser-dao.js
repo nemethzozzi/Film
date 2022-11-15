@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 class myUserDAO {
-    /*async getUserByEmail(email){
+    async getUserByEmail(email){
         // visszaad egy változót ami tárolja a lekérdezés eredményeit, email alapján
         let dbQuery = await db.query("SELECT id, nev, tipus, email, jelszo FROM Felhasznalo WHERE email = $1", [email]);
         if(dbQuery = null){
@@ -24,7 +24,7 @@ class myUserDAO {
         userData[3] =  email;
         userData[4] =  await db.query("SELECT jelszo FROM Felhasznalo WHERE email = $1", [email]);
         return userData;
-    }*/
+    }
 
     async ujFelhasznalo(nev, email, hashedpassword) {
         // felhasználó beillesztése adatbázisba
