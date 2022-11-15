@@ -12,12 +12,12 @@ class FilmDAO {
 			return [lekerd.rows,''];
 		}
 		
-		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where (film.\"filmId\"=rendez.\"filmId\" or film.\"filmId\"=szerepel.\"filmId\") and film.\"filmId\"=csoportosit.\"filmId\" and (rendez.\"szemelyId\" = szemely.\"szemelyId\" or szerepel.\"szemelyId\" = szemely.\"szemelyId\") and ( 1=1 and";
+		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.\"filmId\"=rendez.\"filmId\" and film.\"filmId\"=szerepel.\"filmId\" and film.\"filmId\"=csoportosit.\"filmId\" and (rendez.\"szemelyId\" = szemely.\"szemelyId\" or szerepel.\"szemelyId\" = szemely.\"szemelyId\") and ( 1=1 and";
 		//alap+="----";
-		alap+=" (1=1 ";
+		alap+=" (1=0 ";
 		if(Array.isArray(rendezok) && rendezok[0]!='')
 		{
-			alap+="and (1=0 ";
+			alap+="";
 			for (var i=0; i<rendezok.length; i++)
 				alap+= "or (rendez.\"szemelyId\" = szemely.\"szemelyId\" and szemely.\"szemelyNev\" like '%"+rendezok[i]+"%' )";
 			alap+=") ";
@@ -25,7 +25,7 @@ class FilmDAO {
 		
 		if(Array.isArray(szineszek) && szineszek[0]!='')
 		{
-			alap+="and (1=0 ";
+			alap+="";
 			for (var i=0; i<szineszek.length; i++)
 				alap+= "or (szerepel.\"szemelyId\" = szemely.\"szemelyId\" and szemely.\"szemelyNev\" like '%"+szineszek[i]+"%' )";
 			alap+=") ";
