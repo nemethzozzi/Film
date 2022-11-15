@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const UserDAO = require('../dao/user-dao');
+const FilmDAO = require('../dao/film-dao');
 const jwt = require('jsonwebtoken')
 const jwtSecret = require("./../config/auth.js");
 const router = express.Router();
@@ -159,10 +160,9 @@ router.get("/megnezendo", async(req, res) => {
 
 router.post("/szurproba", async(req, res) => {
 	let kaptam= JSON.parse(req.body.feltetelek);
-	//let lekerdezes = await new FilmDAO().szures(req.body.rendezok,[],['dráma','krimi'],['1972','2020']);
-	//res.json({  });
+	let lekerdezes = await new FilmDAO().szures(kaptam['rendezok'],kaptam['szineszek'],kaptam['mufaj'],kaptam['ev']);
 	res.setHeader('Content-Type', 'application/json');
-    res.end(/*string ide*/''+kaptam['rendezok'][0]+'');
+    res.end(/*string ide*/''+JSON.stringify(lekerdezes)+'');
 });
 
  

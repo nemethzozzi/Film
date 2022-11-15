@@ -51,7 +51,7 @@
 		<div><label>Értékelés <input id='ertekeles' type="number" name="ertekeles" ></label></div>
 		<div><label>Színész(ek) <input id='szineszek' type="text" name="szineszek" size=25></label></div>
 	</div>
-	<div class="kozepre"><input type="submit" value="Keresés" name="keres"></div>
+	<div id='eredmeny' class="kozepre"><input type="submit" value="Keresés" name="keres"></div>
 
     <hr>
 
@@ -161,7 +161,18 @@ function keres(){
 	xhr.open('POST','/szurproba',true);
 	xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	xhr.onload=function() {
-		alert(this.responseText);
+		//alert(this.responseText);
+		//json tömböt kapok vissza
+		eredmeny.innerHTML="";
+		let asd = JSON.parse(this.responseText);
+		for(let i=0;i<asd.length;i++)
+		{
+			for(let kulcs in asd[i])
+			{
+				eredmeny.innerHTML+="<div>"+asd[i][kulcs]+"</div>";
+			}
+		}
+		
 	}
 	xhr.send('feltetelek='+JSON.stringify(asd));
 }
