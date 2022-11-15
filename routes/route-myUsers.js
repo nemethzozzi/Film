@@ -42,6 +42,6 @@ router.post("/userRegister", async (req, res) => {
     sessionStorage.setItem("fEmail", user.email);
     */
     //alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
-    return success;
+    res.render('profil', {});
 });
 module.exports = router;
