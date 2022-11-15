@@ -13,6 +13,7 @@ router.post("/userLogin", async (req,res) => {
 
     const user = await new myUserDAO().getUserDataByEmail(email);
     console.log("hash: " + user.jelszo);
+    console.log(req.body.password);
     let valid = false;
     bcrypt.compare(req.body.password, user.jelszo, function(err, res) {
         if(res){
