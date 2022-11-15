@@ -55,12 +55,12 @@ class FilmDAO {
 				alap+= "or EXTRACT(YEAR FROM film.megjelenes) = "+megjelenesi_evek[i]+" ";
 			alap+=") ";
 		} else if(megjelenesi_evek!='' && !Array.isArray(megjelenesi_evek)) alap+= "and EXTRACT(YEAR FROM film.megjelenes) = "+megjelenesi_evek+" ";
-		//alap+=")"; //group by film.\"filmId\"";
+		alap+=" group by film.\"filmId\"";
 		
 		let result = await db.query(alap)
             .catch(console.log);
 		
-		console.log("\n"+alap+"\n");
+		//console.log("\n"+alap+"\n");
 		
 		//return [result.rows,alap];
 		if(typeof result!="undefined")
