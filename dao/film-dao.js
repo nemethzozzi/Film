@@ -14,7 +14,7 @@ class FilmDAO {
 		
 		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.\"filmId\"=rendez.\"filmId\" and film.\"filmId\"=szerepel.\"filmId\" and film.\"filmId\"=csoportosit.\"filmId\" and (rendez.\"szemelyId\" = szemely.\"szemelyId\" or szerepel.\"szemelyId\" = szemely.\"szemelyId\") ";
 		//alap+="----";
-		alap+="and (1=0 ";
+		if((Array.isArray(rendezok) && rendezok[0]!='') || (Array.isArray(szineszek) && szineszek[0]!='')) alap+="and (1=0 ";
 		if(Array.isArray(rendezok) && rendezok[0]!='')
 		{
 			alap+="or (1=0 ";
@@ -30,7 +30,7 @@ class FilmDAO {
 				alap+= "or (szerepel.\"szemelyId\" = szemely.\"szemelyId\" and szemely.\"szemelyNev\" like '%"+szineszek[i]+"%' )";
 			alap+=") ";
 		} else if(szineszek!='' && !Array.isArray(szineszek)) alap+= "or (szerepel.\"szemelyId\" = szemely.\"szemelyId\" and szemely.\"szemelyNev\" like '%"+szineszek+"%' )";
-		alap+=")";
+		if((Array.isArray(rendezok) && rendezok[0]!='') || (Array.isArray(szineszek) && szineszek[0]!='')) alap+=")";
 		
 		if(Array.isArray(cim) && cim[0]!='')
 		{
