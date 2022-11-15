@@ -21,6 +21,10 @@
     font-size: large;
 }
 
+.kep {
+    text-align: center;
+}
+
 hr {
     margin-top: 20px;
     margin-bottom: 40px;
