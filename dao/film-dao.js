@@ -52,8 +52,8 @@ class FilmDAO {
 		
 		//return [result.rows,alap];
 		if(typeof result!="undefined")
-			return result.rows;
-		else return "";
+			return [result.rows,alap];
+		else return ["",alap];
 		//return "";
 	}
 
