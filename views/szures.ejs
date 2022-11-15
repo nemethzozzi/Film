@@ -70,7 +70,7 @@ function keres(){
 		for(let l=0;l<asd[szuresinpek[i].id].length;l++) asd[szuresinpek[i].id][l]=asd[szuresinpek[i].id][l].trim();
 		
 	}
-	alert(JSON.stringify(asd));
+	//alert(JSON.stringify(asd));
 	//alert(asd["rendezok"].length);
 	//return;
 	
@@ -84,7 +84,7 @@ function keres(){
 		let asd = JSON.parse(this.responseText);
 		for(let i=0;i<asd.length;i++)
 		{
-			eredmeny.innerHTML+="<div class='egyfilm'><div class='kep'><img src='"+asd[i]['kepUrl']+"'></div><div class='cim'>"+asd[i]['cim']+"</div></div>";
+			eredmeny.innerHTML+="<div class='egyfilm'><div class='kep'><img src='"+asd[i]['kepUrl'].replace("img/","")+"'></div><div class='cim'>"+asd[i]['cim']+"</div></div>";
 		}
 		
 	}
