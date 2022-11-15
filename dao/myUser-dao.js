@@ -18,12 +18,13 @@ class myUserDAO {
         //update: tejlesen obsolete, később törlés
 
         
-        id =  await db.query("SELECT id FROM Felhasznalo WHERE email = $1", [email]);
-        nev =  await db.query("SELECT nev FROM Felhasznalo WHERE email = $1", [email]);
-        tipus =  await db.query("SELECT tipus FROM Felhasznalo WHERE email = $1", [email]);
-        email =  email;
-        jelszo =  await db.query("SELECT jelszo FROM Felhasznalo WHERE email = $1", [email]);
+        let id =  await db.query("SELECT felhasznaloId FROM Felhasznalo WHERE email = $1", [email]);
+        let nev =  await db.query("SELECT nev FROM Felhasznalo WHERE email = $1", [email]);
+        let tipus =  await db.query("SELECT felhasznaloTipus FROM Felhasznalo WHERE email = $1", [email]);
+        //let email =  email; fölös
+        let jelszo =  await db.query("SELECT jelszo FROM Felhasznalo WHERE email = $1", [email]);
         //jelszo-t biztos akarjuk visszaadni?
+        //let megnezendo = await db.query(); EZT MEGCSINÁLNI
         let userData = [id, nev, tipus, email, jelszo];
         return userData;
     }
