@@ -9,12 +9,12 @@ class FilmDAO {
 		{
 			let lekerd = await db.query('select * from film')
 				.catch(console.log);
-			return [lekerd.rows,''];
+			return [lekerd.rows,'minden'];
 		}
 		
 		let alap="select film.* from film,rendez,szerepel,csoportosit,szemely where film.\"filmId\"=rendez.\"filmId\" and film.\"filmId\"=szerepel.\"filmId\" and film.\"filmId\"=csoportosit.\"filmId\" and (rendez.\"szemelyId\" = szemely.\"szemelyId\" or szerepel.\"szemelyId\" = szemely.\"szemelyId\") and ( (1=0 or 1=1) ";
 		//alap+="----";
-		if(Array.isArray(rendezok))
+		if(Array.isArray(rendezok) && rendezok.length!=0)
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<rendezok.length; i++)
@@ -22,7 +22,7 @@ class FilmDAO {
 			alap+=") ";
 		} else if(rendezok!='') alap+= "and szemely.\"szemelyNev\" like '%"+rendezok+"%' ";
 		
-		if(Array.isArray(szineszek))
+		if(Array.isArray(szineszek) && szineszek.length!=0)
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<szineszek.length; i++)
@@ -30,7 +30,7 @@ class FilmDAO {
 			alap+=") ";
 		} else alap+= "and szemely.\"szemelyNev\" like '%"+szineszek+"%' ";
 		
-		if(Array.isArray(mufajok))
+		if(Array.isArray(mufajok) && mufajok.length!=0)
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<mufajok.length; i++)
@@ -38,7 +38,7 @@ class FilmDAO {
 			alap+=") ";
 		} else alap+= "and szemely.\"szemelyNev\" like '%"+mufajok+"%' ";
 		
-		if(Array.isArray(megjelenesi_evek))
+		if(Array.isArray(megjelenesi_evek) && megjelenesi_evek.length!=0)
 		{
 			alap+="and (1=0 ";
 			for (var i=0; i<megjelenesi_evek.length; i++)
