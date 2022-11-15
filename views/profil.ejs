@@ -48,16 +48,24 @@
     
     <h1 class="feher">Profil</h1>
     <form  id="formok_formazasa">
-        <label>Felhasználónév:  <input type="text" name="name" placeholder="Valaki Neve"><br></label>
+        <label>Felhasználónév:  <input type="text" id="name" name="name" placeholder=""><br></label>
 
-        <label>Email cím:  <input type="email" name="email" placeholder="valaki@gmail.com"><br></label>
+        <label>Email cím:  <input type="email" id="email" name="email" placeholder=""><br></label>
 
-        <label>Jelszó:  <input type="password" autocomplete="off" name="password" placeholder="123Kuytus!"><br></label>
+        <label>Jelszó:  <input type="password" id="password" autocomplete="off" name="password" placeholder=""><br></label>
 
         <label>Születési dátum:  <input type="date" name="birthdate"><br></label>
 
         <input type="submit" value="Mentés" name="save">
     </form>
     
+    <script>
+        var Nev = "Valaki Neve";
+        var Mail = "valaki@gmail.com";
+        var Jelszo = "123Kuytus!";
+        document.getElementById("name").placeholder = Nev;
+        document.getElementById("email").placeholder = Mail;
+        document.getElementById("password").placeholder = Jelszo;
+        </script>
 </body>
 </html>

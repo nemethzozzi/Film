@@ -38,30 +38,30 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/regisztracio", async (req, res) => { //teszt
-    const token = req.cookies.jwt
+    /*const token = req.cookies.jwt
     var current_role;
     
     if (token) {
         jwt.verify(token, jwtSecret, (err, decodedToken) => {
             current_role = decodedToken.role;
         })
-    }
+    }*/
     return res.render('regisztracio', { //TESZT
-        current_role: current_role
+        //current_role: current_role
     });
 });
 
 router.get("/login", async (req, res) => {
-    const token = req.cookies.jwt
+    /*const token = req.cookies.jwt
     var current_role;
     
     if (token) {
         jwt.verify(token, jwtSecret, (err, decodedToken) => {
             current_role = decodedToken.role;
         })
-    }
+    }*/
     return res.render('login', {
-        current_role: current_role
+        //current_role: current_role
     });
 });
 
@@ -98,6 +98,7 @@ router.get("/login", async (req, res) => {
     }
 });*/
 
+/*
 router.post("/registeruser", async (req, res) => {
     let {email} = req.body;
     let {password} = req.body;
@@ -115,7 +116,7 @@ router.get("/logout", (req, res) => {
         maxAge: "1"
     })
     res.redirect("/")
-});
+});*/
 
 
 

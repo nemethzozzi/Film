@@ -3,7 +3,7 @@ const db = require('../config/db');
 class myUserDAO {
     async getUserByEmail(email){
         // visszaad egy változót ami tárolja a lekérdezés eredményeit, email alapján
-        let dbQuery = await db.query('SELECT id, nev, tipus, email, jelszo FROM Felhasznalo WHERE email = $1', [email]);
+        let dbQuery = await db.query("SELECT \"felhasznaloId\", nev, felhasznaloTipus, email, jelszo FROM Felhasznalo WHERE email = $1", [email]);
         if(dbQuery = null){
             return 'no match';
         }
@@ -17,20 +17,23 @@ class myUserDAO {
 
         //update: tejlesen obsolete, később törlés
 
-        let userData = new userData[5];
-        userData[0] =  await db.query('SELECT id FROM Felhasznalo WHERE email = $1', [email]);
-        userData[1] =  await db.query('SELECT nev FROM Felhasznalo WHERE email = $1', [email]);
-        userData[2] =  await db.query('SELECT tipus FROM Felhasznalo WHERE email = $1', [email]);
-        userData[3] =  email;
-        userData[4] =  await db.query('SELECT jelszo FROM Felhasznalo WHERE email = $1', [email]);
+        
+        let id =  await db.query("SELECT \"felhasznaloId\" FROM Felhasznalo WHERE email = $1", [email]);
+        let nev =  await db.query("SELECT nev FROM Felhasznalo WHERE email = $1", [email]);
+        let tipus =  await db.query("SELECT \"felhasznaloTipus\" FROM Felhasznalo WHERE email = $1", [email]);
+        //let email =  email; fölös
+        let jelszo =  await db.query("SELECT jelszo FROM Felhasznalo WHERE email = $1", [email]);
+        //jelszo-t biztos akarjuk visszaadni?
+        //let megnezendo = await db.query(); EZT MEGCSINÁLNI
+        let userData = [id, nev, tipus, email, jelszo];
         return userData;
     }
 
-    async ujFelhasznalo(nev, email, jelszo) {
+    async ujFelhasznalo(nev, email, hashedpassword) {
         // felhasználó beillesztése adatbázisba
-        // hashelést még meg kell valósítani
-        let dbQuerry = await db.query('INSERT INTO Felhasznalo (nev, tipus, email, jelszo) VALUES ($1, $2, $3, $4)', [nev, "user", email, jelszo]);
-        return dbQuerry;
+        let tipus = "user";
+        await db.query("INSERT INTO felhasznalo (\"nev\", \"felhasznaloTipus\", \"email\", \"jelszo\") VALUES ($1, $2, $3, $4)", [nev, tipus, email, hashedpassword]).catch(console.log);
+        return;
     };
 };
 
