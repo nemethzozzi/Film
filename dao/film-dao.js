@@ -50,7 +50,7 @@ class FilmDAO {
 		let result = await db.query(alap)
             .catch(console.log);
 		
-		//console.log(alap);
+		console.log(alap);
 		
 		//return [result.rows,alap];
 		if(typeof result!="undefined")
