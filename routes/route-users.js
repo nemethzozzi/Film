@@ -142,7 +142,9 @@ router.get("/megnezendo", async(req, res) => {
 });
 
 router.post("/szurproba", async(req, res) => {
-   res.json({ message: 'blablabla'+req.body.proba+'' });
+	let kaptam= JSON.parse(req.body.feltetelek);
+	//let lekerdezes = await new FilmDAO().szures(req.body.rendezok,[],['dráma','krimi'],['1972','2020']);
+	res.json({ message: kaptam['rendezok'][0]+'' });
 });
 
  
