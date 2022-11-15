@@ -20,6 +20,9 @@ router.post("/userLogin", async (req,res) => {
             valid = true
             console.log("sikeres login kinda");
         }
+        else{
+            console.log("sikertelen login");
+        }
       });
     
     if(valid){
