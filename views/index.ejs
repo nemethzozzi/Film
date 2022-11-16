@@ -38,6 +38,7 @@
                 document.getElementById("eye").hidden = false;
                 document.getElementById("eye_closed").hidden = true;
             }
+			//background-image: url('img_girl.jpg');
         </script>
     
     </header>
@@ -110,6 +111,23 @@
             </div>
         </div>
     </div>
-
+	
+	<script>
+	document.getElementsByTagName('body')[0].onload=function(){
+		/*let asd = document.getElementsByClassName('slide');
+		let filmek= "img/the_godfather_1.jpg;img/bosszuallok_2.jpg;img/harry_potter_3.jpg;img/pokember_4.jpg"
+		for(let i=0;i<asd.length;i++)
+			asd[i].style.backgroundImage="url("+filmek[i]+")";
+	*/
+	}
+	</script>
+	<style>
+	.slide{
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: 50% 100%;
+		background-position: center;
+	}
+	</style>
 </body>
 </html>
