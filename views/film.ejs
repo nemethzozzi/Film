@@ -94,7 +94,7 @@ function csillag(asd,kibe){
 	let csill=ertekeles.getElementsByTagName('img');
 	let i=-1;
 	do{
-		csill[++i].src="img/csillag_"+mire+".png";
+		if(!csill[++i].src.includes(kibe)) csill[i].src="img/csillag_"+mire+".png";
 	} while(csill[i]!=asd)
 }
 </script>
