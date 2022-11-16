@@ -11,7 +11,7 @@ async function compareIt(password, hashedPassword){
 }
 compareIt(password);
 
-const bcrypt = require('bcryptjs'); // npm i bcryptjs
+//const bcrypt = require('bcryptjs'); // npm i bcryptjs
 const password = "12345"
 let salt = bcrypt.genSaltSync(10);
 let hash = bcrypt.hashSync(password, salt);
