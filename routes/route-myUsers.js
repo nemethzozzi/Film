@@ -58,7 +58,7 @@ router.post("/userRegister", async (req, res) => {
     }else{*/
     console.log("ezt kaptam névnek: " + nev);
     //let salt = bcrypt.genSaltSync(10);
-    let hashedpassword = bcrypt.hashSync(toString(password), salt);
+    let hashedpassword = bcrypt.hashSync(toString(password));
     //let hashedpassword = password;
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
