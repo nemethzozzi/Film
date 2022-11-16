@@ -115,7 +115,7 @@
         A gengszterfilmek legnagyobbika, világhírű színészek és rendező munkája, minden idők egyik legnagyobb szabású maffiafilmje, a Keresztapa. A történet bemutatja azokat az embereket és azt a gépezetet, ami az olasz maffiában gyökerezve, a világ leghatalmasabb és legrettegettebb hatalmává vált az Egyesült Államokban. Figyelemmel követhetjük a kegyetlen, gyilkos módszereket, amivel a Corleone család feje dolgozik. Tanúi lehetünk a hihetetlen összetartásnak, az érdekek és a félelem összetartó erejének, ami ezt a világot jellemzi. Emberek sorsa, élet és halál kérdése dől el Don Vito Corleone dolgozószobájában. Egyesek védelemért fordulnak a nagyúrhoz, mások hadüzenettel érkeznek. A rivális maffia, a Tattaglia család ugyanis végső leszámolásra szólította fel a Corleone családot. S a hadüzenet után az egész város lángba borul.
     </p>   
 </div>
-<div class="ertekeles">
+<div class="ertekeles" id='ertekeles'>
     <img src="img/csillag_szurke.png" style="width:2%">
     <img src="img/csillag_szurke.png" style="width:2%">
     <img src="img/csillag_szurke.png" style="width:2%">
@@ -135,6 +135,20 @@
     </form>
     <button type="button" id="submit">Küldés</button>
 </div>
-
+<script>
+document.getElementsByTagName('body').onload=function(){
+	let asd=ertekeles.getElementsByTagName('img');
+	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);");
+	asd[i].onmouseleave=Function("csillag(this,0);");}
+}
+function csillag(asd,kibe){
+	let mire=kibe==0?'szurke':'sarga';
+	let csill=ertekeles.getElementsByTagName('img');
+	let i=0;
+	do{
+		csill[i++].src="img/csillag_"+mire+".png";
+	} while(csill[i]!=asd)
+}
+</script>
 </body>
 </html>
