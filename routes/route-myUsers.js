@@ -21,6 +21,7 @@ router.post("/userLogin", async (req,res) => {
         valid = true;
     }*/
     valid = await bcrypt.compare(req.body.password, user.jelszo);
+    console.log("valid erteke: " + valid);
     //ez ugy nagyon nem mukodik jelenleg :) segitseg
     if(valid){
         console.log("valid login");
