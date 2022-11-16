@@ -16,7 +16,6 @@ router.post("/userLogin", async (req,res) => {
     console.log("email from db: " + user.email);
     console.log("passw from input: " + password);
     console.log("passw from db: " + user.jelszo);
-    console.log(req.body.password);
     let valid = false;
     /*if(req.body.password == user.jelszo){
         valid = true;
