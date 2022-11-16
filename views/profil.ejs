@@ -14,6 +14,7 @@
         sessionStorage.setItem("email",user[email]);
         sessionStorage.setItem("nev", user[nev]);
         sessionStorage.setItem("tipus", user[felhasznaloTipus]);
+        console.log("atadott nev: " + user[nev] + "sessionStorage nev: " + sessionStorage.getItem("nev"));
         alert("Bejelentkeztél mint: $1", user[nev]);
     }
 </script>
