@@ -21,6 +21,10 @@
     font-size: large;
 }
 
+#eredmeny a{
+    text-decoration: none;
+} 
+
 .kep {
     text-align: center;
 }
