@@ -28,59 +28,7 @@
         <a id="eye" href="/megnezendo"><img src="img/szem.png" alt="szem"></a>
         <a id="eye_closed" href="/megnezendo"><img src="img/csukva.png" alt="csukott_szem"></a>
 
-        <script>
-            document.getElementById("eye_closed").hidden = true;
-            document.getElementById("eye").onmouseenter = function() {
 
-                document.getElementById("eye").hidden = true;
-                document.getElementById("eye_closed").hidden = false;
-            }
-            document.getElementById("eye_closed").onmouseleave = function (){
-                document.getElementById("eye").hidden = false;
-                document.getElementById("eye_closed").hidden = true;
-            }
-        </script>
-        <script>
-            let slideIndex = 1;
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-        showSlides(slideIndex += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-        showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-    
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex-1].style.display = "block";
-        }
-        </script>
-        <script>
-            let kep = "kep.png";
-            let Cim = "Film cime";
-            let Rendezo = "Rendezo";
-            let Szinesz = "Szinesz";
-            let Leiras = "Leiras";
-            let Komment = "Komment";
-            
-            document.getElementByClass("mySlides").placeholder = Kep;
-            document.getElementByClass("cim").placeholder = Cim;
-            document.getElementByClass("rendezok").placeholder = Rendezok;
-            document.getElementByClass("szineszek").placeholder = Szineszek;
-            document.getElementByClass("leiras").placeholder = Leiras;
-            document.getElementByID("comment").placeholder = Komment;
-        </script>
     </header>
 
 <!-- Slideshow container -->
@@ -138,7 +86,7 @@
 <script>
 document.getElementsByTagName('body').onload=function(){
 	let asd=ertekeles.getElementsByTagName('img');
-	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);");
+	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);alert('');");
 	asd[i].onmouseleave=Function("csillag(this,0);");}
 }
 function csillag(asd,kibe){
