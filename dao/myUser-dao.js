@@ -15,7 +15,7 @@ class myUserDAO {
         // id-nev-tipus-email-jelszo formatumban
         // session kezeléshez hasznos, nem létfontosságú
 
-        let dbQuery =  await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\", jelszo FROM felhasznalo WHERE email = $1", [email]);
+        let dbQuery =  await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\, email, jelszo FROM felhasznalo WHERE email = $1", [email]);
         //megnezendo-t is lekerni!!!!
         return dbQuery.rows[0];
     }

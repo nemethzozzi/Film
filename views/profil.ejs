@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="/css/profil_bejelentkezes.css">
     <link rel="icon" href="img/popcorn.png">
 </head>
-<script>
-    if(typeof user !== undefined && user !== null){
+<%
+    //if(typeof user !== undefined && user !== null){
         sessionStorage.setItem("id", user[felhasznaloId]);
         sessionStorage.setItem("email",user[email]);
         sessionStorage.setItem("nev", user[nev]);
         sessionStorage.setItem("tipus", user[felhasznaloTipus]);
         console.log("atadott nev: " + user[nev] + "sessionStorage nev: " + sessionStorage.getItem("nev"));
         alert("Bejelentkeztél mint: $1", user[nev]);
-    }
-</script>
+    //}
+%>
 <body>
     <header>
 
