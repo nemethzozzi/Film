@@ -10,10 +10,10 @@
 </head>
 <script>
     if(typeof user !== undefined && user !== null){
-        sessionStorage.setItem("id", user[id]);
+        sessionStorage.setItem("id", user[felhasznaloId]);
         sessionStorage.setItem("email",user[email]);
         sessionStorage.setItem("nev", user[nev]);
-        sessionStorage.setItem("tipus", user[tipus]);
+        sessionStorage.setItem("tipus", user[felhasznaloTipus]);
         alert("Bejelentkeztél mint: $1", user[nev]);
     }
 </script>

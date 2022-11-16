@@ -24,7 +24,7 @@ router.post("/userLogin", async (req,res) => {
     if(valid){
         console.log("valid");
         res.render('profil', {
-            user
+            user: user
         });
     }
     else{
@@ -67,7 +67,7 @@ router.post("/userRegister", async (req, res) => {
     sessionStorage.setItem("fEmail", user.email);*/
     //alert("You are logged in as: $1, $2, $3, $4", user.nev, user.email, user.tipus, user.id);
     res.render('profil', {
-        user
+        user: user
     });
 });
 module.exports = router;

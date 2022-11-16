@@ -4,6 +4,7 @@ const UserDAO = require('../dao/user-dao');
 const FilmDAO = require('../dao/film-dao');
 const jwt = require('jsonwebtoken')
 const jwtSecret = require("./../config/auth.js");
+const myUserDAO = require("../dao/myUser-dao");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -151,8 +152,8 @@ router.get("/megnezendo", async(req, res) => {
     //SABLON KÓD:
     //let id = req.sessionStorage.id ?? valami ilyesmi
     
-    let sample = "1;3;4;5;6;";
-    let filmIds = sample.split(";")
+    let user = await new myUserDAO().getUserDataByEmail(email);
+    let megnezendok = await new myUserDAO().megnezendoFilmek(user.megnezendoFilmek);
     //loop-olashoz:
         /*let index = 0;
         while (filmIds[index] != '') {
@@ -161,7 +162,7 @@ router.get("/megnezendo", async(req, res) => {
         }*/
 
     return res.render('megnezendo', {
-        //átadott adatok
+        megnezendok: megnezendok
     });
 });
 

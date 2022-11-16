@@ -3,7 +3,7 @@ const db = require('../config/db');
 class myUserDAO {
     async getUserByEmail(email){
         // visszaad egy változót ami tárolja a lekérdezés eredményeit, email alapján
-        let dbQuery = await db.query("SELECT \"felhasznaloId\", nev, felhasznaloTipus, email, jelszo FROM Felhasznalo WHERE email = $1", [email]);
+        let dbQuery = await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\", email, jelszo FROM felhasznalo WHERE email = $1", [email]);
         if(dbQuery = null){
             return 'no match';
         }
@@ -15,7 +15,7 @@ class myUserDAO {
         // id-nev-tipus-email-jelszo formatumban
         // session kezeléshez hasznos, nem létfontosságú
 
-        let dbQuery =  await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\", jelszo FROM Felhasznalo WHERE email = $1", [email]);
+        let dbQuery =  await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\", jelszo FROM felhasznalo WHERE email = $1", [email]);
         //megnezendo-t is lekerni!!!!
         return dbQuery.rows[0];
     }
@@ -31,12 +31,14 @@ class myUserDAO {
         //beleteszi az idekt egy tombbe, (ahol az utolso elem mindig ures st, azaz "")
         //aztan loopban beleteszi a tombbe a sorokat amik kellenek a film tablabol es ezt vissza adja
 
-        let filmString = await db.query("SELECT megnezendoFilmek FROM felhasznalo WHERE felhasznaloId = $1", [Id]);
+        let filmString = await db.query("SELECT \"megnezendoFilmek\" FROM felhasznalo WHERE \"felhasznaloId\" = $1", [Id]);
         var filmIdk = filmString.split(";");
-        var megnezendo = new megnezendo[filmIdk.length- 1];
-        for (let i = 0; i < array.length - 1; i++) {
+        //lista vagy array ?
+        let index = 0;
+        let megnezendo = [];
+        while(filmIdk[index] != ''){
             film = await db.query("SELECT cim, kepUrl FROM film WHERE filmId = $1", [filmIdk[i]]);
-            megnezendo[i] = film;
+            megnezendo[index] = film;
             
         }
         return megnezendo;
