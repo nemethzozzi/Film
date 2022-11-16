@@ -84,7 +84,7 @@
     <button type="button" id="submit">Küldés</button>
 </div>
 <script>
-document.getElementsByTagName('body').onload=function(){
+document.getElementsByTagName('body')[0].onload=function(){
 	let asd=ertekeles.getElementsByTagName('img');
 	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);alert('');");
 	asd[i].onmouseleave=Function("csillag(this,0);");}
