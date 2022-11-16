@@ -115,7 +115,8 @@
 	<script>
 	document.getElementsByTagName('body')[0].onload=function(){
 		let asd = document.getElementsByClassName('slide');
-		asd[i].style.backgroundImage="url(img/the_godfather_1.jpg)";
+		for(let i=0;i<asd.length;i++)
+			asd[i].style.backgroundImage="url(img/the_godfather_1.jpg)";
 	
 	}
 	</script>
