@@ -5,7 +5,7 @@ const jwtSecret = require("./../config/auth.js");
 const myUserDAO = require('../dao/myUser-dao');
 const { use } = require("./route-users");
 const router = express.Router();
-const jelszo = require("./classes/jelszo.js");
+const jelszo = require("../public/classes/jelszo.js");
 
 router.post("/userLogin", async (req,res) => {
     let email = req.body.email;
