@@ -27,13 +27,50 @@
         <!-- Megnezendok -->
         <a id="eye" href="/megnezendo"><img src="img/szem.png" alt="szem"></a>
         <a id="eye_closed" href="/megnezendo"><img src="img/csukva.png" alt="csukott_szem"></a>
+        <script>
+            document.getElementById("eye_closed").hidden = true;
+            document.getElementById("eye").onmouseenter = function() {
 
+                document.getElementById("eye").hidden = true;
+                document.getElementById("eye_closed").hidden = false;
+            }
+            document.getElementById("eye_closed").onmouseleave = function (){
+                document.getElementById("eye").hidden = false;
+                document.getElementById("eye_closed").hidden = true;
+            }
+        </script>
+        <script>
+            let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+			let i;
+			let slides = document.getElementsByClassName("mySlides");
+		
+			if (n > slides.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			slides[slideIndex-1].style.display = "block";
+        }
+        </script>
 
     </header>
 
 <!-- Slideshow container -->
 <div class="slideshow">
-
+	
     <!-- Full-width images with number and caption text -->
     <div class="mySlides">
        <img src="img/the_godfather_1.jpg" style="width:100%">
