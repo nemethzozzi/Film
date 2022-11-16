@@ -1,5 +1,3 @@
-npm i bcrypt
-
 const bcrypt = require('bcrypt');
 async function hashIt(password){
     const salt = await bcrypt.genSalt(6);
@@ -7,8 +5,9 @@ async function hashIt(password){
 }
 hashIt(password);
 // compare the password user entered with hashed pass.
-async function compareIt(password){
+async function compareIt(password, hashedPassword){
     const validPassword = await bcrypt.compare(password, hashedPassword);
+    return validPassword;
 }
 compareIt(password);
 
