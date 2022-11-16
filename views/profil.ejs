@@ -71,12 +71,12 @@
     </form>
     
     <script>
-        var Nev = "Valaki Neve";
-        var Mail = "valaki@gmail.com";
-        var Jelszo = "123Kuytus!";
-        document.getElementById("name").placeholder = sessionStorage.nev;
-        document.getElementById("email").placeholder = sessionStorage.email;
-        document.getElementById("password").placeholder = Jelszo;
+        var nev = sessionStorage.getItem("nev");
+        var email = sessionStorage.getItem("email");
+        var jelszo = "123Kuytus!";
+        document.getElementById("name").placeholder = Nev;
+        document.getElementById("email").placeholder = email;
+        document.getElementById("password").placeholder = jelszo;
         </script>
 </body>
 </html>
