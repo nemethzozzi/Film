@@ -1,4 +1,5 @@
 const express = require("express");
+const sessions = require("express-session");
 const path = require("path");
 const { Pool } = require("pg");
 const app = express();
@@ -14,6 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(routeUser);
 app.use(routeMyUser);
 
+app.use(sessions({
+  secret:'asasds*(&^*(',
+  resave:false,
+  saveUninitialized:true
+}));
 //form-ok és method = POST miatt
 app.use(express.json());
 
