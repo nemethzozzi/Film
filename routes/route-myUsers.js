@@ -5,7 +5,11 @@ const jwtSecret = require("./../config/auth.js");
 const myUserDAO = require('../dao/myUser-dao');
 const { use } = require("./route-users");
 const router = express.Router();
-const jelszo = require("../public/classes/jelszo.js");
+
+async function compareIt(password, hashedPassword){
+    const validPassword = await bcrypt.compare(password, hashedPassword);
+    return validPassword;
+}
 
 router.post("/userLogin", async (req,res) => {
     let email = req.body.email;
@@ -20,7 +24,7 @@ router.post("/userLogin", async (req,res) => {
     /*if(req.body.password == user.jelszo){
         valid = true;
     }*/
-    valid = await new jelszo.compareIt(password, user.jelszo);
+    valid = await compareIt(password, user.jelszo);
     console.log("valid erteke: " + valid);
     //ez ugy nagyon nem mukodik jelenleg :) segitseg
     
