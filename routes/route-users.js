@@ -136,6 +136,12 @@ router.get("/szures", async (req, res) => {
     });
 });
 
+router.get("/film", async (req, res) => {
+    return res.render('film', {
+        //
+    });
+});
+
 router.get("/megnezendo", async(req, res) => {
     //megnezendo string lekérése felhasznaloId-val DAO-n keresztül
     //megnezendo string szétszedése 
