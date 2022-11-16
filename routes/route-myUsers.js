@@ -56,8 +56,8 @@ router.post("/userRegister", async (req, res) => {
         alert("Registration failed, passwords do not match!");  
     }else{*/
     console.log("ezt kaptam névnek: " + nev);
-    //let salt = bcrypt.genSaltSync(10);
-    let hashedpassword = await bcrypt.hash(toString(password));
+    let salt = await bcrypt.genSalt(10);
+    let hashedpassword = await bcrypt.hash(toString(password), salt);
     //let hashedpassword = password;
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
