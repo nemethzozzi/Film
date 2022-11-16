@@ -86,15 +86,15 @@
 <script>
 document.getElementsByTagName('body')[0].onload=function(){
 	let asd=ertekeles.getElementsByTagName('img');
-	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);alert('');");
+	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);");
 	asd[i].onmouseleave=Function("csillag(this,0);");}
 }
 function csillag(asd,kibe){
 	let mire=kibe==0?'szurke':'sarga';
 	let csill=ertekeles.getElementsByTagName('img');
-	let i=0;
+	let i=-1;
 	do{
-		csill[i++].src="img/csillag_"+mire+".png";
+		csill[++i].src="img/csillag_"+mire+".png";
 	} while(csill[i]!=asd)
 }
 </script>
