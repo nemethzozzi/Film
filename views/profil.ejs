@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/css/profil_bejelentkezes.css">
     <link rel="icon" href="img/popcorn.png">
 </head>
-<%
+<body>
+    <%
     //if(typeof user !== undefined && user !== null){
         sessionStorage.setItem("id", user[felhasznaloId]);
         sessionStorage.setItem("email",user[email]);
@@ -17,8 +18,7 @@
         console.log("atadott nev: " + user[nev] + "sessionStorage nev: " + sessionStorage.getItem("nev"));
         alert("Bejelentkeztél mint: $1", user[nev]);
     //}
-%>
-<body>
+    %>
     <header>
 
         <a href="/"><span>Házi Mozi</span></a>
