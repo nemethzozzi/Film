@@ -18,19 +18,19 @@ router.post("/userLogin", async (req,res) => {
     console.log("passw from db: " + user.jelszo);
     console.log(req.body.password);
     let valid = false;
-    if(req.body.password == user.jelszo){
+    /*if(req.body.password == user.jelszo){
         valid = true;
-    }
-    //let valid = await bcrypt.compare(req.body.password, user.jelszo);
+    }*/
+    valid = await bcrypt.compare(req.body.password, user.jelszo);
     //ez ugy nagyon nem mukodik jelenleg :) segitseg
     if(valid){
-        console.log("valid");
+        console.log("valid login");
         res.render('profil', {
             user: user
         });
     }
     else{
-        console.log("not valid");
+        console.log("not valid login");
         res.render('login', {
             
         });
@@ -58,8 +58,8 @@ router.post("/userRegister", async (req, res) => {
     }else{*/
     console.log("ezt kaptam névnek: " + nev);
     //let salt = bcrypt.genSaltSync(10);
-    //let hashedpassword = bcrypt.hashSync(toString(password), salt);
-    let hashedpassword = password;
+    let hashedpassword = bcrypt.hashSync(toString(password), salt);
+    //let hashedpassword = password;
     const success = await new myUserDAO().ujFelhasznalo(nev, email, hashedpassword);
     const user = await new myUserDAO().getUserDataByEmail(email);
     //sessionStorage deklaráció
