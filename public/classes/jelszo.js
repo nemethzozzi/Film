@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 async function hashIt(password){
     const salt = await bcrypt.genSalt(6);
     const hashed = await bcrypt.hash(password, salt);
@@ -9,7 +9,7 @@ async function compareIt(password, hashedPassword){
     const validPassword = await bcrypt.compare(password, hashedPassword);
     return validPassword;
 }
-compareIt(password);
+/*
 
 //const bcrypt = require('bcryptjs'); // npm i bcryptjs
 const password = "12345"
@@ -23,3 +23,4 @@ const hashedPassword = bcrypt.hashSync(yourPasswordFromSignupForm, bcrypt.genSal
 
 //verify password
 const doesPasswordMatch = bcrypt.compareSync(yourPasswordFromLoginForm, yourHashedPassword)
+*/
