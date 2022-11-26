@@ -42,92 +42,69 @@
         </script>
     
     </header>
-    
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slides">
-                <div id="slides__1" class="slide">
-                    <span class="slide__text">1</span>
-                    <a class="slide__prev" href="#slides__10" title="Next"></a>
-                    <a class="slide__next" href="#slides__2" title="Next"></a>
-                </div>
-                <div id="slides__2" class="slide">
-                    <span class="slide__text">2</span>
-                    <a class="slide__prev" href="#slides__1" title="Prev"></a>
-                    <a class="slide__next" href="#slides__3" title="Next"></a>
-                </div>
-                <div id="slides__3" class="slide">
-                    <span class="slide__text">3</span>
-                    <a class="slide__prev" href="#slides__2" title="Prev"></a>
-                    <a class="slide__next" href="#slides__4" title="Next"></a>
-                </div>
-                <div id="slides__4" class="slide">
-                    <span class="slide__text">4</span>
-                    <a class="slide__prev" href="#slides__3" title="Prev"></a>
-                    <a class="slide__next" href="#slides__5" title="Prev"></a>
-                </div>
-                <div id="slides__5" class="slide">
-                    <span class="slide__text">5</span>
-                    <a class="slide__prev" href="#slides__4" title="Prev"></a>
-                    <a class="slide__next" href="#slides__6" title="Prev"></a>
-                </div>
-                <div id="slides__6" class="slide">
-                    <span class="slide__text">6</span>
-                    <a class="slide__prev" href="#slides__5" title="Prev"></a>
-                    <a class="slide__next" href="#slides__7" title="Prev"></a>
-                </div>
-                <div id="slides__7" class="slide">
-                    <span class="slide__text">7</span>
-                    <a class="slide__prev" href="#slides__6" title="Prev"></a>
-                    <a class="slide__next" href="#slides__8" title="Next"></a>
-                </div>
-                <div id="slides__8" class="slide">
-                    <span class="slide__text">8</span>
-                    <a class="slide__prev" href="#slides__7" title="Prev"></a>
-                    <a class="slide__next" href="#slides__9" title="Next"></a>
-                </div>
-                <div id="slides__9" class="slide">
-                    <span class="slide__text">9</span>
-                    <a class="slide__prev" href="#slides__8" title="Prev"></a>
-                    <a class="slide__next" href="#slides__10" title="Next"></a>
-                </div>
-                <div id="slides__10" class="slide">
-                    <span class="slide__text">10</span>
-                    <a class="slide__prev" href="#slides__9" title="Prev"></a>
-                    <a class="slide__next" href="#slides__1" title="Next"></a>
-                </div>
-            </div>
-            <div class="slider__nav">
-                <a class="slider__navlink" href="#slides__1"></a>
-                <a class="slider__navlink" href="#slides__2"></a>
-                <a class="slider__navlink" href="#slides__3"></a>
-                <a class="slider__navlink" href="#slides__4"></a>
-                <a class="slider__navlink" href="#slides__5"></a>
-                <a class="slider__navlink" href="#slides__6"></a>
-                <a class="slider__navlink" href="#slides__7"></a>
-                <a class="slider__navlink" href="#slides__8"></a>
-                <a class="slider__navlink" href="#slides__9"></a>
-                <a class="slider__navlink" href="#slides__10"></a>
-            </div>
-        </div>
-    </div>
+    <div class='csuszka'>
+	<div class='oldalak'>
+		<div class='oldal'>1</div>
+		<div class='oldal'>2</div>
+		<div class='oldal'>3</div>
+		<div class='oldal'>4</div>
+		<div class='oldal'>5</div>
+		<div class='oldal'>6</div>
+		<div class='oldal'>7</div>
+		<div class='oldal'>8</div>
+		<div class='oldal'>9</div>
+		<div class='oldal'>10</div>
+	</div>
+		<div class='bnyil'></div>
+		<div class='jnyil'></div>
+	<div class='nav'>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+		<span class='poty'></span>
+	</div>
+</div>
+<script>
+document.getElementsByTagName('body')[0].addEventListener("load",function(){
 	
-	<script>
-	document.getElementsByTagName('body')[0].onload=function(){
-		/*let asd = document.getElementsByClassName('slide');
-		let filmek= "img/the_godfather_1.jpg;img/bosszuallok_2.jpg;img/harry_potter_3.jpg;img/pokember_4.jpg"
-		for(let i=0;i<asd.length;i++)
-			asd[i].style.backgroundImage="url("+filmek[i]+")";
-	*/
+});
+function valt(en,irany){
+	if(irany==-1)
+	{
+		let potyok=en.parentNode.getElementsByClassName('poty');
+		for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(potyok[i]==en)?'rgb(12, 119, 50)':'black';
+		return;
 	}
-	</script>
-	<style>
-	.slide{
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: 50% 100%;
-		background-position: center;
-	}
-	</style>
+	let oldalak = en.parentNode.getElementsByTagName('div')[0];
+	let akt = oldalak.style.transform==""?0:oldalak.style.transform.split('(')[1].split('%')[0]*1;
+	if(irany==1) akt=akt<=-90?0:akt-10; else akt=akt>=0?-90:akt+10;
+	oldalak.style.transform="translateX("+akt+"%)";
+	let potyok=document.getElementsByClassName('poty');
+	for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(i*-10==akt)?'rgb(12, 119, 50)':'black';
+}
+
+//több esetén for
+document.getElementsByClassName('bnyil')[0].onclick=Function('valt(this,0);');
+document.getElementsByClassName('jnyil')[0].onclick=Function('valt(this,1);');
+let potyok=document.getElementsByClassName('poty');
+potyok[0].style.backgroundColor='rgb(12, 119, 50)';
+//ha több ilyen rendszer van akkor dupla forral kell végig menni, a rendszereket
+//és azon belül a pontokon, hogy az indexelés jó legyen
+for(let i=0;i<potyok.length;i++)
+potyok[i].onclick=Function("this.parentNode.parentNode.getElementsByTagName('div')[0].style.transform='translateX("+(i*-10)+"%)';valt(this,-1);");
+
+
+
+</script>
+
+<style>
+
+</style>
 </body>
 </html>
