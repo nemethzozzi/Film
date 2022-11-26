@@ -12,7 +12,7 @@
     <header>
         <a href="/"><span>Házi Mozi</span></a>
         <span>Főoldal</span>
-		<span><%if(bejelentkezve) {%>Üdv: <%=felh_nev%><%}%></span>
+		
         <div class="dropdown">
             <img src="img/user.png" alt="felhasználó">
             <div class="dropdown-content">
@@ -21,7 +21,8 @@
                 <a href="/regisztracio">Regisztráció</a>
             </div>
         </div>
-    
+		<span style='float:right;'><%if(bejelentkezve) {%>Üdv: <%=felh_nev%><%}%></span>
+		
         <a href="/szures"><img src="img/search.png" alt="search"></a>
     
         <a id="eye" href="/megnezendo"><img src="img/szem.png" alt="szem"></a>
