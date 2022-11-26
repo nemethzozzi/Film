@@ -69,8 +69,8 @@ class FilmDAO {
 		//return "";
 	}
 	
-	async leker(lekerdezes) {
-		let result = await db.query(lekerdezes)
+	async leker(lekerdezes,tomb) {
+		let result = await db.query(lekerdezes,tomb)
             .catch(console.log);
 		return result.rows;
 	}

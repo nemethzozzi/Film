@@ -141,9 +141,9 @@ router.get("/szures", async (req, res) => {
 
 
 router.get("/film", async (req, res) => {
-	let film = await new FilmDAO().leker("select * from film where \"filmId\" = "+req.query.id);
-	let rendezok = await new FilmDAO().leker("select szemely.\"szemelyNev\" from rendez,szemely where rendez.\"filmId\" = "+req.query.id+" and rendez.\"szemelyId\"=szemely.\"szemelyId\"");
-	let szineszek = await new FilmDAO().leker("select szemely.\"szemelyNev\" from szerepel,szemely where szerepel.\"filmId\" = "+req.query.id+" and szerepel.\"szemelyId\"=szemely.\"szemelyId\"");
+	let film = await new FilmDAO().leker("select * from film where \"filmId\" = $1",[req.query.id]);
+	let rendezok = await new FilmDAO().leker("select szemely.\"szemelyNev\" from rendez,szemely where rendez.\"filmId\" = $1 and rendez.\"szemelyId\"=szemely.\"szemelyId\"",[req.query.id]);
+	let szineszek = await new FilmDAO().leker("select szemely.\"szemelyNev\" from szerepel,szemely where szerepel.\"filmId\" = $1 and szerepel.\"szemelyId\"=szemely.\"szemelyId\"",[req.query.id]);
     //majd az értékelést még meg kell, ha kész lesz a session-os dolog
 	return res.render('film',{
         filmadatok:film[0],
@@ -153,6 +153,10 @@ router.get("/film", async (req, res) => {
 });
 router.post("/hozzaszol", async(req, res) => {
 	let szoveg= req.body.szoveg;
+	let rendezok = await new FilmDAO().leker("insert into");
+	
+	//"INSERT INTO film (cim, leiras, \"kepUrl\", \"elozetesLink\", megjelenes) VALUES ($1, $2, $3, $4, $5)", [cim, leiras, kepUrl, elozetesLink, megjelenes]
+	
 	res.writeHead(301, { Location: "/film?id="+req.body.id });
     res.end();
 });
