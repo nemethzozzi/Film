@@ -79,7 +79,7 @@ function valt(en,irany){
 	if(irany==-1)
 	{
 		let potyok=en.parentNode.getElementsByClassName('poty');
-		for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(potyok[i]==en)?'rgb(12, 119, 50)':'black';
+		for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(potyok[i]==en)?'white':'black';
 		return;
 	}
 	let oldalak = en.parentNode.getElementsByTagName('div')[0];
@@ -87,13 +87,13 @@ function valt(en,irany){
 	if(irany==1) akt=akt<=-90?0:akt-10; else akt=akt>=0?-90:akt+10;
 	oldalak.style.transform="translateX("+akt+"%)";
 	let potyok=document.getElementsByClassName('poty');
-	for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(i*-10==akt)?'rgb(12, 119, 50)':'black';
+	for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(i*-10==akt)?'white':'black';
 }
 
 document.getElementsByClassName('bnyil')[0].onclick=Function('valt(this,0);');
 document.getElementsByClassName('jnyil')[0].onclick=Function('valt(this,1);');
 let potyok=document.getElementsByClassName('poty');
-potyok[0].style.backgroundColor='rgb(12, 119, 50)';
+potyok[0].style.backgroundColor='white';
 for(let i=0;i<potyok.length;i++)
 potyok[i].onclick=Function("this.parentNode.parentNode.getElementsByTagName('div')[0].style.transform='translateX("+(i*-10)+"%)';valt(this,-1);");
 
