@@ -34,18 +34,18 @@ router.get("/", async (req, res) => {
         current_role: current_role
     });*/
 	
-	const token = req.cookies.jwt;
+	/*const token = req.cookies.jwt;
     var email='';
     if (token) {
         jwt.verify(token, jwtSecret, (err, decodedToken) => {
             email = decodedToken.email;
         })
     } let felh_adatok = await new UserDAO().getUserByEmail(email);
-	
+	*/
 	let filmek = await new FilmDAO().leker("select * from film order by \"filmId\" desc limit 10");
 	
-	let bejelentkezve=(token)?true:false;
-	let felh_nev = (token)?felh_adatok.nev:"";
+	let bejelentkezve=""//(token)?true:false;
+	let felh_nev = ""//(token)?felh_adatok.nev:"";
 	
 	return res.render('index', {
 		filmek:filmek,
