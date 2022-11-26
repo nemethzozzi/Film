@@ -96,7 +96,7 @@
 			<% for (var i=0; i<rendezok.length; i++) 
 			{%>
 				<%=rendezok[i].szemelyNev%>
-				<% if(i!=rendezok.length) {%>, <%}%>
+				<% if(i!=rendezok.length-1) {%>, <%}%>
 			<%}
 			%>
 		</h4>
@@ -105,7 +105,7 @@
 			<% for (var i=0; i<szineszek.length; i++) 
 			{%>
 				<%=szineszek[i].szemelyNev%>
-				<% if(i!=szineszek.length) {%>, <%}%>
+				<% if(i!=szineszek.length-1) {%>, <%}%>
 			<%}
 			%>
 		</h4>
