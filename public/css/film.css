@@ -2,7 +2,7 @@
     /*background-color: aqua;*/
     width: 40%;
     float:left;
-    height:60vh;
+    height:40vh;
     padding-top: 7%;
 }
 
@@ -11,6 +11,7 @@
     width: 60%;
     float: right;
     padding-top: 3%;
+height:40vh;
 }
 
 /* Hide the images by default */
@@ -100,4 +101,16 @@ margin-top: 100px;
 .comment-box textarea{
     width: 100%;
     max-width: 500px;
+    height: 70px;
+    background-color: rgb(61, 140, 86);
+    /* box-shadow: 5px 5px 5px #111; */
+    border: 1px black solid;
+    color: white;
+    font-size: 14px;
+}
+.comment-box form{
+    text-align: center;
+}
+.comment-box form button{
+    border-radius: 5px;
 }
