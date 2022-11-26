@@ -143,7 +143,8 @@ router.get("/film", async (req, res) => {
 	let film = await new FilmDAO().leker("select * from film where \"filmId\" = "+req.query.id);
 	let rendezok = await new FilmDAO().leker("select szemely.\"szemelyNev\" from rendez,szemely where rendez.\"filmId\" = "+req.query.id+" and rendez.\"szemelyId\"=szemely.\"szemelyId\"");
 	let szineszek = await new FilmDAO().leker("select szemely.\"szemelyNev\" from szerepel,szemely where szerepel.\"filmId\" = "+req.query.id+" and szerepel.\"szemelyId\"=szemely.\"szemelyId\"");
-    return res.render('film',{
+    //majd az értékelést még meg kell, ha kész lesz a session-os dolog
+	return res.render('film',{
         filmadatok:film[0],
 		rendezok:rendezok,
 		szineszek:szineszek
