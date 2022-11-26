@@ -68,6 +68,12 @@ class FilmDAO {
 		else return ["",alap];
 		//return "";
 	}
+	
+	async leker(lekerdezes) {
+		let result = await db.query(lekerdezes)
+            .catch(console.log);
+		return result.rows;
+	}
 
 	async filmfeltoltes(cim, leiras, kepUrl, elozetesLink, megjelenes) {
 		let results = await db.query("INSERT INTO film (cim, leiras, \"kepUrl\", \"elozetesLink\", megjelenes) VALUES ($1, $2, $3, $4, $5)", [cim, leiras, kepUrl, elozetesLink, megjelenes]).catch(console.log);

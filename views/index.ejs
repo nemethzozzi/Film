@@ -44,16 +44,14 @@
     </header>
     <div class='csuszka'>
 	<div class='oldalak'>
-		<div class='oldal'>1</div>
-		<div class='oldal'>2</div>
-		<div class='oldal'>3</div>
-		<div class='oldal'>4</div>
-		<div class='oldal'>5</div>
-		<div class='oldal'>6</div>
-		<div class='oldal'>7</div>
-		<div class='oldal'>8</div>
-		<div class='oldal'>9</div>
-		<div class='oldal'>10</div>
+		<%
+			for (var i=0; i<filmek.length; i++)
+			{
+			%>
+            <div class='oldal'><%=filmek[i].cim%></div>
+			<%
+			}
+		%>		
 	</div>
 		<div class='bnyil'></div>
 		<div class='jnyil'></div>

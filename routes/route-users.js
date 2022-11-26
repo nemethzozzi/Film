@@ -33,9 +33,11 @@ router.get("/", async (req, res) => {
         current_email: current_email,
         current_role: current_role
     });*/
-
-     return res.render('index', {
-
+	
+	let filmek = await new FilmDAO().leker("select * from film order by \"filmId\" desc limit 10");
+	
+	return res.render('index', {
+		filmek:filmek
     });
 });
 
