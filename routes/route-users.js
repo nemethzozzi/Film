@@ -2,8 +2,8 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const UserDAO = require('../dao/user-dao');
 const FilmDAO = require('../dao/film-dao');
-const jwt = require('jsonwebtoken')
-const jwtSecret = require("./../config/auth.js");
+const jwt = require("jsonwebtoken")
+const {userAuth, jwtSecret} = require("./../config/auth.js");
 const myUserDAO = require("../dao/myUser-dao");
 const router = express.Router();
 
@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
         current_role: current_role
     });*/
 	
-	const token = req.cookies.jwt
+	const token = req.cookies.jwt;
     var email='';
     if (token) {
         jwt.verify(token, jwtSecret, (err, decodedToken) => {
@@ -97,7 +97,7 @@ router.post("/userlogin", async (req, res) => {
             if (result) { 
                 const token = jwt.sign({
                         id: user.felhasznaloId,
-                        email,
+                        email:email,
                         role: user.felhasznaloTipus
                     },
                     jwtSecret.jwtSecret
