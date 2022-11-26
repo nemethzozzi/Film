@@ -44,10 +44,13 @@ router.get("/", async (req, res) => {
 	
 	let filmek = await new FilmDAO().leker("select * from film order by \"filmId\" desc limit 10");
 	
+	let bejelentkezve=(token)?true:false;
+	let felh_nev = (token)?felh_adatok.nev:"";
+	
 	return res.render('index', {
 		filmek:filmek,
-		bejelentkezve: (token)?true:false,
-		felh_nev:felh_adatok.nev
+		bejelentkezve: bejelentkezve,
+		felh_nev:felh_nev
     });
 });
 
