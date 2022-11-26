@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 class UserDAO {
-
+    /*
     async createUser(email, password, role) {
         await db.query('INSERT INTO users (email, password, role) VALUES ($1, $2, $3)', [email, password, role])
             .catch(console.log);
@@ -20,7 +20,7 @@ class UserDAO {
             .catch(console.log);
         return result.rows[0];
     };
-
+    */
 
 
 };
