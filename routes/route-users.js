@@ -83,9 +83,9 @@ router.get("/login", async (req, res) => {
 });
 
 router.post("/userlogin", async (req, res) => {
-    let email = req.body.email;
-    let password = req.body.jelszo;
-
+    var email = req.body.email;
+    var password = req.body.jelszo;
+	console.log("bejelentkezett email: "+email);
     const user = await new UserDAO().getUserByEmail(email);
 
     if (!user) {
