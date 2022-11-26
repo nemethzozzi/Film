@@ -94,7 +94,7 @@ router.post("/userlogin", async (req, res) => {
         });
     } else {
         bcrypt.compare(password, user.jelszo).then(function(result) {
-            if (result) {
+            if (result) { 
                 const token = jwt.sign({
                         id: user.felhasznaloId,
                         email,
@@ -115,14 +115,15 @@ router.post("/userlogin", async (req, res) => {
     }
 });
 
-/*
+
 router.post("/registeruser", async (req, res) => {
-    let {email} = req.body;
-    let {password} = req.body;
-    let {role} = req.body;
+	let nev = req.body.nev;
+    let email = req.body.email;
+    let password = req.body.password;
+	
     
     bcrypt.hash(password, 10).then(async (hash) => {
-        await new UserDAO().createUser(email, hash, role)
+        await new UserDAO().createUser(nev,email, hash)
     });
     
     return res.redirect('/')
@@ -133,7 +134,7 @@ router.get("/logout", (req, res) => {
         maxAge: "1"
     })
     res.redirect("/")
-});*/
+});
 
 
 
