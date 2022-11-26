@@ -87,13 +87,10 @@ function valt(en,irany){
 	for(let i=0;i<potyok.length;i++) potyok[i].style.backgroundColor=(i*-10==akt)?'rgb(12, 119, 50)':'black';
 }
 
-//több esetén for
 document.getElementsByClassName('bnyil')[0].onclick=Function('valt(this,0);');
 document.getElementsByClassName('jnyil')[0].onclick=Function('valt(this,1);');
 let potyok=document.getElementsByClassName('poty');
 potyok[0].style.backgroundColor='rgb(12, 119, 50)';
-//ha több ilyen rendszer van akkor dupla forral kell végig menni, a rendszereket
-//és azon belül a pontokon, hogy az indexelés jó legyen
 for(let i=0;i<potyok.length;i++)
 potyok[i].onclick=Function("this.parentNode.parentNode.getElementsByTagName('div')[0].style.transform='translateX("+(i*-10)+"%)';valt(this,-1);");
 

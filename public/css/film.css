@@ -10,7 +10,6 @@
     /* background-color: bisque; */
     width: 60%;
     float: right;
-    height: 60vh;
     padding-top: 3%;
 }
 
@@ -95,6 +94,10 @@ p {
 }
 
 .comment-box {
-    margin-top: 75vh;
-    margin-left: 90vh;
+margin-top: 100px;
+    width: 100%;
+}
+.comment-box textarea{
+    width: 100%;
+    max-width: 500px;
 }
