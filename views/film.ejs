@@ -73,7 +73,7 @@
 	
     <!-- Full-width images with number and caption text -->
     <div class="mySlides">
-       <img src="<%=filmadatok.kepUrl%>" style="width:100%">
+       <img src="<%=filmadatok.kepUrl%>.jpg" style="width:100%">
     </div>
     <!--<div class="mySlides">
         <img src="img/bosszuallok_2.jpg" style="width:100%">
@@ -92,7 +92,12 @@
 <div class="jobboldal">
     <h2 class="cim"><%=filmadatok.cim%></h2>
     <h3 class="alcim">Rendezők: </h3>
-        <h4 class="rendezok"><% for (var i=0; i<rendezok.length; i++) {rendezok[i].szemelyNev %>, <%}%>
+        <h4 class="rendezok">
+			<% for (var i=0; i<rendezok.length; i++) 
+			{%>
+				<%=rendezok[i].szemelyNev%>,
+			<%}
+			%>
 		</h4>
     <h3 class="alcim">Színészek: </h3>
         <h4 class="szineszek">Színészek felsorolása</h4>
