@@ -152,7 +152,7 @@ router.get("/film", async (req, res) => {
     });
 });
 router.post("/hozzaszol", async(req, res) => {
-	let kaptam= req.body.hozzaszol;
+	let szoveg= req.body.szoveg;
 	res.writeHead(301, { Location: "/film?id="+req.body.id });
     res.end();
 });
