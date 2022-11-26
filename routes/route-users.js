@@ -34,10 +34,23 @@ router.get("/", async (req, res) => {
         current_role: current_role
     });*/
 	
+	const token = req.cookies.jwt
+    var email='';
+    if (token) {
+        jwt.verify(token, jwtSecret, (err, decodedToken) => {
+            email = decodedToken.email;
+        })
+    } let felh_adatok = await new UserDAO().getUserByEmail(email);
+	
 	let filmek = await new FilmDAO().leker("select * from film order by \"filmId\" desc limit 10");
 	
+	let bejelentkezve=(token)?true:false;
+	let felh_nev = (token)?felh_adatok.nev:"";
+	
 	return res.render('index', {
-		filmek:filmek
+		filmek:filmek,
+		bejelentkezve: bejelentkezve,
+		felh_nev:felh_nev
     });
 });
 
@@ -69,47 +82,48 @@ router.get("/login", async (req, res) => {
     });
 });
 
-/*router.post("/loginuser", async (req, res) => {
-    let {email} = req.body;
-    let {password} = req.body;
+router.post("/userlogin", async (req, res) => {
+    let email = req.body.email;
+    let password = req.body.jelszo;
 
     const user = await new UserDAO().getUserByEmail(email);
 
     if (!user) {
         res.status(400).json({
-            message: "Login not successful",
-        })
+            message: "Sikertelen bejelentkezés."
+        });
     } else {
-        bcrypt.compare(password, user.password).then(function(result) {
-            if (result) {
+        bcrypt.compare(password, user.jelszo).then(function(result) {
+            if (result) { 
                 const token = jwt.sign({
-                        id: user.id,
+                        id: user.felhasznaloId,
                         email,
-                        role: user.role
+                        role: user.felhasznaloTipus
                     },
                     jwtSecret.jwtSecret
                 );
                 res.cookie("jwt", token, {
                     httpOnly: true
                 });
-                return res.redirect('/')
+                return res.redirect('/');
             } else {
                 res.status(400).json({
-                    message: "Login not succesful"
+                    message: "Helytelen adatok."
                 });
             }
         });
     }
-});*/
+});
 
-/*
+
 router.post("/registeruser", async (req, res) => {
-    let {email} = req.body;
-    let {password} = req.body;
-    let {role} = req.body;
+	let nev = req.body.nev;
+    let email = req.body.email;
+    let password = req.body.password;
+	
     
     bcrypt.hash(password, 10).then(async (hash) => {
-        await new UserDAO().createUser(email, hash, role)
+        await new UserDAO().createUser(nev,email, hash)
     });
     
     return res.redirect('/')
@@ -120,7 +134,7 @@ router.get("/logout", (req, res) => {
         maxAge: "1"
     })
     res.redirect("/")
-});*/
+});
 
 
 
@@ -153,7 +167,7 @@ router.get("/film", async (req, res) => {
 });
 router.post("/hozzaszol", async(req, res) => {
 	let szoveg= req.body.szoveg;
-	let rendezok = await new FilmDAO().leker("insert into");
+	let rendezok = await new FilmDAO().leker("insert into kommentel (\"filmId\",\"felhasznaloId\",szoveg,ido)");
 	
 	//"INSERT INTO film (cim, leiras, \"kepUrl\", \"elozetesLink\", megjelenes) VALUES ($1, $2, $3, $4, $5)", [cim, leiras, kepUrl, elozetesLink, megjelenes]
 	

@@ -16,10 +16,11 @@ class UserDAO {
 
 
     async getUserByEmail(email) {
-        let result = await db.query('SELECT * FROM users WHERE email = $1', [email])
+        let result = await db.query('SELECT * FROM felhasznalo WHERE email = $1', [email])
             .catch(console.log);
         return result.rows[0];
     };
+    ------ugysem kell
     */
 
 
