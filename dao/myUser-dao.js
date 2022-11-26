@@ -14,7 +14,7 @@ class myUserDAO {
         // ellenorzes nelkul visszaadja az adott emailcimhez tartozo felhasznalot tombkent
         // id-nev-tipus-email-jelszo formatumban
         // session kezeléshez hasznos, nem létfontosságú
-
+        console.log("myUser-dao: getUserDataByEmail");
         let dbQuery =  await db.query("SELECT \"felhasznaloId\", nev, \"felhasznaloTipus\", email, jelszo FROM felhasznalo WHERE email = $1", [email]);
         //megnezendo-t is lekerni!!!!
         return dbQuery.rows[0];
@@ -22,6 +22,7 @@ class myUserDAO {
 
     async ujFelhasznalo(nev, email, hashedpassword) {
         // felhasználó beillesztése adatbázisba
+        console.log("myUser-dao: ujFelhasznalo");
         let tipus = "user";
         await db.query("INSERT INTO felhasznalo (\"nev\", \"felhasznaloTipus\", \"email\", \"jelszo\") VALUES ($1, $2, $3, $4)", [nev, tipus, email, hashedpassword]).catch(console.log);
         return;
