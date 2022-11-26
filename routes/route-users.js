@@ -140,8 +140,9 @@ router.get("/szures", async (req, res) => {
 });
 
 router.get("/film", async (req, res) => {
+	let film = await new FilmDAO().leker("select * from film where \"filmId\" = "+req.query.id);
     return res.render('film', {
-        //
+        filmadatok:film[0]
     });
 });
 
