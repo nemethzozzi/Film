@@ -95,7 +95,8 @@
         <h4 class="rendezok">
 			<% for (var i=0; i<rendezok.length; i++) 
 			{%>
-				<%=rendezok[i].szemelyNev%>,
+				<%=rendezok[i].szemelyNev%>
+				<% if(i!=rendezok.length) {%>, <%}%>
 			<%}
 			%>
 		</h4>
