@@ -20,6 +20,9 @@
 	color:white;
 	    background-color: rgb(12, 119, 50);
 }
+.oldal .szoveg{
+	margin-top:50px;display: inline-block;width: 400px;
+}
 .oldalak{
 	height:100%;
 	overflow-x: auto;
