@@ -139,6 +139,7 @@ router.get("/szures", async (req, res) => {
     });
 });
 
+
 router.get("/film", async (req, res) => {
 	let film = await new FilmDAO().leker("select * from film where \"filmId\" = "+req.query.id);
 	let rendezok = await new FilmDAO().leker("select szemely.\"szemelyNev\" from rendez,szemely where rendez.\"filmId\" = "+req.query.id+" and rendez.\"szemelyId\"=szemely.\"szemelyId\"");
@@ -150,6 +151,14 @@ router.get("/film", async (req, res) => {
 		szineszek:szineszek
     });
 });
+router.post("/hozzaszol", async(req, res) => {
+	let kaptam= req.body.hozzaszol;
+	res.writeHead(301, { Location: "/film?id="+req.body.id });
+    res.end();
+});
+
+
+
 
 router.get("/megnezendo", async(req, res) => {
     //megnezendo string lekérése felhasznaloId-val DAO-n keresztül
