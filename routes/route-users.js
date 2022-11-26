@@ -81,7 +81,7 @@ router.get("/login", async (req, res) => {
         //current_role: current_role
     });
 });
-
+/*
 router.post("/userlogin", async (req, res) => {
     let email = req.body.email;
     let password = req.body.jelszo;
@@ -128,6 +128,7 @@ router.post("/registeruser", async (req, res) => {
     
     return res.redirect('/')
 });
+*/
 
 router.get("/logout", (req, res) => {
     res.cookie("jwt", "", {
