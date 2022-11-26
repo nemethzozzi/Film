@@ -141,7 +141,7 @@ router.get("/szures", async (req, res) => {
 
 router.get("/film", async (req, res) => {
 	let film = await new FilmDAO().leker("select * from film where \"filmId\" = "+req.query.id);
-	let rendezok = await new FilmDAO().leker("select szemely.\"SzemelyNev\" from rendez,szemely where rendez.\"filmId\" = "+req.query.id+" and rendez.\"szemelyId\"=szemely.\"szemelyId\"");
+	let rendezok = await new FilmDAO().leker("select szemely.\"szemelyNev\" from rendez,szemely where rendez.\"filmId\" = "+req.query.id+" and rendez.\"szemelyId\"=szemely.\"szemelyId\"");
 	//let szineszek = await new FilmDAO().leker("select * from film where \"filmId\" = "+req.query.id);
     return res.render('film', {
         filmadatok:film[0],
