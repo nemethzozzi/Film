@@ -92,7 +92,8 @@
 <div class="jobboldal">
     <h2 class="cim"><%=filmadatok.cim%></h2>
     <h3 class="alcim">Rendezők: </h3>
-        <h4 class="rendezok">Rendezők felsorolása</h4>
+        <h4 class="rendezok"><% for (var i=0; i<rendezok.length; i++) {rendezok[i].szemelyNev %>, <%}%>
+		</h4>
     <h3 class="alcim">Színészek: </h3>
         <h4 class="szineszek">Színészek felsorolása</h4>
     <br>
