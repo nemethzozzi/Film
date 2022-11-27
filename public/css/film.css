@@ -8,7 +8,7 @@
 
 .jobboldal {
     /* background-color: bisque; */
-    width: 60%;
+    /*width: 60%;*/
     float: right;
     padding-top: 3%;
 height:40vh;
@@ -18,7 +18,7 @@ height:40vh;
 .mySlides {
     display: none;
     margin:auto;
-    width: 40%;
+    /*width: 40%;*/
     height: fit-content;
     align-items: center;
 
