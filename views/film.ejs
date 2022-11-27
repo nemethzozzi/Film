@@ -68,30 +68,26 @@
 
     </header>
 
-<!-- Slideshow container -->
-<div class="slideshow">
-	
-    <!-- Full-width images with number and caption text -->
+
+<div style='display:flex;margin: 100px;'>
     <div class="mySlides">
        <img src="<%=filmadatok.kepUrl%>.jpg" style="width:100%">
     </div>
- 
-    
-</div>
- 
-<!-- Leírás stb. -->
-<div class="jobboldal">
-    <h2 class="cim"><%=filmadatok.cim%></h2>
-    <h3 class="alcim">Rendezők: </h3>
-        <h4 class="rendezok"><% for (var i=0; i<rendezok.length; i++) {%><%=rendezok[i].szemelyNev%><% if(i!=rendezok.length-1) {%>, <%}%><%}%></h4>
-    <h3 class="alcim">Színészek: </h3>
-        <h4 class="szineszek"><% for (var i=0; i<szineszek.length; i++) {%><%=szineszek[i].szemelyNev%><% if(i!=szineszek.length-1) {%>, <%}%><%}%></h4>
-    <br>
-    <p class="leiras">
-        <%=filmadatok.leiras%>
-    </p>   
-</div>
 
+ 
+	<!-- Leírás stb. -->
+	<div class="jobboldal">
+		<h2 class="cim"><%=filmadatok.cim%></h2>
+		<h3 class="alcim">Rendezők: </h3>
+			<h4 class="rendezok"><% for (var i=0; i<rendezok.length; i++) {%><%=rendezok[i].szemelyNev%><% if(i!=rendezok.length-1) {%>, <%}%><%}%></h4>
+		<h3 class="alcim">Színészek: </h3>
+			<h4 class="szineszek"><% for (var i=0; i<szineszek.length; i++) {%><%=szineszek[i].szemelyNev%><% if(i!=szineszek.length-1) {%>, <%}%><%}%></h4>
+		<br>
+		<p class="leiras">
+			<%=filmadatok.leiras%>
+		</p>   
+	</div>
+</div>
 
 <div class="ertekeles" id='ertekeles_dv' style='white-space: nowrap;display: inline;'>
     <img src="img/csillag_szurke.png" style="width:25px">
