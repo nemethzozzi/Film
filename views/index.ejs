@@ -15,10 +15,12 @@
 		
         <div class="dropdown">
             <img src="img/user.png" alt="felhasználó">
-            <div class="dropdown-content">
-                <a href="/profil">Profil</a>
-                <a href="/login">Bejelentkezés</a>
-                <a href="/regisztracio">Regisztráció</a>
+            <div class="dropdown-content">               
+                <%if(bejelentkezve) {%> <a href="/profil">Profil</a> <%}%> 
+				<%if(!bejelentkezve) {%> <a href="/login">Bejelentkezés</a> <%}%> 
+                <%if(!bejelentkezve) {%> <a href="/regisztracio">Regisztráció</a> <%}%> 
+				
+				<%if(bejelentkezve) {%> <a href="/logout">Kijelentkezés</a> <%}%> 
             </div>
         </div>
 		
