@@ -155,16 +155,54 @@ router.get("/szures", async (req, res) => {
 
 
 router.get("/film", async (req, res) => {
+	const token = req.cookies.jwt;
+    var email='';
+    if (token) {
+        jwt.verify(token, jwtSecret.jwtSecret, (err, decodedToken) => {
+            email = decodedToken.email;
+        })
+    } let felh_adatok = await new UserDAO().getUserByEmail(email);
+	
+	if(felh_adatok.ertekeltFilmek=="")
+	{
+		await new FilmDAO().leker("update felhasznalo set \"ertekeltFilmek\"=';'");
+	}
+	
 	let film = await new FilmDAO().leker("select * from film where \"filmId\" = $1",[req.query.id]);
 	let rendezok = await new FilmDAO().leker("select szemely.\"szemelyNev\" from rendez,szemely where rendez.\"filmId\" = $1 and rendez.\"szemelyId\"=szemely.\"szemelyId\"",[req.query.id]);
 	let szineszek = await new FilmDAO().leker("select szemely.\"szemelyNev\" from szerepel,szemely where szerepel.\"filmId\" = $1 and szerepel.\"szemelyId\"=szemely.\"szemelyId\"",[req.query.id]);
-    //majd az értékelést még meg kell, ha kész lesz a session-os dolog
+	
+	let ertekelesosszeg=0;
+	if(film[0].ertekelesOsszege=="")
+	{
+		await new FilmDAO().leker("update film set \"ertekelesOsszege\"=0 where \"filmId\"="+film[0].filmId);
+	} else ertekelesosszeg=film[0].ertekelesOsszege;
+	
+	let ertekelesszam=0;
+	if(film[0].ertekelesekSzama=="")
+	{
+		await new FilmDAO().leker("update film set \"ertekelesekSzama\"=0 where \"filmId\"="+film[0].filmId);
+	} else ertekelesszam=film[0].ertekelesekSzama;
+	
+	let ertekeltemar= (felh_adatok.ertekeltFilmek.includes(";"+filmadatok.filmId+";"))?true:false;
+	
+	//majd az értékelést még meg kell, ha kész lesz a session-os dolog
 	return res.render('film',{
         filmadatok:film[0],
+		felh_adatok:felh_adatok,
 		rendezok:rendezok,
-		szineszek:szineszek
+		szineszek:szineszek,
+		ertekelesosszeg:ertekelesosszeg,
+		ertekelesszam:ertekelesszam,
+		ertekeltemar:ertekeltemar
     });
 });
+router.get("/ertekel", async (req, res) => {
+	
+	
+	res.writeHead(301, { Location: "/film?id="+req.body.id });
+}
+
 router.post("/hozzaszol", async(req, res) => {
 	let szoveg= req.body.szoveg;
 	let rendezok = await new FilmDAO().leker("insert into kommentel (\"filmId\",\"felhasznaloId\",szoveg,ido)");

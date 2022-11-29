@@ -74,7 +74,7 @@
        <img src="<%=filmadatok.kepUrl%>.jpg" style="width:100%">
     </div>
 
- 
+
 	<!-- Leírás stb. -->
 	<div class="jobboldal">
 		<h2 class="cim"><%=filmadatok.cim%></h2>
@@ -88,7 +88,12 @@
 		</p>   
 	</div>
 </div>
-
+<%
+if(ertekeltemar){%>
+	
+<%
+}
+else{%>
 <div class="ertekeles" id='ertekeles_dv' style='white-space: nowrap;display: inline;'>
     <img src="img/csillag_szurke.png" style="width:25px">
 	<img src="img/csillag_szurke.png" style="width:25px">
@@ -101,6 +106,10 @@
 	<img src="img/csillag_szurke.png" style="width:25px">
 	<img src="img/csillag_szurke.png" style="width:25px">
 </div>
+<%
+}
+%>
+
 
 <!-- Kommentek -->
 <div class="comment-box">
@@ -111,20 +120,38 @@
     </form>
 </div>
 <script>
-document.getElementsByTagName('body')[0].onload=function(){
-	let asd=ertekeles_dv.getElementsByTagName('img');
-	for(let i=0;i<asd.length;i++) {asd[i].onmouseenter=Function("csillag(this,1);");
-	asd[i].onmouseleave=Function("csillag(this,0);");}
-	showSlides(slideIndex);
-}
-function csillag(asd,kibe){
-	let mire=kibe==0?'szurke':'sarga';
-	let csill=ertekeles_dv.getElementsByTagName('img');
-	let i=-1;
-	do{
-		if(!csill[++i].src.includes(mire)) csill[i].src="img/csillag_"+mire+".png";
-	} while(csill[i]!=asd)
-}
+<%
+if(!ertekeltemar){%>
+	document.getElementsByTagName('body')[0].onload=function(){
+		let asd=ertekeles_dv.getElementsByTagName('img');
+		for(let i=0;i<asd.length;i++) {
+			asd[i].onmouseenter=Function("csillag(this,1);");
+			asd[i].onmouseleave=Function("csillag(this,0);");
+			asd[i].onclick=Function("ertekel("+i+");");
+		}
+		showSlides(slideIndex);
+	}
+	function csillag(asd,kibe){
+		let mire=kibe==0?'szurke':'sarga';
+		let csill=ertekeles_dv.getElementsByTagName('img');
+		let i=-1;
+		do{
+			if(!csill[++i].src.includes(mire)) csill[i].src="img/csillag_"+mire+".png";
+		} while(csill[i]!=asd)
+	}
+
+	function ertekel(){
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST','/ertekel',true);
+		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		xhr.onload=function() {
+			
+		}
+		xhr.send('feltetelek='+JSON.stringify(asd));
+	}
+<%}%>
+var filmid=<%=filmadatok.filmId%>;
+
 </script>
 </body>
 </html>
