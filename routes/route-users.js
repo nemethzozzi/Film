@@ -163,9 +163,7 @@ router.get("/film", async (req, res) => {
         })
     } let felh_adatok = await new UserDAO().getUserByEmail(email);
 	
-	console.log("ertekelt filmek: '"+felh_adatok.ertekeltFilmek+"'");
-		console.log("ertekelt filmek: '"+(typeof felh_adatok.ertekeltFilmek)+"'");
-	if(felh_adatok.ertekeltFilmek=="")
+	if(felh_adatok.ertekeltFilmek==null)
 	{	
 		await new FilmDAO().leker("update felhasznalo set \"ertekeltFilmek\"=';' where \"felhasznaloId\"="+felh_adatok.felhasznaloId);
 		felh_adatok = await new UserDAO().getUserByEmail(email);
@@ -176,13 +174,13 @@ router.get("/film", async (req, res) => {
 	let szineszek = await new FilmDAO().leker("select szemely.\"szemelyNev\" from szerepel,szemely where szerepel.\"filmId\" = $1 and szerepel.\"szemelyId\"=szemely.\"szemelyId\"",[req.query.id]);
 	
 	let ertekelesosszeg=0;
-	if(film[0].ertekelesOsszege=="")
+	if(film[0].ertekelesOsszege==null)
 	{
 		await new FilmDAO().leker("update film set \"ertekelesOsszege\"=0 where \"filmId\"="+film[0].filmId);
 	} else ertekelesosszeg=film[0].ertekelesOsszege;
 	
 	let ertekelesszam=0;
-	if(film[0].ertekelesekSzama=="")
+	if(film[0].ertekelesekSzama==null)
 	{
 		await new FilmDAO().leker("update film set \"ertekelesekSzama\"=0 where \"filmId\"="+film[0].filmId);
 	} else ertekelesszam=film[0].ertekelesekSzama;
