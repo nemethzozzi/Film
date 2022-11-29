@@ -36,7 +36,7 @@ class myUserDAO {
         var filmIdk = filmString[0].split(";");
         //lista vagy array ?
         let megnezendo = [];
-        for(let i = 0; i<filmIdk.length;i++)
+        for(let i = 1; i<filmIdk.length-1;i++)
             film = await db.query("SELECT cim, kepUrl FROM film WHERE filmId = $1", [filmIdk[i]]);
             megnezendo.append(film[0]);
             
