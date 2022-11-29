@@ -33,6 +33,7 @@ class myUserDAO {
         //aztan loopban beleteszi a tombbe a sorokat amik kellenek a film tablabol es ezt vissza adja
 
         let filmString = await db.query("SELECT \"megnezendoFilmek\" FROM felhasznalo WHERE \"felhasznaloId\" ="+Id);
+		if(typeof filmString[0] == "undefined") return false;
         let filmIdk = filmString[0].split(";");
         //lista vagy array ?
         let megnezendo = [];
