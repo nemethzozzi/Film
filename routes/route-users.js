@@ -166,7 +166,7 @@ router.get("/film", async (req, res) => {
 	console.log("ertekelt filmek: '"+felh_adatok.ertekeltFilmek+"'");
 		console.log("ertekelt filmek: '"+(typeof felh_adatok.ertekeltFilmek)+"'");
 	if(felh_adatok.ertekeltFilmek=="")
-		
+	{	
 		await new FilmDAO().leker("update felhasznalo set \"ertekeltFilmek\"=';' where \"felhasznaloId\"="+felh_adatok.felhasznaloId);
 		felh_adatok = await new UserDAO().getUserByEmail(email);
 	}
