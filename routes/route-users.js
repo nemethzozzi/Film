@@ -209,7 +209,7 @@ router.post("/ertekel", async (req, res) => {
 	
 	let film = await new FilmDAO().leker("select \"ertekelesekSzama\",\"ertekelesOsszege\" from film where \"filmId\" ="+filmid);
 	
-	res.end(''+film[0].ertekelesOsszege*1.0/film[0].ertekelesekSzama*1.0);
+	res.end(''+(film[0].ertekelesOsszege*1.0/film[0].ertekelesekSzama*1.0).toFixed(2));
 });
 
 router.post("/hozzaszol", async(req, res) => {

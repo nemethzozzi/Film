@@ -92,7 +92,7 @@
 let atlag=(ertekelesosszeg*1.0/ertekelesszam*1.0).toFixed(2);
 if(ertekelesszam==0) atlag=0;
 if(ertekeltemar){%>
-<div class="ertekeles" id='ertekeles_dv' style='white-space: nowrap;display: inline;'><span>Értékelés: <%=atlag%></span></div>
+<div class="ertekeles" id='ertekeles_dv' style='white-space: nowrap;display: inline;'><span>Értékelés: <%=atlag%> (már értékelted)</span></div>
 <%
 }
 else{%>
@@ -152,7 +152,7 @@ if(!ertekeltemar){%>
 		xhr.open('POST','/ertekel',true);
 		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 		xhr.onload=function() {
-			ertekeles_dv.innerHTML='<span>Értékelés: '+this.responseText+'</span>';
+			ertekeles_dv.innerHTML='<span>Értékelés: '+this.responseText+' (már értékelted)</span>';
 		}
 		xhr.send('ertekel=<%=felh_adatok.felhasznaloId%>;'+filmid+';'+asd);
 	}
