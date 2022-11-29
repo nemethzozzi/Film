@@ -261,7 +261,7 @@ router.get("/megnezendo", async(req, res) => {
         })
     }
     let user = await new UserDAO().getUserByEmail(email);
-    let megnezendok = await new myUserDAO().megnezendoFilmek(user.megnezendoFilmek);
+    let megnezendok = await new myUserDAO().megnezendoFilmek(user.felhasznaloId);
     //loop-olashoz:
         /*let index = 0;
         while (filmIds[index] != '') {
