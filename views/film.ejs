@@ -91,11 +91,11 @@
 <%
 let atlag=(ertekelesosszeg*1.0/ertekelesszam*1.0).toFixed(2);
 if(ertekelesszam==0) atlag=0;
-if(ertekeltemar){%>
+if(!bejelentkezve || ertekeltemar){%>
 <div class="ertekeles" id='ertekeles_dv'><span>Értékelés: <%=atlag%> (már értékelted)</span></div>
 <%
 }
-else{%>
+else if(bejelentkezve && !ertekeltemar){%>
 <div class="ertekeles" id='ertekeles_dv'>
     <img src="img/csillag_szurke.png" style="width:25px">
 	<img src="img/csillag_szurke.png" style="width:25px">
@@ -113,7 +113,7 @@ else{%>
 <%
 }
 let megnezendo='';
-if(felh_adatok.megnezendoFilmek.includes(";"+filmadatok.filmId+";")) megnezendo="Eltávolítás megnézendő filmekből";
+if(bejelentkezve && felh_adatok.megnezendoFilmek.includes(";"+filmadatok.filmId+";")) megnezendo="Eltávolítás megnézendő filmekből";
 else megnezendo="Hozzáadás megnézendő filmekhez";
 %>
 
@@ -129,7 +129,7 @@ else megnezendo="Hozzáadás megnézendő filmekhez";
 <script>
 var filmid=<%=filmadatok.filmId%>;
 <%
-if(!ertekeltemar){%>
+if(bejelentkezve && !ertekeltemar){%>
 	document.getElementsByTagName('body')[0].onload=function(){
 		let asd=ertekeles_dv.getElementsByTagName('img');
 		for(let i=0;i<asd.length;i++) {
@@ -157,7 +157,10 @@ if(!ertekeltemar){%>
 	}
 	
 	
-<%}%>
+<%}
+if(bejelentkezve){
+%>
+
 function kd(hova,uzi,asd){
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST','/'+hova,true);
@@ -181,7 +184,7 @@ function megnezendo(){
 			});
 		}
 	}
-
+<%}%>
 </script>
 </body>
 </html>

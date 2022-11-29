@@ -162,8 +162,8 @@ router.get("/film", async (req, res) => {
             email = decodedToken.email;
         })
     } let felh_adatok = await new UserDAO().getUserByEmail(email);
-	
-	if(felh_adatok.ertekeltFilmek==null)
+	let bejelentkezve=(token)?true:false;
+	if(bejelentkezve && felh_adatok.ertekeltFilmek==null)
 	{	
 		await new FilmDAO().leker("update felhasznalo set \"ertekeltFilmek\"=';' where \"felhasznaloId\"="+felh_adatok.felhasznaloId);
 		felh_adatok = await new UserDAO().getUserByEmail(email);
@@ -185,7 +185,7 @@ router.get("/film", async (req, res) => {
 		await new FilmDAO().leker("update film set \"ertekelesekSzama\"=0 where \"filmId\"="+film[0].filmId);
 	} else ertekelesszam=film[0].ertekelesekSzama;
 	
-	let ertekeltemar= (felh_adatok.ertekeltFilmek.includes(";"+film[0].filmId+";"))?true:false;
+	let ertekeltemar= (bejelentkezve && felh_adatok.ertekeltFilmek.includes(";"+film[0].filmId+";"))?true:false;
 	
 	//majd az értékelést még meg kell, ha kész lesz a session-os dolog
 	return res.render('film',{
@@ -195,7 +195,8 @@ router.get("/film", async (req, res) => {
 		szineszek:szineszek,
 		ertekelesosszeg:ertekelesosszeg,
 		ertekelesszam:ertekelesszam,
-		ertekeltemar:ertekeltemar
+		ertekeltemar:ertekeltemar,
+		bejelentkezve:bejelentkezve
     });
 });
 
