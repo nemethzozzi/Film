@@ -231,7 +231,6 @@ router.post("/filmozzaad", async(req, res) => {
     res.end();
 });
 router.post("/filmelvesz", async(req, res) => {
-	let szoveg= req.body.filmid;
 	let filmid = req.body.filmelvesz.split(';')[1];
 	let felhid = req.body.filmelvesz.split(';')[0];
 	
