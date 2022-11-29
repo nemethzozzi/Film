@@ -253,8 +253,14 @@ router.get("/megnezendo", async(req, res) => {
 
     //SABLON KÓD:
     //let id = req.sessionStorage.id ?? valami ilyesmi
-    
-    let user = await new myUserDAO().getUserDataByEmail(email);
+    const token = req.cookies.jwt;
+    var email='';
+    if (token) {
+        jwt.verify(token, jwtSecret.jwtSecret, (err, decodedToken) => {
+            email = decodedToken.email;
+        })
+    }
+    let user = await new UserDAO().getUserByEmail(email);
     let megnezendok = await new myUserDAO().megnezendoFilmek(user.megnezendoFilmek);
     //loop-olashoz:
         /*let index = 0;
