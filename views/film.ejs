@@ -112,9 +112,12 @@ else{%>
 
 <%
 }
+let megnezendo='';
+if(felh_adatok.megnezendoFilmek.includes(";"+filmadatok.filmId+";")) megnezendo="Eltávolítás megnézendő filmekből";
+else megnezendo="Hozzáadás megnézendő filmekhez";
 %>
 
-<div class="ertekeles"><input type='button' id='hozzaad_gomb' value='Hozzáadás megnézendő filmekhez' onclick='megnezendo()'></div>
+<div class="ertekeles"><input type='button' id='hozzaad_gomb' value='<%=megnezendo%>' onclick='megnezendo()'></div>
 <!-- Kommentek -->
 <div class="comment-box">
     <form action="/hozzaszol" method='post'>
