@@ -120,6 +120,7 @@ else{%>
     </form>
 </div>
 <script>
+var filmid=<%=filmadatok.filmId%>;
 <%
 if(!ertekeltemar){%>
 	document.getElementsByTagName('body')[0].onload=function(){
@@ -127,7 +128,7 @@ if(!ertekeltemar){%>
 		for(let i=0;i<asd.length;i++) {
 			asd[i].onmouseenter=Function("csillag(this,1);");
 			asd[i].onmouseleave=Function("csillag(this,0);");
-			asd[i].onclick=Function("ertekel("+i+");");
+			asd[i].onclick=Function("ertekel("+(i+1)+");");
 		}
 		showSlides(slideIndex);
 	}
@@ -139,18 +140,20 @@ if(!ertekeltemar){%>
 			if(!csill[++i].src.includes(mire)) csill[i].src="img/csillag_"+mire+".png";
 		} while(csill[i]!=asd)
 	}
-
-	function ertekel(){
+	let ertekelve=false;
+	function ertekel(asd){
+		if(ertekelve) return;
+		ertekelve=true;
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST','/ertekel',true);
 		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 		xhr.onload=function() {
-			
+			ertekeles_dv.innerHTML=this.responseText;
 		}
-		xhr.send('feltetelek='+JSON.stringify(asd));
+		xhr.send('ertekel=;<%=felh_adatok.felhasznaloId%>'+filmid+';'+asd);
 	}
 <%}%>
-var filmid=<%=filmadatok.filmId%>;
+
 
 </script>
 </body>

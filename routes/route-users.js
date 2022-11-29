@@ -199,11 +199,15 @@ router.get("/film", async (req, res) => {
     });
 });
 
-/*router.get("/ertekel", async (req, res) => {
+router.post("/ertekel", async (req, res) => {
+	let filmid = req.body.ertekel.split(';')[1];
+	let felhid = req.body.ertekel.split(';')[0];
+	let ertekeles = req.body.ertekel.split(';')[2];
 	
 	
-	res.writeHead(301, { Location: "/film?id="+req.body.id });
-}*/
+	
+	res.end('ezt a filmed értékelted: '+filmid+", ez volt az értékelésed: "+ertekeles+", felhid: "+felhid);
+}
 
 router.post("/hozzaszol", async(req, res) => {
 	let szoveg= req.body.szoveg;
