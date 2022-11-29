@@ -37,7 +37,7 @@ class myUserDAO {
         //lista vagy array ?
         let megnezendo = [];
         for(let i = 1; i<filmIdk.length-1;i++){
-            film = await db.query("SELECT cim, kepUrl FROM film WHERE filmId = $1", [filmIdk[i]]);
+            film = await db.query("SELECT cim, \"kepUrl\" FROM film WHERE \"filmId\" = $1", [filmIdk[i]]);
             megnezendo.append(film[0]);
             
         }
