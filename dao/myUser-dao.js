@@ -34,8 +34,8 @@ class myUserDAO {
 
         let filmString = await db.query("SELECT \"megnezendoFilmek\" FROM felhasznalo WHERE \"felhasznaloId\" ="+Id);
 		console.log(typeof filmString.rows[0]+'\n');
-		if(typeof filmString.rows[0] == "undefined") return false;
-        let filmIdk = filmString.rows[0].split(";");
+		if(typeof filmString.rows[0].megnezendoFilmek == "undefined") return false;
+        let filmIdk = filmString.rows[0].megnezendoFilmek.split(";");
         //lista vagy array ?
         let megnezendo = [];
         for(let i = 1; i<filmIdk.length-1;i++){
