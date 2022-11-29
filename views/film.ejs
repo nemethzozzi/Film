@@ -114,7 +114,7 @@ else{%>
 }
 %>
 
-<div class="ertekeles" id='ertekeles_dv'><button></div>
+<div class="ertekeles"><input type='button' id='hozzaad_gomb' value='Hozzáadás megnézendő filmekhez' onclick='megnezendo()'></div>
 <!-- Kommentek -->
 <div class="comment-box">
     <form action="/hozzaszol" method='post'>
@@ -160,6 +160,20 @@ if(!ertekeltemar){%>
 			asd();
 		}
 		xhr.send(uzi);
+	}
+	function megnezendo(){
+		if(hozzaad_gomb.value.includes('Hozz'))
+		{
+			kd("filmozzaad",'filmid=<%=felh_adatok.felhasznaloId%>;'+filmid,function(){
+				hozzaad_gomb.value="Eltávolítás megnézendő filmekből";
+			});
+		}
+		else
+		{
+			kd("filmelvesz",'filmid=<%=felh_adatok.felhasznaloId%>;'+filmid,function(){
+				hozzaad_gomb.value="Hozzáadás megnézendő filmekhez";
+			});
+		}
 	}
 <%}%>
 

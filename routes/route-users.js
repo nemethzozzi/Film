@@ -223,7 +223,25 @@ router.post("/hozzaszol", async(req, res) => {
 });
 
 
-
+router.post("/filmozzaad", async(req, res) => {
+	let filmid = req.body.filmozzaad.split(';')[1];
+	let felhid = req.body.filmozzaad.split(';')[0];
+	
+	await new FilmDAO().leker("update felhasznalo set \"megnezendoFilmek\"=concat(\"megnezendoFilmek\",'"+filmid+";') where \"felhasznaloId\"="+felhid);
+    res.end();
+});
+router.post("/filmelvesz", async(req, res) => {
+	let szoveg= req.body.filmid;
+	let filmid = req.body.filmelvesz.split(';')[1];
+	let felhid = req.body.filmelvesz.split(';')[0];
+	
+	let film = await new FilmDAO().leker("select \"megnezendoFilmek\" from felhasznalo where \"felhasznaloId\"="+felhid);
+	let szoveg = film[0].megnezendoFilmek;
+	szoveg = szoveg.replace(';'+filmid+';',';')
+	await new FilmDAO().leker("update felhasznalo set \"megnezendoFilmek\"=\""+szoveg+"\" where \"felhasznaloId\"="+felhid);
+	
+    res.end();
+});
 
 router.get("/megnezendo", async(req, res) => {
     //megnezendo string lekérése felhasznaloId-val DAO-n keresztül
