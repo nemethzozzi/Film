@@ -223,9 +223,9 @@ router.post("/hozzaszol", async(req, res) => {
 });
 
 
-router.post("/filmozzaad", async(req, res) => {
-	let filmid = req.body.filmozzaad.split(';')[1];
-	let felhid = req.body.filmozzaad.split(';')[0];
+router.post("/filmhozzaad", async(req, res) => {
+	let filmid = req.body.filmhozzaad.split(';')[1];
+	let felhid = req.body.filmhozzaad.split(';')[0];
 	
 	await new FilmDAO().leker("update felhasznalo set \"megnezendoFilmek\"=concat(\"megnezendoFilmek\",'"+filmid+";') where \"felhasznaloId\"="+felhid);
     res.end();

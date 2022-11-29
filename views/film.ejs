@@ -167,13 +167,13 @@ function kd(hova,uzi,asd){
 function megnezendo(){
 		if(hozzaad_gomb.value.includes('Hozz'))
 		{
-			kd("filmozzaad",'filmid=<%=felh_adatok.felhasznaloId%>;'+filmid,function(){
+			kd("filmhozzaad",'filmhozzaad=<%=felh_adatok.felhasznaloId%>;'+filmid,function(){
 				hozzaad_gomb.value="Eltávolítás megnézendő filmekből";
 			});
 		}
 		else
 		{
-			kd("filmelvesz",'filmid=<%=felh_adatok.felhasznaloId%>;'+filmid,function(){
+			kd("filmelvesz",'filmelvesz=<%=felh_adatok.felhasznaloId%>;'+filmid,function(){
 				hozzaad_gomb.value="Hozzáadás megnézendő filmekhez";
 			});
 		}
