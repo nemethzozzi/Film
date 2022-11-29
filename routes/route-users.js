@@ -185,7 +185,7 @@ router.get("/film", async (req, res) => {
 		await new FilmDAO().leker("update film set \"ertekelesekSzama\"=0 where \"filmId\"="+film[0].filmId);
 	} else ertekelesszam=film[0].ertekelesekSzama;
 	
-	let ertekeltemar= (felh_adatok.ertekeltFilmek.includes(";"+filmadatok.filmId+";"))?true:false;
+	let ertekeltemar= (felh_adatok.ertekeltFilmek.includes(";"+film[0].filmId+";"))?true:false;
 	
 	//majd az értékelést még meg kell, ha kész lesz a session-os dolog
 	return res.render('film',{
