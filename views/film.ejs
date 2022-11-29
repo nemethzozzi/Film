@@ -114,7 +114,7 @@ else{%>
 }
 %>
 
-
+<div class="ertekeles" id='ertekeles_dv'><button></div>
 <!-- Kommentek -->
 <div class="comment-box">
     <form action="/hozzaszol" method='post'>
@@ -148,13 +148,18 @@ if(!ertekeltemar){%>
 	function ertekel(asd){
 		if(ertekelve) return;
 		ertekelve=true;
+		kd("ertekel",'ertekel=<%=felh_adatok.felhasznaloId%>;'+filmid+';'+asd,function(){
+			ertekeles_dv.innerHTML='<span>Értékelés: '+this.responseText+' (már értékelted)</span>';
+		});		
+	}
+	function kd(hova,uzi,asd){
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST','/ertekel',true);
+		xhr.open('POST','/'+hova,true);
 		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 		xhr.onload=function() {
-			ertekeles_dv.innerHTML='<span>Értékelés: '+this.responseText+' (már értékelted)</span>';
+			asd();
 		}
-		xhr.send('ertekel=<%=felh_adatok.felhasznaloId%>;'+filmid+';'+asd);
+		xhr.send(uzi);
 	}
 <%}%>
 
