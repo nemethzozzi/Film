@@ -115,6 +115,13 @@ class FilmDAO {
 		let results = await db.query("INSERT INTO szerepel (\"szemelyId\", \"filmId\") VALUES ($1, $2)", [szemelyId, filmId]).catch(console.log);
 			return results;
 	}
+		async getFilmComments(filmId){
+		let comments = await db.query("SELECT \"kommentel.szoveg\", kommentel.ido, \"felhasznalo.nev\" FROM kommentel, felhasznalo WHERE kommentel.felhasznaloID = felhasznalo.felhasznaloId AND kommentel.filmId = $1", [filmId]);
+		if(comments = null){
+            return 'no comments';
+        }
+		return comments.rows;
+	}
 	/*
     async getDogs() {
         let results = await db.query(`SELECT * FROM dogs`).
