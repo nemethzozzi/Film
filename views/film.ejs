@@ -152,9 +152,7 @@ if(!ertekeltemar){%>
 		xhr.open('POST','/ertekel',true);
 		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 		xhr.onload=function() {
-			//ertekeles_dv.innerHTML=this.responseText;
-			let csill=ertekeles_dv.getElementsByTagName('img');
-			for(let i=0;i<csill.length;i++) csill[i].remove();
+			ertekeles_dv.innerHTML='<span>Értékelés: '+this.responseText+'</span>';
 		}
 		xhr.send('ertekel=<%=felh_adatok.felhasznaloId%>;'+filmid+';'+asd);
 	}

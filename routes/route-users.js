@@ -207,7 +207,9 @@ router.post("/ertekel", async (req, res) => {
 	await new FilmDAO().leker("update film set \"ertekelesekSzama\"=\"ertekelesekSzama\"+1,\"ertekelesOsszege\"=\"ertekelesOsszege\"+"+ertekeles+"  where \"filmId\"="+filmid);
 	await new FilmDAO().leker("update felhasznalo set \"ertekeltFilmek\"=concat(\"ertekeltFilmek\",'"+filmid+";') where \"felhasznaloId\"="+felhid);
 	
-	res.end('ezt a filmed értékelted: '+filmid+", ez volt az értékelésed: "+ertekeles+", felhid: "+felhid);
+	let film = await new FilmDAO().leker("select \"ertekelesekSzama\",\"ertekelesOsszege\" from film where \"filmId\" = $1",filmid);
+	
+	res.end(''+film[0].ertekelesOsszege*1.0/film[0].ertekelesekSzama*1.0);
 });
 
 router.post("/hozzaszol", async(req, res) => {
