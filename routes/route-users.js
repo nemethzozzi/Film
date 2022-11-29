@@ -236,8 +236,10 @@ router.post("/filmelvesz", async(req, res) => {
 	
 	let film = await new FilmDAO().leker("select \"megnezendoFilmek\" from felhasznalo where \"felhasznaloId\"="+felhid);
 	let szoveg = film[0].megnezendoFilmek;
+	console.log(szoveg+"\n");
 	szoveg = szoveg.replace(';'+filmid+';',';')
-	await new FilmDAO().leker("update felhasznalo set \"megnezendoFilmek\"=\""+szoveg+"\" where \"felhasznaloId\"="+felhid);
+	console.log(szoveg+"\n");
+	await new FilmDAO().leker("update felhasznalo set \"megnezendoFilmek\"='"+szoveg+"' where \"felhasznaloId\"="+felhid);
 	
     res.end();
 });
