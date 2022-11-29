@@ -204,7 +204,8 @@ router.post("/ertekel", async (req, res) => {
 	let felhid = req.body.ertekel.split(';')[0];
 	let ertekeles = req.body.ertekel.split(';')[2];
 	
-	
+	//await new FilmDAO().leker("update film set \"ertekelesekSzama\"=\"ertekelesekSzama\"+1,\"ertekelesOsszege\"=\"ertekelesOsszege\"+"+ertekeles+"  where \"filmId\"="+filmid);
+	//await new FilmDAO().leker("update felhasznalo set \"ertekeltFilmek\"=concat(\"ertekeltFilmek\",'"+filmid+";') where \"felhasznaloId\"="+felhid);
 	
 	res.end('ezt a filmed értékelted: '+filmid+", ez volt az értékelésed: "+ertekeles+", felhid: "+felhid);
 });
