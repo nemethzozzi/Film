@@ -197,11 +197,12 @@ router.get("/film", async (req, res) => {
 		ertekeltemar:ertekeltemar
     });
 });
-router.get("/ertekel", async (req, res) => {
+
+/*router.get("/ertekel", async (req, res) => {
 	
 	
 	res.writeHead(301, { Location: "/film?id="+req.body.id });
-}
+}*/
 
 router.post("/hozzaszol", async(req, res) => {
 	let szoveg= req.body.szoveg;
