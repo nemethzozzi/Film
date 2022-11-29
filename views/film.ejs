@@ -89,8 +89,9 @@
 	</div>
 </div>
 <%
+let atlag=(ertekelesosszeg*1.0/ertekelesszam*1.0).toFixed(2);
 if(ertekeltemar){%>
-	
+<div class="ertekeles" id='ertekeles_dv' style='white-space: nowrap;display: inline;'><span>Értékelés: <%=atlag%></span></div>
 <%
 }
 else{%>
@@ -105,7 +106,9 @@ else{%>
 	<img src="img/csillag_szurke.png" style="width:25px">
 	<img src="img/csillag_szurke.png" style="width:25px">
 	<img src="img/csillag_szurke.png" style="width:25px">
+	<span>Értékelés: <%=atlag%></span>
 </div>
+
 <%
 }
 %>
@@ -149,10 +152,10 @@ if(!ertekeltemar){%>
 		xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 		xhr.onload=function() {
 			//ertekeles_dv.innerHTML=this.responseText;
-			let csill=ertekeles_dv.getElementsByTagName('img');
+			/*let csill=ertekeles_dv.getElementsByTagName('img');
 			{
 				for(let i=0;i<csill.length;i++) {csill[i].onmouseenter=function(){};csill[i].onmouseleave=function(){};}
-			}
+			}*/
 		}
 		xhr.send('ertekel=<%=felh_adatok.felhasznaloId%>;'+filmid+';'+asd);
 	}
