@@ -83,7 +83,7 @@ function keres(){
 	}
 	xhr.send('feltetelek='+JSON.stringify(asd));
 }
-
+document.getElementsByTagName('body')[0].onload=function(){keres();}
 </script>
 </body>
 </html>
