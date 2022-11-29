@@ -207,7 +207,7 @@ router.post("/ertekel", async (req, res) => {
 	
 	
 	res.end('ezt a filmed értékelted: '+filmid+", ez volt az értékelésed: "+ertekeles+", felhid: "+felhid);
-}
+});
 
 router.post("/hozzaszol", async(req, res) => {
 	let szoveg= req.body.szoveg;
