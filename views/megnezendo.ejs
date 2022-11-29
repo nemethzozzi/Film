@@ -48,7 +48,7 @@
 	if(megnezendok!==false){
 		for(let i=0;i<megnezendok.length;i++)
 		{%>
-			<a href='/film?id="+asd[i]['filmId']+"'><div class='egyfilm'><div class='kep'><img src='<%=megnezendok[i].kepUrl%>.jpg'></div><div class='cim'><%=megnezendok[i].cim%></div></div></a>
+			<a href='/film?id=<%=megnezendok[i].filmId%>'><div class='egyfilm'><div class='kep'><img src='<%=megnezendok[i].kepUrl%>.jpg'></div><div class='cim'><%=megnezendok[i].cim%></div></div></a>
 		<%
 		}
 	}
