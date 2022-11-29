@@ -37,7 +37,7 @@ class myUserDAO {
 		if(typeof filmString.rows[0].megnezendoFilmek == "undefined") return false;
         let filmIdk = filmString.rows[0].megnezendoFilmek.split(";");
         //lista vagy array ?
-        var megnezendo = array();
+        var megnezendo = [];
         for(let i = 1; i<filmIdk.length-1;i++){
             let film = await db.query("SELECT cim, \"kepUrl\" FROM film WHERE \"filmId\" = $1", [filmIdk[i]]);
             megnezendo.append(film.rows[0]);
