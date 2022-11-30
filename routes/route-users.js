@@ -142,14 +142,36 @@ router.get("/profil", async (req, res) => {
     //const token = req.cookies.jwt
     //var current_role;
 
+    const token = req.cookies.jwt;
+    var email='';
+    if (token) {
+        jwt.verify(token, jwtSecret.jwtSecret, (err, decodedToken) => {
+            email = decodedToken.email;
+        })
+    }
+
+    let bejelentkezve=(token)?true:false;
+
     return res.render('profil', {
         //current_role: current_role
+        bejelentkezve: bejelentkezve
     });
 });
 
 router.get("/szures", async (req, res) => {
+    const token = req.cookies.jwt;
+    var email='';
+    if (token) {
+        jwt.verify(token, jwtSecret.jwtSecret, (err, decodedToken) => {
+            email = decodedToken.email;
+        })
+    }
+
+    let bejelentkezve=(token)?true:false;
+
     return res.render('szures', {
         //
+        bejelentkezve: bejelentkezve
     });
 });
 
@@ -260,6 +282,8 @@ router.get("/megnezendo", async(req, res) => {
             email = decodedToken.email;
         })
     }
+
+    let bejelentkezve=(token)?true:false;
     let user = await new UserDAO().getUserByEmail(email);
     let megnezendok = await new myUserDAO().megnezendoFilmek(user.felhasznaloId);
     //loop-olashoz:
@@ -270,7 +294,8 @@ router.get("/megnezendo", async(req, res) => {
         }*/
 
     return res.render('megnezendo', {
-        megnezendok: megnezendok
+        megnezendok: megnezendok,
+        bejelentkezve: bejelentkezve
     });
 });
 
